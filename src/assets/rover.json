@@ -1,0 +1,940 @@
+{
+    "schema": "mars-missions-v2",
+    "generated": "2026-09-22",
+    "coordinate_convention": "planetocentric latitude; east-positive longitude in degrees, normalized to -180..180",
+    "scope": "Named robotic missions that attempted, reached, operated at, or are explicitly planned for Mars; includes flybys, orbiters, landers, rovers, penetrators and the Mars/Phobos mission MMX. It does not include generic Earth-based astronomy observations.",
+    "important_note": "Orbiters and flybys do not have a single meaningful surface latitude/longitude, so their surface_locations arrays are empty. Surface coordinates are only supplied where a landing, impact or other surface location is documented. This avoids inventing spacecraft positions.",
+    "sources": [
+        "https://nssdc.gsfc.nasa.gov/planetary/chronology_mars.html",
+        "https://mars.nasa.gov/internal_resources/818/",
+        "https://www.planetary.org/space-images/mars_landing_site_map_lakdawalla",
+        "https://mars.nasa.gov/mmgis-maps/M20/Layers/json/M20_waypoints.json",
+        "https://science.nasa.gov/mars/",
+        "https://www.isro.gov.in/FAQ_MarsOrbiterMission.html",
+        "https://www.isro.gov.in/MOM_NationalMeet_2022SEP.html",
+        "https://www.esa.int/Science_Exploration/Space_Science/Mars_Express",
+        "https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/Exploration/ExoMars/ExoMars_Factsheet"
+    ],
+    "missions": [
+        {
+            "id": "marsnik-1",
+            "name": "Marsnik 1 (Mars 1960A)",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1960-10-10",
+            "type": "flyby_attempt",
+            "status": "launch_failure",
+            "surface_locations": []
+        },
+        {
+            "id": "marsnik-2",
+            "name": "Marsnik 2 (Mars 1960B)",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1960-10-14",
+            "type": "flyby_attempt",
+            "status": "launch_failure",
+            "surface_locations": []
+        },
+        {
+            "id": "sputnik-22",
+            "name": "Sputnik 22 (Mars 1962A)",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1962-10-24",
+            "type": "flyby_attempt",
+            "status": "earth_orbit_only",
+            "surface_locations": []
+        },
+        {
+            "id": "mars-1",
+            "name": "Mars 1",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1962-11-01",
+            "type": "flyby",
+            "status": "contact_lost",
+            "surface_locations": []
+        },
+        {
+            "id": "sputnik-24",
+            "name": "Sputnik 24 (Mars 1962B)",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1962-11-04",
+            "type": "lander_attempt",
+            "status": "earth_orbit_only",
+            "surface_locations": []
+        },
+        {
+            "id": "mariner-3",
+            "name": "Mariner 3",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "1964-11-05",
+            "type": "flyby_attempt",
+            "status": "mission_failure",
+            "surface_locations": []
+        },
+        {
+            "id": "mariner-4",
+            "name": "Mariner 4",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "1964-11-28",
+            "type": "flyby",
+            "status": "successful_flyby",
+            "surface_locations": []
+        },
+        {
+            "id": "zond-2",
+            "name": "Zond 2",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1964-11-30",
+            "type": "flyby",
+            "status": "contact_lost",
+            "surface_locations": []
+        },
+        {
+            "id": "mariner-6",
+            "name": "Mariner 6",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "1969-02-24",
+            "type": "flyby",
+            "status": "successful_flyby",
+            "surface_locations": []
+        },
+        {
+            "id": "mariner-7",
+            "name": "Mariner 7",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "1969-03-27",
+            "type": "flyby",
+            "status": "successful_flyby",
+            "surface_locations": []
+        },
+        {
+            "id": "mars-1969a",
+            "name": "Mars 1969A",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1969-03-27",
+            "type": "orbiter_attempt",
+            "status": "launch_failure",
+            "surface_locations": []
+        },
+        {
+            "id": "mars-1969b",
+            "name": "Mars 1969B",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1969-04-02",
+            "type": "orbiter_attempt",
+            "status": "launch_failure",
+            "surface_locations": []
+        },
+        {
+            "id": "mariner-8",
+            "name": "Mariner 8",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "1971-05-08",
+            "type": "orbiter_attempt",
+            "status": "launch_failure",
+            "surface_locations": []
+        },
+        {
+            "id": "kosmos-419",
+            "name": "Kosmos 419",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1971-05-10",
+            "type": "lander_attempt",
+            "status": "earth_orbit_only",
+            "surface_locations": []
+        },
+        {
+            "id": "mars-2",
+            "name": "Mars 2",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1971-05-19",
+            "type": "orbiter_lander",
+            "status": "orbiter_arrived_lander_destroyed",
+            "surface_locations": [
+                {
+                    "name": "Mars 2 lander impact site",
+                    "kind": "impact",
+                    "lat": -45.0,
+                    "lon": 47.0,
+                    "accuracy": "approximate published map coordinate",
+                    "source": "Planetary Society/NSSDC landing-site compilation"
+                }
+            ]
+        },
+        {
+            "id": "mars-3",
+            "name": "Mars 3",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1971-05-28",
+            "type": "orbiter_lander",
+            "status": "brief_surface_operation",
+            "surface_locations": [
+                {
+                    "name": "Mars 3 lander",
+                    "kind": "landing",
+                    "lat": -45.0,
+                    "lon": -158.0,
+                    "accuracy": "approximate published map coordinate",
+                    "source": "Planetary Society"
+                }
+            ]
+        },
+        {
+            "id": "mariner-9",
+            "name": "Mariner 9",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "1971-05-30",
+            "type": "orbiter",
+            "status": "ended",
+            "surface_locations": []
+        },
+        {
+            "id": "mars-4",
+            "name": "Mars 4",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1973-07-21",
+            "type": "orbiter_attempt",
+            "status": "flyby_only",
+            "surface_locations": []
+        },
+        {
+            "id": "mars-5",
+            "name": "Mars 5",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1973-07-25",
+            "type": "orbiter",
+            "status": "ended",
+            "surface_locations": []
+        },
+        {
+            "id": "mars-6",
+            "name": "Mars 6",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1973-08-05",
+            "type": "orbiter_lander",
+            "status": "lander_data_lost",
+            "surface_locations": [
+                {
+                    "name": "Mars 6 lander",
+                    "kind": "landing",
+                    "lat": -23.9,
+                    "lon": -19.42,
+                    "accuracy": "approximate published map coordinate",
+                    "source": "Planetary Society"
+                }
+            ]
+        },
+        {
+            "id": "mars-7",
+            "name": "Mars 7",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1973-08-09",
+            "type": "orbiter_lander",
+            "status": "lander_missed_mars",
+            "surface_locations": []
+        },
+        {
+            "id": "viking-1",
+            "name": "Viking 1",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "1975-08-20",
+            "type": "orbiter_lander",
+            "status": "ended",
+            "surface_locations": [
+                {
+                    "name": "Viking 1 lander",
+                    "region": "Chryse Planitia",
+                    "kind": "landing",
+                    "lat": 22.483,
+                    "lon": -47.968,
+                    "accuracy": "NASA published touchdown coordinate",
+                    "source": "NASA"
+                }
+            ]
+        },
+        {
+            "id": "viking-2",
+            "name": "Viking 2",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "1975-09-09",
+            "type": "orbiter_lander",
+            "status": "ended",
+            "surface_locations": [
+                {
+                    "name": "Viking 2 lander",
+                    "region": "Utopia Planitia",
+                    "kind": "landing",
+                    "lat": 47.968,
+                    "lon": 134.29,
+                    "accuracy": "NASA touchdown coordinate converted from west longitude",
+                    "source": "NASA"
+                }
+            ]
+        },
+        {
+            "id": "phobos-1",
+            "name": "Phobos 1",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1988-07-07",
+            "type": "mars_phobos_orbiter_lander_attempt",
+            "status": "lost_en_route",
+            "surface_locations": []
+        },
+        {
+            "id": "phobos-2",
+            "name": "Phobos 2",
+            "country": "USSR",
+            "agency": "Soviet space program",
+            "launch_date": "1988-07-12",
+            "type": "mars_phobos_orbiter_lander_attempt",
+            "status": "lost_near_phobos",
+            "surface_locations": []
+        },
+        {
+            "id": "mars-observer",
+            "name": "Mars Observer",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "1992-09-25",
+            "type": "orbiter",
+            "status": "lost_before_mars_arrival",
+            "surface_locations": []
+        },
+        {
+            "id": "mars-global-surveyor",
+            "name": "Mars Global Surveyor",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "1996-11-07",
+            "type": "orbiter",
+            "status": "ended",
+            "surface_locations": []
+        },
+        {
+            "id": "mars-96",
+            "name": "Mars 96",
+            "country": "Russia",
+            "agency": "Roscosmos predecessor program",
+            "launch_date": "1996-11-16",
+            "type": "orbiter_landers_penetrators",
+            "status": "launch_failure",
+            "surface_locations": []
+        },
+        {
+            "id": "mars-pathfinder",
+            "name": "Mars Pathfinder / Sojourner",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "1996-12-04",
+            "type": "lander_rover",
+            "status": "ended",
+            "surface_locations": [
+                {
+                    "name": "Carl Sagan Memorial Station",
+                    "region": "Ares Vallis",
+                    "kind": "landing",
+                    "lat": 19.13,
+                    "lon": -33.22,
+                    "accuracy": "published landing-site coordinate",
+                    "source": "NASA/JPL"
+                }
+            ],
+            "waypoints": [
+                {
+                    "name": "Yogi",
+                    "frame": "lander-relative",
+                    "x_m": 4.58,
+                    "y_m": -2.91,
+                    "z_m": -0.18,
+                    "accuracy": "mission local frame"
+                },
+                {
+                    "name": "Moe rock",
+                    "frame": "lander-relative",
+                    "x_m": -4.2,
+                    "y_m": -4.1,
+                    "z_m": -0.38,
+                    "accuracy": "mission local frame"
+                },
+                {
+                    "name": "Chimp rock",
+                    "frame": "lander-relative",
+                    "x_m": -9.03,
+                    "y_m": -2.59,
+                    "z_m": -0.07,
+                    "accuracy": "mission local frame"
+                },
+                {
+                    "name": "Half Dome rock",
+                    "frame": "lander-relative",
+                    "x_m": -4.81,
+                    "y_m": -3.81,
+                    "z_m": -0.54,
+                    "accuracy": "mission local frame"
+                }
+            ],
+            "full_traverse_source": "https://azmth.space/data/mars-traverses/sojourner.json"
+        },
+        {
+            "id": "nozomi",
+            "name": "Nozomi (Planet-B)",
+            "country": "Japan",
+            "agency": "ISAS/JAXA",
+            "launch_date": "1998-07-04",
+            "type": "orbiter_attempt",
+            "status": "mission_failure",
+            "surface_locations": []
+        },
+        {
+            "id": "mars-climate-orbiter",
+            "name": "Mars Climate Orbiter",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "1998-12-11",
+            "type": "orbiter",
+            "status": "lost_at_mars_arrival",
+            "surface_locations": []
+        },
+        {
+            "id": "mars-polar-lander",
+            "name": "Mars Polar Lander",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "1999-01-03",
+            "type": "lander",
+            "status": "lost_during_landing",
+            "surface_locations": [
+                {
+                    "name": "Mars Polar Lander target/estimated site",
+                    "region": "near south polar region",
+                    "kind": "estimated_landing_area",
+                    "lat": -76.57,
+                    "lon": 165.2,
+                    "accuracy": "approximate map-derived position",
+                    "source": "HiRISE/Planetary Society compilation"
+                }
+            ]
+        },
+        {
+            "id": "deep-space-2",
+            "name": "Deep Space 2",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "1999-01-03",
+            "type": "penetrator_pair",
+            "status": "no_surface_data_returned",
+            "surface_locations": []
+        },
+        {
+            "id": "2001-mars-odyssey",
+            "name": "2001 Mars Odyssey",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "2001-04-07",
+            "type": "orbiter",
+            "status": "active",
+            "surface_locations": []
+        },
+        {
+            "id": "mars-express",
+            "name": "Mars Express / Beagle 2",
+            "country": "Europe",
+            "agency": "ESA",
+            "launch_date": "2003-06-02",
+            "type": "orbiter_lander",
+            "status": "orbiter_active_lander_lost",
+            "surface_locations": [
+                {
+                    "name": "Beagle 2 landing site",
+                    "region": "Isidis Planitia",
+                    "kind": "landing_site",
+                    "lat": 10.6,
+                    "lon": 90.0,
+                    "accuracy": "approximate published landing-site coordinate",
+                    "source": "NSSDC/Planetary Society compilation"
+                }
+            ]
+        },
+        {
+            "id": "spirit",
+            "name": "Mars Exploration Rover Spirit",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "2003-06-10",
+            "type": "rover",
+            "status": "ended",
+            "surface_locations": [
+                {
+                    "name": "Columbia Memorial Station",
+                    "region": "Gusev Crater",
+                    "kind": "landing",
+                    "lat": -14.5692,
+                    "lon": 175.4729,
+                    "accuracy": "NASA published landing coordinate",
+                    "source": "NASA"
+                }
+            ],
+            "named_waypoints": [
+                "Bonneville Crater",
+                "Columbia Hills",
+                "Home Plate",
+                "Husband Hill",
+                "Troy"
+            ]
+        },
+        {
+            "id": "opportunity",
+            "name": "Mars Exploration Rover Opportunity",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "2003-07-07",
+            "type": "rover",
+            "status": "ended",
+            "surface_locations": [
+                {
+                    "name": "Eagle Crater landing site",
+                    "region": "Meridiani Planum",
+                    "kind": "landing",
+                    "lat": -1.9462,
+                    "lon": 174.4734,
+                    "accuracy": "published landing-site coordinate",
+                    "source": "Planetary Society/JGR compilation"
+                }
+            ],
+            "named_waypoints": [
+                "Endurance Crater",
+                "Victoria Crater",
+                "Cape York",
+                "Cape Tribulation",
+                "Perseverance Valley",
+                "Endeavour Crater rim"
+            ],
+            "traverse_source": "https://science.nasa.gov/photojournal/opportunitys-route-to-endeavour-crater/"
+        },
+        {
+            "id": "mars-reconnaissance-orbiter",
+            "name": "Mars Reconnaissance Orbiter",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "2005-08-12",
+            "type": "orbiter",
+            "status": "active",
+            "surface_locations": []
+        },
+        {
+            "id": "phoenix",
+            "name": "Phoenix",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "2007-08-04",
+            "type": "lander",
+            "status": "ended",
+            "surface_locations": [
+                {
+                    "name": "Phoenix landing site",
+                    "region": "Vastitas Borealis",
+                    "kind": "landing",
+                    "lat": 68.21883,
+                    "lon": -125.749222,
+                    "accuracy": "NASA published coordinate converted from east longitude",
+                    "source": "NASA"
+                }
+            ]
+        },
+        {
+            "id": "phobos-grunt",
+            "name": "Phobos-Grunt",
+            "country": "Russia",
+            "agency": "Roscosmos",
+            "launch_date": "2011-11-08",
+            "type": "phobos_sample_return_attempt",
+            "status": "earth_orbit_stranded",
+            "surface_locations": []
+        },
+        {
+            "id": "yinghuo-1",
+            "name": "Yinghuo-1",
+            "country": "China",
+            "agency": "CNSA",
+            "launch_date": "2011-11-08",
+            "type": "mars_orbiter_attempt",
+            "status": "earth_orbit_stranded_with_phobos_grunt",
+            "surface_locations": []
+        },
+        {
+            "id": "curiosity",
+            "name": "Mars Science Laboratory / Curiosity",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "2011-11-26",
+            "type": "rover",
+            "status": "active",
+            "surface_locations": [
+                {
+                    "name": "Bradbury Landing",
+                    "region": "Gale Crater",
+                    "kind": "landing",
+                    "lat": -4.5895,
+                    "lon": 137.4417,
+                    "accuracy": "published landing coordinate",
+                    "source": "JGR mission paper/NASA"
+                }
+            ],
+            "named_waypoints": [
+                "Yellowknife Bay",
+                "Mount Sharp",
+                "Pahrump Hills",
+                "Bagnold Dunes",
+                "Murray Buttes",
+                "Greenheugh Pediment"
+            ],
+            "traverse_source": "https://science.nasa.gov/mission/msl-curiosity/"
+        },
+        {
+            "id": "mangalyaan",
+            "name": "Mars Orbiter Mission (MOM / Mangalyaan)",
+            "country": "India",
+            "agency": "ISRO",
+            "launch_date": "2013-11-05",
+            "type": "orbiter",
+            "status": "ended_2022",
+            "surface_locations": [],
+            "notes": "India's first interplanetary mission; operated in Mars orbit and had no surface landing site."
+        },
+        {
+            "id": "maven",
+            "name": "MAVEN",
+            "country": "USA",
+            "agency": "NASA",
+            "launch_date": "2013-11-18",
+            "type": "orbiter",
+            "status": "active",
+            "surface_locations": []
+        },
+        {
+            "id": "exomars-tgo",
+            "name": "ExoMars Trace Gas Orbiter",
+            "country": "Europe",
+            "agency": "ESA/Roscosmos",
+            "launch_date": "2016-03-14",
+            "type": "orbiter",
+            "status": "active",
+            "surface_locations": []
+        },
+        {
+            "id": "schiaparelli",
+            "name": "ExoMars Schiaparelli EDM",
+            "country": "Europe",
+            "agency": "ESA/Roscosmos",
+            "launch_date": "2016-03-14",
+            "type": "lander_demonstrator",
+            "status": "impact_during_landing",
+            "surface_locations": [
+                {
+                    "name": "Schiaparelli impact area",
+                    "region": "Meridiani Planum",
+                    "kind": "impact",
+                    "lat": -2.07,
+                    "lon": 173.79,
+                    "accuracy": "derived from ESA/NASA imaging and trajectory reconstruction",
+                    "source": "NASA/JPL"
+                }
+            ]
+        },
+        {
+            "id": "insight",
+            "name": "InSight",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "2018-05-05",
+            "type": "lander",
+            "status": "ended",
+            "surface_locations": [
+                {
+                    "name": "InSight landing site",
+                    "region": "Elysium Planitia",
+                    "kind": "landing",
+                    "lat": 4.502,
+                    "lon": 135.623,
+                    "accuracy": "published final location",
+                    "source": "NASA/JPL"
+                }
+            ]
+        },
+        {
+            "id": "hope",
+            "name": "Emirates Mars Mission / Hope Probe",
+            "country": "United Arab Emirates",
+            "agency": "MBRSC",
+            "launch_date": "2020-07-19",
+            "type": "orbiter",
+            "status": "active_or_extended",
+            "surface_locations": []
+        },
+        {
+            "id": "tianwen-1",
+            "name": "Tianwen-1 / Zhurong",
+            "country": "China",
+            "agency": "CNSA",
+            "launch_date": "2020-07-23",
+            "type": "orbiter_lander_rover",
+            "status": "orbiter_mission; rover_dormant",
+            "surface_locations": [
+                {
+                    "name": "Zhurong landing site",
+                    "region": "Utopia Planitia",
+                    "kind": "landing",
+                    "lat": 24.473,
+                    "lon": 110.074,
+                    "accuracy": "commonly reported landing coordinate; use as approximate map point",
+                    "source": "CNSA mission reporting / published mission maps"
+                }
+            ],
+            "named_waypoints": [
+                "Zhurong landing platform",
+                "Utopia Planitia traverse"
+            ]
+        },
+        {
+            "id": "perseverance",
+            "name": "Mars 2020 / Perseverance",
+            "country": "USA",
+            "agency": "NASA/JPL",
+            "launch_date": "2020-07-30",
+            "type": "rover",
+            "status": "active",
+            "surface_locations": [
+                {
+                    "name": "Octavia E. Butler Landing",
+                    "region": "Jezero Crater",
+                    "kind": "landing",
+                    "lat": 18.44462715,
+                    "lon": 77.45088572,
+                    "accuracy": "NASA rover waypoint dataset",
+                    "source": "NASA M20_waypoints.json"
+                }
+            ],
+            "waypoints": [
+                {
+                    "name": "Sol 13 / first recorded position",
+                    "sol": 13,
+                    "lat": 18.44462715,
+                    "lon": 77.45088572,
+                    "distance_km": 0.0,
+                    "source": "NASA M20_waypoints.json"
+                },
+                {
+                    "name": "Sol 695 endpoint",
+                    "sol": 695,
+                    "lat": 18.45739106,
+                    "lon": 77.40880429,
+                    "distance_km": 14.24,
+                    "source": "NASA M20_waypoints.json"
+                },
+                {
+                    "name": "Sol 1219 endpoint",
+                    "sol": 1219,
+                    "lat": 18.4959853,
+                    "lon": 77.30369792,
+                    "distance_km": 27.56,
+                    "source": "NASA M20_waypoints.json"
+                },
+                {
+                    "name": "Sol 1226 endpoint",
+                    "sol": 1226,
+                    "lat": 18.49339296,
+                    "lon": 77.30109349,
+                    "distance_km": 27.9,
+                    "source": "NASA M20_waypoints.json"
+                },
+                {
+                    "name": "Sol 1815 endpoint",
+                    "sol": 1815,
+                    "lat": 18.43034721,
+                    "lon": 77.21961166,
+                    "distance_km": 41.44,
+                    "source": "NASA M20_waypoints.json"
+                },
+                {
+                    "name": "Sol 1825 endpoint",
+                    "sol": 1825,
+                    "lat": 18.43185426,
+                    "lon": 77.21830292,
+                    "distance_km": 41.57,
+                    "source": "NASA M20_waypoints.json"
+                }
+            ],
+            "full_traverse_source": "https://mars.nasa.gov/mmgis-maps/M20/Layers/json/M20_waypoints.json"
+        },
+        {
+            "id": "escapade",
+            "name": "ESCAPADE",
+            "country": "USA",
+            "agency": "NASA / UC Berkeley",
+            "launch_date": "2025-11-13",
+            "type": "dual_orbiter",
+            "status": "en_route_to_mars",
+            "surface_locations": [],
+            "notes": "Launched into an Earth-proximity loiter trajectory; planned Mars arrival is September 2027."
+        },
+        {
+            "id": "mmx",
+            "name": "Martian Moons eXploration (MMX)",
+            "country": "Japan",
+            "agency": "JAXA",
+            "launch_date": "2026",
+            "type": "mars_system_phobos_sample_return",
+            "status": "planned",
+            "surface_locations": [],
+            "notes": "Targets the Mars system and Phobos rather than a Mars surface landing."
+        },
+        {
+            "id": "rosalind-franklin",
+            "name": "ExoMars Rosalind Franklin",
+            "country": "Europe",
+            "agency": "ESA",
+            "launch_date": "2028",
+            "type": "rover",
+            "status": "planned",
+            "surface_locations": [],
+            "notes": "Future Mars rover mission; landing site is planned for Oxia Planum."
+        }
+    ],
+    "surface_mission_summary": [
+        {
+            "mission": "Mars 2",
+            "lat": -45.0,
+            "lon": 47.0,
+            "kind": "impact",
+            "accuracy": "approximate"
+        },
+        {
+            "mission": "Mars 3",
+            "lat": -45.0,
+            "lon": -158.0,
+            "kind": "landing",
+            "accuracy": "approximate"
+        },
+        {
+            "mission": "Mars 6",
+            "lat": -23.9,
+            "lon": -19.42,
+            "kind": "landing",
+            "accuracy": "approximate"
+        },
+        {
+            "mission": "Viking 1",
+            "lat": 22.483,
+            "lon": -47.968,
+            "kind": "landing",
+            "accuracy": "published"
+        },
+        {
+            "mission": "Viking 2",
+            "lat": 47.968,
+            "lon": 134.29,
+            "kind": "landing",
+            "accuracy": "published"
+        },
+        {
+            "mission": "Mars Pathfinder / Sojourner",
+            "lat": 19.13,
+            "lon": -33.22,
+            "kind": "landing",
+            "accuracy": "published"
+        },
+        {
+            "mission": "Beagle 2",
+            "lat": 10.6,
+            "lon": 90.0,
+            "kind": "landing_site",
+            "accuracy": "approximate"
+        },
+        {
+            "mission": "Spirit",
+            "lat": -14.5692,
+            "lon": 175.4729,
+            "kind": "landing",
+            "accuracy": "published"
+        },
+        {
+            "mission": "Opportunity",
+            "lat": -1.9462,
+            "lon": 174.4734,
+            "kind": "landing",
+            "accuracy": "published"
+        },
+        {
+            "mission": "Mars Polar Lander",
+            "lat": -76.57,
+            "lon": 165.2,
+            "kind": "estimated_landing_area",
+            "accuracy": "approximate"
+        },
+        {
+            "mission": "Phoenix",
+            "lat": 68.21883,
+            "lon": -125.749222,
+            "kind": "landing",
+            "accuracy": "published"
+        },
+        {
+            "mission": "Schiaparelli",
+            "lat": -2.07,
+            "lon": 173.79,
+            "kind": "impact",
+            "accuracy": "reconstructed"
+        },
+        {
+            "mission": "Curiosity",
+            "lat": -4.5895,
+            "lon": 137.4417,
+            "kind": "landing",
+            "accuracy": "published"
+        },
+        {
+            "mission": "InSight",
+            "lat": 4.502,
+            "lon": 135.623,
+            "kind": "landing",
+            "accuracy": "published"
+        },
+        {
+            "mission": "Zhurong",
+            "lat": 24.473,
+            "lon": 110.074,
+            "kind": "landing",
+            "accuracy": "approximate"
+        },
+        {
+            "mission": "Perseverance",
+            "lat": 18.44462715,
+            "lon": 77.45088572,
+            "kind": "landing",
+            "accuracy": "NASA waypoint dataset"
+        }
+    ]
+}

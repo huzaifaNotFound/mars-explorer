@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Globe from "react-globe.gl";
-import * as THREE from "three";
+import * as THREE from "three"; 
 
 export default function MarsGlobe() {
   const [material, setMaterial] = useState(null);
