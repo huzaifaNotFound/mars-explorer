@@ -1,0 +1,376 @@
+[
+  {
+    "id": "marsnik-1",
+    "name": "Marsnik 1 (Mars 1960A)",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1960-10-10",
+    "type": "flyby_attempt",
+    "status": "launch_failure",
+    "surface_locations": []
+  },
+  {
+    "id": "marsnik-2",
+    "name": "Marsnik 2 (Mars 1960B)",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1960-10-14",
+    "type": "flyby_attempt",
+    "status": "launch_failure",
+    "surface_locations": []
+  },
+  {
+    "id": "sputnik-22",
+    "name": "Sputnik 22 (Mars 1962A)",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1962-10-24",
+    "type": "flyby_attempt",
+    "status": "earth_orbit_only",
+    "surface_locations": []
+  },
+  {
+    "id": "mars-1",
+    "name": "Mars 1",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1962-11-01",
+    "type": "flyby",
+    "status": "contact_lost",
+    "surface_locations": []
+  },
+  {
+    "id": "sputnik-24",
+    "name": "Sputnik 24 (Mars 1962B)",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1962-11-04",
+    "type": "lander_attempt",
+    "status": "earth_orbit_only",
+    "surface_locations": []
+  },
+  {
+    "id": "mariner-3",
+    "name": "Mariner 3",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "1964-11-05",
+    "type": "flyby_attempt",
+    "status": "mission_failure",
+    "surface_locations": []
+  },
+  {
+    "id": "mariner-4",
+    "name": "Mariner 4",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "1964-11-28",
+    "type": "flyby",
+    "status": "successful_flyby",
+    "surface_locations": []
+  },
+  {
+    "id": "zond-2",
+    "name": "Zond 2",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1964-11-30",
+    "type": "flyby",
+    "status": "contact_lost",
+    "surface_locations": []
+  },
+  {
+    "id": "mariner-6",
+    "name": "Mariner 6",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "1969-02-24",
+    "type": "flyby",
+    "status": "successful_flyby",
+    "surface_locations": []
+  },
+  {
+    "id": "mariner-7",
+    "name": "Mariner 7",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "1969-03-27",
+    "type": "flyby",
+    "status": "successful_flyby",
+    "surface_locations": []
+  },
+  {
+    "id": "mars-1969a",
+    "name": "Mars 1969A",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1969-03-27",
+    "type": "orbiter_attempt",
+    "status": "launch_failure",
+    "surface_locations": []
+  },
+  {
+    "id": "mars-1969b",
+    "name": "Mars 1969B",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1969-04-02",
+    "type": "orbiter_attempt",
+    "status": "launch_failure",
+    "surface_locations": []
+  },
+  {
+    "id": "mariner-8",
+    "name": "Mariner 8",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "1971-05-08",
+    "type": "orbiter_attempt",
+    "status": "launch_failure",
+    "surface_locations": []
+  },
+  {
+    "id": "kosmos-419",
+    "name": "Kosmos 419",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1971-05-10",
+    "type": "lander_attempt",
+    "status": "earth_orbit_only",
+    "surface_locations": []
+  },
+  {
+    "id": "mariner-9",
+    "name": "Mariner 9",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "1971-05-30",
+    "type": "orbiter",
+    "status": "ended",
+    "surface_locations": []
+  },
+  {
+    "id": "mars-4",
+    "name": "Mars 4",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1973-07-21",
+    "type": "orbiter_attempt",
+    "status": "flyby_only",
+    "surface_locations": []
+  },
+  {
+    "id": "mars-5",
+    "name": "Mars 5",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1973-07-25",
+    "type": "orbiter",
+    "status": "ended",
+    "surface_locations": []
+  },
+  {
+    "id": "mars-7",
+    "name": "Mars 7",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1973-08-09",
+    "type": "orbiter_lander",
+    "status": "lander_missed_mars",
+    "surface_locations": []
+  },
+  {
+    "id": "phobos-1",
+    "name": "Phobos 1",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1988-07-07",
+    "type": "mars_phobos_orbiter_lander_attempt",
+    "status": "lost_en_route",
+    "surface_locations": []
+  },
+  {
+    "id": "phobos-2",
+    "name": "Phobos 2",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1988-07-12",
+    "type": "mars_phobos_orbiter_lander_attempt",
+    "status": "lost_near_phobos",
+    "surface_locations": []
+  },
+  {
+    "id": "mars-observer",
+    "name": "Mars Observer",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "1992-09-25",
+    "type": "orbiter",
+    "status": "lost_before_mars_arrival",
+    "surface_locations": []
+  },
+  {
+    "id": "mars-global-surveyor",
+    "name": "Mars Global Surveyor",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "1996-11-07",
+    "type": "orbiter",
+    "status": "ended",
+    "surface_locations": []
+  },
+  {
+    "id": "mars-96",
+    "name": "Mars 96",
+    "country": "Russia",
+    "agency": "Roscosmos predecessor program",
+    "launch_date": "1996-11-16",
+    "type": "orbiter_landers_penetrators",
+    "status": "launch_failure",
+    "surface_locations": []
+  },
+  {
+    "id": "nozomi",
+    "name": "Nozomi (Planet-B)",
+    "country": "Japan",
+    "agency": "ISAS/JAXA",
+    "launch_date": "1998-07-04",
+    "type": "orbiter_attempt",
+    "status": "mission_failure",
+    "surface_locations": []
+  },
+  {
+    "id": "mars-climate-orbiter",
+    "name": "Mars Climate Orbiter",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "1998-12-11",
+    "type": "orbiter",
+    "status": "lost_at_mars_arrival",
+    "surface_locations": []
+  },
+  {
+    "id": "deep-space-2",
+    "name": "Deep Space 2",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "1999-01-03",
+    "type": "penetrator_pair",
+    "status": "no_surface_data_returned",
+    "surface_locations": []
+  },
+  {
+    "id": "2001-mars-odyssey",
+    "name": "2001 Mars Odyssey",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "2001-04-07",
+    "type": "orbiter",
+    "status": "active",
+    "surface_locations": []
+  },
+  {
+    "id": "mars-reconnaissance-orbiter",
+    "name": "Mars Reconnaissance Orbiter",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "2005-08-12",
+    "type": "orbiter",
+    "status": "active",
+    "surface_locations": []
+  },
+  {
+    "id": "phobos-grunt",
+    "name": "Phobos-Grunt",
+    "country": "Russia",
+    "agency": "Roscosmos",
+    "launch_date": "2011-11-08",
+    "type": "phobos_sample_return_attempt",
+    "status": "earth_orbit_stranded",
+    "surface_locations": []
+  },
+  {
+    "id": "yinghuo-1",
+    "name": "Yinghuo-1",
+    "country": "China",
+    "agency": "CNSA",
+    "launch_date": "2011-11-08",
+    "type": "mars_orbiter_attempt",
+    "status": "earth_orbit_stranded_with_phobos_grunt",
+    "surface_locations": []
+  },
+  {
+    "id": "mangalyaan",
+    "name": "Mars Orbiter Mission (MOM / Mangalyaan)",
+    "country": "India",
+    "agency": "ISRO",
+    "launch_date": "2013-11-05",
+    "type": "orbiter",
+    "status": "ended_2022",
+    "surface_locations": [],
+    "notes": "India's first interplanetary mission; operated in Mars orbit and had no surface landing site."
+  },
+  {
+    "id": "maven",
+    "name": "MAVEN",
+    "country": "USA",
+    "agency": "NASA",
+    "launch_date": "2013-11-18",
+    "type": "orbiter",
+    "status": "active",
+    "surface_locations": []
+  },
+  {
+    "id": "exomars-tgo",
+    "name": "ExoMars Trace Gas Orbiter",
+    "country": "Europe",
+    "agency": "ESA/Roscosmos",
+    "launch_date": "2016-03-14",
+    "type": "orbiter",
+    "status": "active",
+    "surface_locations": []
+  },
+  {
+    "id": "hope",
+    "name": "Emirates Mars Mission / Hope Probe",
+    "country": "United Arab Emirates",
+    "agency": "MBRSC",
+    "launch_date": "2020-07-19",
+    "type": "orbiter",
+    "status": "active_or_extended",
+    "surface_locations": []
+  },
+  {
+    "id": "escapade",
+    "name": "ESCAPADE",
+    "country": "USA",
+    "agency": "NASA / UC Berkeley",
+    "launch_date": "2025-11-13",
+    "type": "dual_orbiter",
+    "status": "en_route_to_mars",
+    "surface_locations": [],
+    "notes": "Launched into an Earth-proximity loiter trajectory; planned Mars arrival is September 2027."
+  },
+  {
+    "id": "mmx",
+    "name": "Martian Moons eXploration (MMX)",
+    "country": "Japan",
+    "agency": "JAXA",
+    "launch_date": "2026",
+    "type": "mars_system_phobos_sample_return",
+    "status": "planned",
+    "surface_locations": [],
+    "notes": "Targets the Mars system and Phobos rather than a Mars surface landing."
+  },
+  {
+    "id": "rosalind-franklin",
+    "name": "ExoMars Rosalind Franklin",
+    "country": "Europe",
+    "agency": "ESA",
+    "launch_date": "2028",
+    "type": "rover",
+    "status": "planned",
+    "surface_locations": [],
+    "notes": "Future Mars rover mission; landing site is planned for Oxia Planum."
+  }
+]
