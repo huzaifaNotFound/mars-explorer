@@ -11,8 +11,8 @@ export default function MarsGlobe() {
       
       if (typeof globeRef.current.globeMaterial === 'function') {
         const globeMaterial = globeRef.current.globeMaterial();
-        globeMaterial.roughness = 10;
-        globeMaterial.metalness = 0.1;
+        globeMaterial.roughness = 0.9;
+        globeMaterial.metalness = 0.0;
       }
 
       if (typeof globeRef.current.scene === 'function') {
@@ -53,16 +53,17 @@ export default function MarsGlobe() {
      <div className="w-full h-full">
       <Globe
         ref={globeRef}
-        globeImageUrl="/textures/mars-color.jpg"
-        bumpImageUrl="/textures/texture-mars.jpg"
+        globeImageUrl="/textures/mars-color.png"
+        bumpImageUrl="/textures/mars-texture.png"
         bumpScale={0.8}
 
-        backgroundColor="#05070a"
+        backgroundImageUrl="/starrybg.jpg"
+        // backgroundColor="#05070a"  
         animateIn={true}
-        enablePointerInteraction={true} 
-        showAtmosphere={true}
-        atmosphereColor="#cb7b52"
-        atmosphereAltitude={0.15}
+        enablePointerInteraction={true}     
+        showAtmosphere={false}
+        // atmosphereColor="#cb7b52"
+        // atmosphereAltitude={0.15}
 
         pointsData={marsPoints}
         pointLat="lat"
