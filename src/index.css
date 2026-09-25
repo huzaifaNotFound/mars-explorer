@@ -22,4 +22,5 @@
 *{
   cursor: none !important;
   pointer-events: none;
+  user-select: none !important;
 }
