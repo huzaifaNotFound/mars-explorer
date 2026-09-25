@@ -4,9 +4,8 @@ import * as THREE from "three";
 import surfaceMissions from "../assets/surfacemissions.json";
 import {modeChange} from "../keyboardSystem"
 
-modeChange()
 
-// Glow effect 
+// Glow effect
 function createGlowTexture() {
   const size = 128;
   const canvas = document.createElement("canvas");
@@ -24,7 +23,7 @@ function createGlowTexture() {
 
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, size, size);
-
+ 
   const texture = new THREE.CanvasTexture(canvas);
   texture.needsUpdate = true;
   return texture;
@@ -46,7 +45,7 @@ export default function MarsGlobe() {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const timer = setTimeout(() => { 
       if (!globeRef.current) return;
 
       if (typeof globeRef.current.globeMaterial === "function") {
