@@ -7,6 +7,7 @@
     "launch_date": "1971-05-19",
     "type": "orbiter_lander",
     "status": "orbiter_arrived_lander_destroyed",
+    "images": "none",
     "surface_locations": [
       {
         "name": "Mars 2 lander impact site",
@@ -26,6 +27,7 @@
     "launch_date": "1971-05-28",
     "type": "orbiter_lander",
     "status": "brief_surface_operation",
+    "images": "none",
     "surface_locations": [
       {
         "name": "Mars 3 lander",
@@ -45,6 +47,7 @@
     "launch_date": "1973-08-05",
     "type": "orbiter_lander",
     "status": "lander_data_lost",
+    "images": "none",
     "surface_locations": [
       {
         "name": "Mars 6 lander",
@@ -159,6 +162,7 @@
     "launch_date": "1999-01-03",
     "type": "lander",
     "status": "lost_during_landing",
+    "images": "none",
     "surface_locations": [
       {
         "name": "Mars Polar Lander target/estimated site",
@@ -179,6 +183,7 @@
     "launch_date": "2003-06-02",
     "type": "orbiter_lander",
     "status": "orbiter_active_lander_lost",
+    "images": "none",
     "surface_locations": [
       {
         "name": "Beagle 2 landing site",
@@ -295,26 +300,6 @@
       "Greenheugh Pediment"
     ],
     "traverse_source": "https://science.nasa.gov/mission/msl-curiosity/"
-  },
-  {
-    "id": "schiaparelli",
-    "name": "ExoMars Schiaparelli EDM",
-    "country": "Europe",
-    "agency": "ESA/Roscosmos",
-    "launch_date": "2016-03-14",
-    "type": "lander_demonstrator",
-    "status": "impact_during_landing",
-    "surface_locations": [
-      {
-        "name": "Schiaparelli impact area",
-        "region": "Meridiani Planum",
-        "kind": "impact",
-        "lat": -2.07,
-        "lon": 173.79,
-        "accuracy": "derived from ESA/NASA imaging and trajectory reconstruction",
-        "source": "NASA/JPL"
-      }
-    ]
   },
   {
     "id": "insight",
