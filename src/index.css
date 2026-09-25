@@ -18,3 +18,8 @@
   --font-mono: "JetBrains Mono", monospace; 
   --font-space: "Space Grotesk";
 }
+
+*{
+  cursor: none !important;
+  pointer-events: none;
+}
