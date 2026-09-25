@@ -48,8 +48,15 @@ export default function MarsGlobe() {
 
       if (typeof globeRef.current.globeMaterial === "function") {
         const globeMaterial = globeRef.current.globeMaterial();
-        globeMaterial.roughness = 0.9;
+        globeMaterial.roughness = 1.0;
         globeMaterial.metalness = 0.0;
+
+        const loader = new THREE.TextureLoader();
+        loader.load("/textures/mars-texture.png", (bumpTex) => {
+          globeMaterial.bumpMap = bumpTex;
+          globeMaterial.bumpScale = 0.8;
+          globeMaterial.needsUpdate = true;
+        });
       }
 
       if (typeof globeRef.current.scene === "function") {
@@ -104,11 +111,62 @@ export default function MarsGlobe() {
     return sprite;
   }, []);
 
+  //Arrow keyss
+  const keysPressed = useRef(new Set());
+  const rafId = useRef(null);
+
+  useEffect(() => {
+    const SPEED = 0.6; 
+
+    const tick = () => {
+      if (!globeRef.current || keysPressed.current.size === 0) {
+        rafId.current = null;
+        return;
+      }
+
+      const pov = globeRef.current.pointOfView();
+      let { lat, lng } = pov;
+
+      if (keysPressed.current.has("ArrowUp"))    lat = Math.min(lat + SPEED, 90);
+      if (keysPressed.current.has("ArrowDown"))  lat = Math.max(lat - SPEED, -90);
+      if (keysPressed.current.has("ArrowLeft"))   lng -= SPEED;
+      if (keysPressed.current.has("ArrowRight"))  lng += SPEED;
+
+      globeRef.current.pointOfView({ lat, lng }, 0);
+      rafId.current = requestAnimationFrame(tick);
+    };
+
+    const onKeyDown = (e) => {
+      if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) return;
+      e.preventDefault();
+      keysPressed.current.add(e.key);
+      if (!rafId.current) rafId.current = requestAnimationFrame(tick);
+    };
+
+    const onKeyUp = (e) => {
+      keysPressed.current.delete(e.key);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("keyup", onKeyUp);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("keyup", onKeyUp);
+      if (rafId.current) cancelAnimationFrame(rafId.current);
+    };
+  }, []);
+
+  const handleReset = () => {
+    if (!globeRef.current) return;
+    globeRef.current.pointOfView({ lat: 0, lng: 0, altitude: 2.5 }, 800);
+  };
+
   return (
-    <div className="w-full h-full">
+    <div className="relative w-full h-full">
       <Globe
         ref={globeRef}
         globeImageUrl="/textures/mars-color.png"
+        bumpImageUrl="/textures/mars-texture.png"
         backgroundColor="#05070a"
         backgroundImageUrl="/starsbg1.jpg"
         animateIn={true}
@@ -120,10 +178,8 @@ export default function MarsGlobe() {
         objectLat="lat"
         objectLng="lng"
         objectAltitude={MARKER_ALTITUDE}
-        objectFacesSurface={false} 
-                                 
+        objectFacesSurface={false}
         objectThreeObject={makeGlowObject}
-        // --- HTML labels (wrap to surface + hide on back side) ---
         htmlElementsData={marsPoints}
         htmlLat="lat"
         htmlLng="lng"
@@ -146,7 +202,7 @@ export default function MarsGlobe() {
           dot.style.flexShrink = "0";
           wrapper.appendChild(dot);
 
-          // text
+          // label
           const label = document.createElement("span");
           label.textContent = d.name;
           label.style.color = "#ECEAE6";
@@ -163,6 +219,48 @@ export default function MarsGlobe() {
           el.style.pointerEvents = isVisible ? "auto" : "none";
         }}
       />
+
+      {/* Reset*/}
+      <button
+        onClick={handleReset}
+        title="Reset view"
+        style={{
+          position: "absolute",
+          bottom: "24px",
+          right: "24px",
+          zIndex: 10,
+          display: "flex",
+          alignItems: "center",
+          gap: "6px",
+          padding: "8px 14px",
+          background: "rgba(255,255,255,0.07)",
+          border: "1px solid rgba(255,255,255,0.15)",
+          borderRadius: "8px",
+          color: "#ECEAE6",
+          fontSize: "12px",
+          fontFamily: "'Segoe UI', system-ui, sans-serif",
+          fontWeight: "500",
+          cursor: "pointer",
+          backdropFilter: "blur(6px)",
+          letterSpacing: "0.04em",
+          transition: "background 0.2s ease, border-color 0.2s ease",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = "rgba(255,255,255,0.14)";
+          e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = "rgba(255,255,255,0.07)";
+          e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
+        }}
+      >
+        
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+          <path d="M3 3v5h5"/>
+        </svg>
+        Reset Globe View
+      </button>
     </div>
   );
 }
