@@ -306,7 +306,7 @@
     "agency": "ISRO",
     "launch_date": "2013-11-05",
     "type": "orbiter",
-    "status": "ended_2022",
+    "status": "ended_2022", 
     "surface_locations": [],
     "notes": "India's first interplanetary mission; operated in Mars orbit and had no surface landing site."
   },
