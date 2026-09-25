@@ -224,27 +224,7 @@ export default function MarsGlobe() {
       <button
         onClick={handleReset}
         title="Reset view"
-        style={{
-          position: "absolute",
-          bottom: "24px",
-          right: "24px",
-          zIndex: 10,
-          display: "flex",
-          alignItems: "center",
-          gap: "6px",
-          padding: "8px 14px",
-          background: "rgba(255,255,255,0.07)",
-          border: "1px solid rgba(255,255,255,0.15)",
-          borderRadius: "8px",
-          color: "#ECEAE6",
-          fontSize: "12px",
-          fontFamily: "'Segoe UI', system-ui, sans-serif",
-          fontWeight: "500",
-          cursor: "pointer",
-          backdropFilter: "blur(6px)",
-          letterSpacing: "0.04em",
-          transition: "background 0.2s ease, border-color 0.2s ease",
-        }}
+        className="absolute bottom-6 right-6 z-10 flex items-center gap-1.5 px-3.5 py-2 bg-white/5 border border-white/15 rounded-lh text-text-primary text-xs font-medium cursor-pointer backdrop-blur-[6px] tracking-wider transition-colors duration-200 ease-in-out"
         onMouseEnter={(e) => {
           e.currentTarget.style.background = "rgba(255,255,255,0.14)";
           e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)";
