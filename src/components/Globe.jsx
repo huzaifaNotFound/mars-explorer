@@ -2,6 +2,9 @@ import { useRef, useEffect, useMemo, useCallback } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
 import surfaceMissions from "../assets/surfacemissions.json";
+import {modeChange} from "../keyboardSystem"
+
+modeChange()
 
 // Glow effect 
 function createGlowTexture() {
