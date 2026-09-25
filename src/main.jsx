@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App"; 
 
 document.addEventListener("keydown",(e)=>{
-  if(e === 'Tab'){
+  if(e.key === 'Tab'){
     e.preventDefault();
   }
 });
