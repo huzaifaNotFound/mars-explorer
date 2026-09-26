@@ -8,10 +8,11 @@ function ResetBtn({globeRef}){
       
       return(
 <>
-        <img className="absolute top-8 right-107 h-12" src="/nasa.png" alt="Nasa Text" />
-        <span className="absolute top-20.5 right-85 font-mono text-lg text-text-muted">Planetary Exploration</span>
+        <img className="absolute top-8 right-70 h-15" src="/nasa.png" alt="Nasa Text" />
+        <span className="absolute top-10.5 right-16 font-mono text-base text-text-muted capitalize">PLANATERY EXPLORATION</span>
+        <span className="absolute top-17 right-26 font-mono text-base text-text-muted capitalize">A SEARCH FOR LIFE</span>
 
-        <div className="absolute top-6 right-6 z-6 font-inter text-text-primary bg-bg-primary rounded-sm border border-white/15 p-5">
+        <div className="absolute bottom-22 right-6 z-6 font-inter text-text-primary bg-bg-primary rounded-sm border border-white/15 p-5">
     <div className="text-lg mb-3 font-space">Mars</div>
 
     <div className="grid grid-cols-[auto_auto] gap-x-8 gap-y-1 text-sm">
