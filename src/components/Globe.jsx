@@ -2,7 +2,6 @@ import { useRef, useEffect, useMemo, useCallback } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
 import surfaceMissions from "../assets/surfacemissions.json";
-import {modeChange} from "../keyboardSystem"
 import ResetBtn from "./ResetBtn";
 
 
@@ -38,6 +37,12 @@ const MARKER_ALTITUDE = 0.02;
 export default function MarsGlobe() {
   const globeRef = useRef();
   const glowTextureRef = useRef();
+  const modeButtonRef = useRef()
+  const globeContainerRef = useRef();
+
+  useEffect(()=>{
+    globeContainerRef.current?.focus();
+  },[])
 
   useEffect(() => {
     glowTextureRef.current = createGlowTexture();
@@ -161,7 +166,7 @@ export default function MarsGlobe() {
   
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full outline-none" tabIndex={0} ref={globeContainerRef}>
       <Globe
         ref={globeRef}
         globeImageUrl="/textures/mars-color.png"
@@ -219,7 +224,7 @@ export default function MarsGlobe() {
         }}
       />
 
-      <ResetBtn globeRef={globeRef}/>
+      <ResetBtn globeRef={globeRef} modeButtonRef={modeButtonRef}/>
     </div>
   );
 }
