@@ -1,4 +1,5 @@
 import MarsGlobe from "./components/Globe";
+import ResetBtn from "./components/ResetBtn";
 
 function App() {
   return (
