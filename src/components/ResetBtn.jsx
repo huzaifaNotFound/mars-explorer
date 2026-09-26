@@ -4,11 +4,12 @@ function ResetBtn({globeRef, globeContainerRef, resetButtonRef}){
     const handleReset = () => {
         if (!globeRef.current) return;
         globeRef.current.pointOfView({ lat: 0, lng: 0, altitude: 2.5 }, 800);
+
+        requestAnimationFrame(()=>{
+          globeContainerRef.current?.focus()
+        })
       };
 
-      requestAnimationFrame(()=>{
-        globeContainerRef.current?.focus()
-      })
       
       return(
 <>
@@ -38,6 +39,8 @@ function ResetBtn({globeRef, globeContainerRef, resetButtonRef}){
 </div>
 
       <button
+      ref={resetButtonRef}
+      tabIndex={-1}
       onClick={handleReset}
         title="Reset view"
         id="btn"
