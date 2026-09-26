@@ -59,7 +59,7 @@ function ResetBtn({globeRef, globeContainerRef, resetButtonRef}){
             tracking-wider
             transition-all duration-200 ease-in-out
 
-            focus-visible:outline
+            
             focus-visible:outline-2
             focus-visible:outline-dashed
          focus-visible:outline-text-primary
