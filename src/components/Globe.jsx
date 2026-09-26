@@ -37,12 +37,12 @@ const MARKER_ALTITUDE = 0.02;
 export default function MarsGlobe() {
   const globeRef = useRef();
   const glowTextureRef = useRef();
-  const modeButtonRef = useRef()
+  const resetButtonRef = useRef()
   const globeContainerRef = useRef();
 
   useEffect(()=>{
     globeContainerRef.current?.focus();
-  },[])
+  },[]);
 
   useEffect(() => {
     glowTextureRef.current = createGlowTexture();
@@ -163,10 +163,32 @@ export default function MarsGlobe() {
     };
   }, []);
 
+  function handleKeyboardNavigation(e){
+    if (e.key === "Tab") {
+    e.preventDefault();
+    return;
+  }
+
+  if(e.key === "Escape"){
+    e.preventDefault()
+
+    const globeContainer = globeContainerRef.current;
+    const resetButton = resetButtonRef.current;
+
+    if (!globeContainer || !resetButton) return;
+
+    if(document.activeElement === globeContainer){
+      resetButton.focus();
+    }else{
+      globeContainer.focus()
+    }
+  }
+  }
+
   
 
   return (
-    <div className="relative w-full h-full outline-none" tabIndex={0} ref={globeContainerRef}>
+    <div className="relative w-full h-full outline-none" tabIndex={-1} ref={globeContainerRef} onKeyDown={handleKeyboardNavigation}>
       <Globe
         ref={globeRef}
         globeImageUrl="/textures/mars-color.png"
@@ -224,7 +246,7 @@ export default function MarsGlobe() {
         }}
       />
 
-      <ResetBtn globeRef={globeRef} modeButtonRef={modeButtonRef}/>
+      <ResetBtn globeRef={globeRef} resetButtonRef={resetButtonRef} globeContainerRef={globeContainerRef}/>
     </div>
   );
 }
