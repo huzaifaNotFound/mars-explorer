@@ -44,8 +44,32 @@ function ResetBtn({globeRef, globeContainerRef, resetButtonRef}){
       onClick={handleReset}
         title="Reset view"
         id="btn"
-        className="font-inter absolute bottom-6 right-6 z-10 flex items-center gap-1.5 px-3.5 py-2 bg-bg-primary rounded-sm border border-white/15 text-text-primary text-xs font-medium cursor-pointer backdrop-blur-[6px] tracking-wider transition-colors duration-200 ease-in-out"
-        onMouseEnter={(e) => {
+        className="
+                font-inter
+                absolute bottom-6 right-6 z-10
+                flex items-center gap-1.5
+                px-3.5 py-2
+        bg-bg-primary
+            rounded-sm
+            border border-white/15
+          text-text-primary
+            text-xs font-medium
+            cursor-pointer
+            backdrop-blur-[6px]
+            tracking-wider
+            transition-all duration-200 ease-in-out
+
+            focus-visible:outline
+            focus-visible:outline-2
+            focus-visible:outline-dashed
+         focus-visible:outline-text-primary
+            focus-visible:outline-offset-4
+          focus-visible:bg-[#171311]
+          focus-visible:border-[#8A6659]
+            focus-visible:shadow-[0_0_10px_rgba(138,102,89,0.25)]
+            focus-visible:-translate-y-px
+"
+onMouseEnter={(e) => {
           e.currentTarget.style.background = "rgba(255,255,255,0.14)";
           e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)";
         }}
