@@ -1,10 +1,14 @@
 
 
-function ResetBtn({globeRef}){
+function ResetBtn({globeRef, globeContainerRef, resetButtonRef}){
     const handleReset = () => {
         if (!globeRef.current) return;
         globeRef.current.pointOfView({ lat: 0, lng: 0, altitude: 2.5 }, 800);
       };
+
+      requestAnimationFrame(()=>{
+        globeContainerRef.current?.focus()
+      })
       
       return(
 <>
@@ -14,7 +18,7 @@ function ResetBtn({globeRef}){
 
         <div className="absolute bottom-22 right-6 z-6 font-inter text-text-primary bg-bg-primary rounded-sm border border-white/15 p-5">
     <div className="text-lg mb-3 font-space">Mars</div>
-
+   
     <div className="grid grid-cols-[auto_auto] gap-x-8 gap-y-1 text-sm">
         <span className="text-text-muted font-mono">Diameter</span>
         <span className="text-text- font-mono">6,779 km</span>
