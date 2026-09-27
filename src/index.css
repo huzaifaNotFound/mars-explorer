@@ -8,10 +8,11 @@
   --color-text-muted: #A39A8E;
 
   /* Accents */
-  --color-accent-primary: #D9622F; 
-  --color-accent-secondary: #49B359; 
-  --color-accent-amber: #F2B84B; 
-  --color-accent-red: #F87171; 
+  --color-accent-primary: #5B93C9; 
+  --color-accent-secondary: #9183A3; 
+  --color-accent-amber: #D8B766; 
+  --color-accent-red: #B87760; 
+  --color-accent-green: #81977C; 
 
   /* Fonts */
   --font-inter: "Inter", sans-serif;
