@@ -1,15 +1,15 @@
 @import "tailwindcss"; 
 
 @theme {
-  --color-bg-primary: #0A0909; 
-  --color-bg-surface: rgba(37, 37, 39, 0.6); 
+  --color-bg-primary: #131313; 
+  --color-bg-surface: #232323;
 
   --color-text-primary: #ECEAE6; 
   --color-text-muted: #A39A8E;
 
   /* Accents */
   --color-accent-primary: #D9622F; 
-  --color-accent-secondary: #37B6C9; 
+  --color-accent-secondary: #49B359; 
   --color-accent-amber: #F2B84B; 
   --color-accent-green: #4ADE80; 
   --color-accent-red: #F87171; 
