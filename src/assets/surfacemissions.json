@@ -7,7 +7,10 @@
     "launch_date": "1971-05-19",
     "type": "orbiter_lander",
     "status": "orbiter_arrived_lander_destroyed",
+    "description": "Mars 2 was a Soviet orbiter-and-lander mission sent to Mars in 1971. The orbiter successfully reached Mars and returned observations, while the descent module failed during atmospheric entry and impacted the surface. The mission was an early attempt to combine orbital observations with a direct landing and surface measurements.",
     "images": "none",
+    "external_link": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-045A",
+    "elevation": null,
     "surface_locations": [
       {
         "name": "Mars 2 lander impact site",
@@ -27,7 +30,10 @@
     "launch_date": "1971-05-28",
     "type": "orbiter_lander",
     "status": "brief_surface_operation",
+    "description": "Mars 3 was a Soviet orbiter-and-lander mission that achieved the first successful soft landing on Mars. The lander transmitted data from the surface for only about 20 seconds before communications stopped, but the orbiter continued operating and returned observations of Mars. The lander also carried instruments intended to measure atmospheric and surface properties.",
     "images": "none",
+    "external_link": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-049A",
+    "elevation": null,
     "surface_locations": [
       {
         "name": "Mars 3 lander",
@@ -47,7 +53,10 @@
     "launch_date": "1973-08-05",
     "type": "orbiter_lander",
     "status": "lander_data_lost",
+    "description": "Mars 6 was a Soviet orbiter-and-lander mission launched in 1973. Its lander successfully entered the Martian atmosphere and transmitted measurements during descent, including direct measurements of atmospheric conditions, but contact was lost around the time of landing. The mission therefore provided valuable descent data despite failing to establish surface operations.",
     "images": "none",
+    "external_link": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1973-052A",
+    "elevation": null,
     "surface_locations": [
       {
         "name": "Mars 6 lander",
@@ -67,6 +76,10 @@
     "launch_date": "1975-08-20",
     "type": "orbiter_lander",
     "status": "ended",
+    "description": "Viking 1 was NASA's first mission to successfully land and operate on the surface of Mars. Its orbiter mapped and studied the planet from orbit while the lander photographed the surface, analyzed soil, measured weather and atmospheric properties, and conducted experiments searching for evidence of biological activity. The mission greatly expanded knowledge of the Martian surface environment.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/viking-1/",
+    "elevation": -3620,
     "surface_locations": [
       {
         "name": "Viking 1 lander",
@@ -87,6 +100,10 @@
     "launch_date": "1975-09-09",
     "type": "orbiter_lander",
     "status": "ended",
+    "description": "Viking 2 was the second NASA Viking mission and successfully landed in Utopia Planitia. Its lander returned extensive images, weather observations, soil measurements, and biological experiments, while the orbiter studied Mars from above. Together with Viking 1, it provided the first long-duration surface investigations of Mars.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/viking-2/",
+    "elevation": -4507,
     "surface_locations": [
       {
         "name": "Viking 2 lander",
@@ -107,6 +124,10 @@
     "launch_date": "1996-12-04",
     "type": "lander_rover",
     "status": "ended",
+    "description": "Mars Pathfinder demonstrated a low-cost approach to Mars exploration and successfully delivered the Sojourner rover to Ares Vallis. Sojourner investigated rocks and soil at close range while Pathfinder studied the local geology, atmosphere, and weather. The mission also demonstrated the use of airbags for landing and autonomous rover operations on another planet.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/mars-pathfinder/",
+    "elevation": -3700,
     "surface_locations": [
       {
         "name": "Carl Sagan Memorial Station",
@@ -155,27 +176,6 @@
     "full_traverse_source": "https://azmth.space/data/mars-traverses/sojourner.json"
   },
   {
-    "id": "mars-polar-lander",
-    "name": "Mars Polar Lander",
-    "country": "USA",
-    "agency": "NASA/JPL",
-    "launch_date": "1999-01-03",
-    "type": "lander",
-    "status": "lost_during_landing",
-    "images": "none",
-    "surface_locations": [
-      {
-        "name": "Mars Polar Lander target/estimated site",
-        "region": "near south polar region",
-        "kind": "estimated_landing_area",
-        "lat": -76.57,
-        "lon": 165.2,
-        "accuracy": "approximate map-derived position",
-        "source": "HiRISE/Planetary Society compilation"
-      }
-    ]
-  },
-  {
     "id": "mars-express",
     "name": "Mars Express / Beagle 2",
     "country": "Europe",
@@ -183,7 +183,10 @@
     "launch_date": "2003-06-02",
     "type": "orbiter_lander",
     "status": "orbiter_active_lander_lost",
+    "description": "Mars Express is a European Space Agency orbiter that has studied Mars since 2003, carrying a suite of instruments for investigating the planet's surface, atmosphere, subsurface, and water history. It also carried the Beagle 2 lander, which successfully reached the surface in the Isidis Planitia region but failed to establish communications after landing. Mars Express itself became one of the longest-running Mars orbiters.",
     "images": "none",
+    "external_link": "https://www.esa.int/Science_Exploration/Space_Science/Mars_Express",
+    "elevation": -3750,
     "surface_locations": [
       {
         "name": "Beagle 2 landing site",
@@ -204,6 +207,10 @@
     "launch_date": "2003-06-10",
     "type": "rover",
     "status": "ended",
+    "description": "Spirit was one of NASA's twin Mars Exploration Rovers. After landing in Gusev Crater, it investigated rocks, soil, and geological features for evidence of past water and the history of the Martian surface. Spirit greatly exceeded its original planned mission duration and explored features including Columbia Hills and Home Plate before becoming immobile and eventually ending communications.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/mer-spirit/",
+    "elevation": -1900,
     "surface_locations": [
       {
         "name": "Columbia Memorial Station",
@@ -231,6 +238,10 @@
     "launch_date": "2003-07-07",
     "type": "rover",
     "status": "ended",
+    "description": "Opportunity was NASA's second Mars Exploration Rover and landed in Meridiani Planum. It investigated rocks and sediments for evidence of ancient water, finding extensive evidence that liquid water had once influenced the region. Opportunity operated for more than 14 years, traveling more than 45 kilometers and exploring sites including Endurance Crater, Victoria Crater, and Endeavour Crater.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/mer-opportunity/",
+    "elevation": -1400,
     "surface_locations": [
       {
         "name": "Eagle Crater landing site",
@@ -260,6 +271,10 @@
     "launch_date": "2007-08-04",
     "type": "lander",
     "status": "ended",
+    "description": "Phoenix was a NASA lander designed to investigate the northern plains of Mars. After landing in Vastitas Borealis, it used a robotic arm to dig into the soil and directly confirmed water ice beneath the surface. The mission also analyzed soil chemistry, observed the atmosphere and weather, and studied the physical and geological properties of the polar environment.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/phoenix/",
+    "elevation": -4131,
     "surface_locations": [
       {
         "name": "Phoenix landing site",
@@ -280,6 +295,10 @@
     "launch_date": "2011-11-26",
     "type": "rover",
     "status": "active",
+    "description": "Curiosity is NASA's Mars Science Laboratory rover, designed to determine whether Gale Crater ever offered environmental conditions capable of supporting microbial life. It has studied rocks, sediments, minerals, and the atmosphere while climbing the lower slopes of Mount Sharp. Its investigations have provided evidence that ancient Gale Crater contained long-lived environments with liquid water and chemical conditions suitable for life.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/msl-curiosity/",
+    "elevation": -4501,
     "surface_locations": [
       {
         "name": "Bradbury Landing",
@@ -309,6 +328,10 @@
     "launch_date": "2018-05-05",
     "type": "lander",
     "status": "ended",
+    "description": "InSight was a NASA stationary lander designed to study the deep interior of Mars rather than primarily its surface. It deployed a seismometer to detect marsquakes, a heat-flow experiment to investigate the planet's internal heat, and instruments for measuring the planet's rotation and internal structure. The mission produced the first comprehensive seismic observations of Mars before ending after dust accumulation reduced power.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/insight/",
+    "elevation": -2613.43,
     "surface_locations": [
       {
         "name": "InSight landing site",
@@ -329,6 +352,10 @@
     "launch_date": "2020-07-23",
     "type": "orbiter_lander_rover",
     "status": "orbiter_mission; rover_dormant",
+    "description": "Tianwen-1 was China's first independent Mars mission and successfully placed an orbiter around Mars, landed the Zhurong rover, and operated the rover on the surface. Zhurong studied rocks, soil, surface composition, weather, and subsurface structure while the orbiter continued remote sensing and communications support. The mission demonstrated China's ability to orbit, land, and conduct rover operations at Mars in a single mission.",
+    "images": "",
+    "external_link": "https://www.cnsa.gov.cn/english/n6465652/n6465653/c6813088/content.html",
+    "elevation": -4099.4,
     "surface_locations": [
       {
         "name": "Zhurong landing site",
@@ -353,6 +380,10 @@
     "launch_date": "2020-07-30",
     "type": "rover",
     "status": "active",
+    "description": "Perseverance is NASA's Mars 2020 rover, designed to search for signs of ancient microbial life and collect scientifically selected rock and soil samples for possible future return to Earth. Operating in Jezero Crater, it has studied an ancient river-delta environment, analyzed rocks and minerals, and documented the geology and past habitability of the region. The mission also carried Ingenuity, which demonstrated powered flight on another planet.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/mars-2020-perseverance/",
+    "elevation": -2567,
     "surface_locations": [
       {
         "name": "Octavia E. Butler Landing",
