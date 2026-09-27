@@ -193,9 +193,9 @@ export default function MarsGlobe() {
 
           const label = document.createElement("span");
           label.textContent = d.name;
-          label.style.color = d.isFocused ? "#F2B84B" : "#ECEAE6"; // text-primary and accent-amber
+          label.style.color = d.isFocused ? "#F2B84B" : "#ECEAE6"; 
           label.style.fontSize = "12px";
-          label.style.fontFamily = "'Space Grotesk', system-ui, sans-serif";
+          label.style.fontFamily = "'JetBrains Mono', system-ui, sans-serif";
           label.style.fontWeight = d.isFocused ? "700" : "500";
           label.style.textShadow = d.isFocused ? "0 0 12px rgba(242,184,75,0.8)" : "0 0 4px rgba(0,0,0,0.8)";
           
