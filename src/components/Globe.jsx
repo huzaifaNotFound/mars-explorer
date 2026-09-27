@@ -4,7 +4,6 @@ import * as THREE from "three";
 import surfaceMissions from "../assets/surfacemissions.json";
 import ResetBtn from "./ResetBtn";
 
-
 function createGlowTexture() {
   const size = 128;
   const canvas = document.createElement("canvas");
@@ -12,17 +11,14 @@ function createGlowTexture() {
   canvas.height = size;
   const ctx = canvas.getContext("2d");
 
-  const gradient = ctx.createRadialGradient(
-    size / 2, size / 2, 0,
-    size / 2, size / 2, size / 2
-  );
-  gradient.addColorStop(0.0, "rgba(255,255,255,1)");
-  gradient.addColorStop(0.3, "rgba(255,255,255,0.95)");
+  const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+  gradient.addColorStop(0.0, "rgba(255,255,255,65)");
+  gradient.addColorStop(0.3, "rgba(255,255,255,0.8)");
   gradient.addColorStop(1.0, "rgba(255,255,255,0)");
 
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, size, size);
- 
+
   const texture = new THREE.CanvasTexture(canvas);
   texture.needsUpdate = true;
   return texture;
@@ -30,19 +26,17 @@ function createGlowTexture() {
 
 const GLOW_SCALE = 0.05;
 
-
 const MARKER_ALTITUDE = 0.02;
-
 
 export default function MarsGlobe() {
   const globeRef = useRef();
   const glowTextureRef = useRef();
-  const resetButtonRef = useRef()
+  const resetButtonRef = useRef();
   const globeContainerRef = useRef();
 
-  useEffect(()=>{
+  useEffect(() => {
     globeContainerRef.current?.focus();
-  },[]);
+  }, []);
 
   useEffect(() => {
     glowTextureRef.current = createGlowTexture();
@@ -50,7 +44,7 @@ export default function MarsGlobe() {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => { 
+    const timer = setTimeout(() => {
       if (!globeRef.current) return;
 
       if (typeof globeRef.current.globeMaterial === "function") {
@@ -83,23 +77,23 @@ export default function MarsGlobe() {
   }, []);
 
   const marsPoints = useMemo(() => {
-  const points = surfaceMissions.flatMap((mission) =>
-    mission.surface_locations.map((location) => ({
-      lat: location.lat,
-      lng: location.lon,
-      name: location.name,
-      mission: mission.name,
-      missionId: mission.id,
-      kind: location.kind,
-      accuracy: location.accuracy,
-      country: mission.country,
-      launchDate: mission.launch_date,
-      agency: mission.agency,
-    }))
-  );
+    const points = surfaceMissions.flatMap((mission) =>
+      mission.surface_locations.map((location) => ({
+        lat: location.lat,
+        lng: location.lon,
+        name: location.name,
+        mission: mission.name,
+        missionId: mission.id,
+        kind: location.kind,
+        accuracy: location.accuracy,
+        country: mission.country,
+        launchDate: mission.launch_date,
+        agency: mission.agency,
+      })),
+    );
 
-  return points;
-}, []);
+    return points;
+  }, []);
 
   const makeGlowObject = useCallback(() => {
     const radius = globeRef.current?.getGlobeRadius?.() ?? 100;
@@ -109,8 +103,8 @@ export default function MarsGlobe() {
       map: glowTextureRef.current,
       color: 0xffffff,
       transparent: true,
-      depthWrite: false, 
-      depthTest: true,   
+      depthWrite: false,
+      depthTest: true,
     });
 
     const sprite = new THREE.Sprite(material);
@@ -123,7 +117,7 @@ export default function MarsGlobe() {
   const rafId = useRef(null);
 
   useEffect(() => {
-    const SPEED = 0.6; 
+    const SPEED = 0.6;
 
     const tick = () => {
       if (!globeRef.current || keysPressed.current.size === 0) {
@@ -134,10 +128,10 @@ export default function MarsGlobe() {
       const pov = globeRef.current.pointOfView();
       let { lat, lng } = pov;
 
-      if (keysPressed.current.has("ArrowUp"))    lat = Math.min(lat + SPEED, 90);
-      if (keysPressed.current.has("ArrowDown"))  lat = Math.max(lat - SPEED, -90);
-      if (keysPressed.current.has("ArrowLeft"))   lng -= SPEED;
-      if (keysPressed.current.has("ArrowRight"))  lng += SPEED;
+      if (keysPressed.current.has("ArrowUp")) lat = Math.min(lat + SPEED, 90);
+      if (keysPressed.current.has("ArrowDown")) lat = Math.max(lat - SPEED, -90);
+      if (keysPressed.current.has("ArrowLeft")) lng -= SPEED;
+      if (keysPressed.current.has("ArrowRight")) lng += SPEED;
 
       globeRef.current.pointOfView({ lat, lng }, 0);
       rafId.current = requestAnimationFrame(tick);
@@ -163,32 +157,35 @@ export default function MarsGlobe() {
     };
   }, []);
 
-  function handleKeyboardNavigation(e){
+  function handleKeyboardNavigation(e) {
     if (e.key === "Tab") {
-    e.preventDefault();
-    return;
-  }
+      e.preventDefault();
+      return;
+    }
 
-  if(e.key === "Escape"){
-    e.preventDefault()
+    if (e.key === "Escape") {
+      e.preventDefault();
 
-    const globeContainer = globeContainerRef.current;
-    const resetButton = resetButtonRef.current;
+      const globeContainer = globeContainerRef.current;
+      const resetButton = resetButtonRef.current;
 
-    if (!globeContainer || !resetButton) return;
+      if (!globeContainer || !resetButton) return;
 
-    if(document.activeElement === globeContainer){
-      resetButton.focus();
-    }else{
-      globeContainer.focus()
+      if (document.activeElement === globeContainer) {
+        resetButton.focus();
+      } else {
+        globeContainer.focus();
+      }
     }
   }
-  }
-
-  
 
   return (
-    <div className="relative w-full h-full outline-none" tabIndex={-1} ref={globeContainerRef} onKeyDown={handleKeyboardNavigation}>
+    <div
+      className="relative w-full h-full outline-none"
+      tabIndex={-1}
+      ref={globeContainerRef}
+      onKeyDown={handleKeyboardNavigation}
+    >
       <Globe
         ref={globeRef}
         globeImageUrl="/textures/mars-color.png"
@@ -211,34 +208,27 @@ export default function MarsGlobe() {
         htmlLng="lng"
         htmlAltitude={0.01}
         htmlElement={(d) => {
+          const outer = document.createElement("div");
+          outer.style.pointerEvents = "none";
+
           const wrapper = document.createElement("div");
-          wrapper.style.pointerEvents = "none";
           wrapper.style.display = "flex";
           wrapper.style.alignItems = "center";
-          wrapper.style.gap = "4px";
           wrapper.style.whiteSpace = "nowrap";
           wrapper.style.transition = "opacity 0.3s ease";
+          wrapper.style.transform = "translateY(20px)"; 
 
-          // dot
-          const dot = document.createElement("span");
-          dot.style.width = "5px";
-          dot.style.height = "5px";
-          dot.style.borderRadius = "50%";
-          dot.style.backgroundColor = "#ECEAE6";
-          dot.style.flexShrink = "0";
-          wrapper.appendChild(dot);
-
-          // label
           const label = document.createElement("span");
           label.textContent = d.name;
           label.style.color = "#ECEAE6";
-          label.style.fontSize = "11px";
-          label.style.fontFamily = "'Segoe UI', system-ui, sans-serif";
+          label.style.fontSize = "12px";
+          label.style.fontFamily = "'Space Grotesk', system-ui, sans-serif";
           label.style.fontWeight = "500";
           label.style.textShadow = "0 0 4px rgba(0,0,0,0.8)";
           wrapper.appendChild(label);
 
-          return wrapper;
+          outer.appendChild(wrapper);
+          return outer;
         }}
         htmlElementVisibilityModifier={(el, isVisible) => {
           el.style.opacity = isVisible ? "1" : "0";
@@ -246,7 +236,7 @@ export default function MarsGlobe() {
         }}
       />
 
-      <ResetBtn globeRef={globeRef} resetButtonRef={resetButtonRef} globeContainerRef={globeContainerRef}/>
+      <ResetBtn globeRef={globeRef} resetButtonRef={resetButtonRef} globeContainerRef={globeContainerRef} />
     </div>
   );
 }
