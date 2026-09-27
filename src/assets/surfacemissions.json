@@ -1,28 +1,5 @@
 [
   {
-    "id": "mars-2",
-    "name": "Mars 2",
-    "country": "USSR",
-    "agency": "Soviet space program",
-    "launch_date": "1971-05-19",
-    "type": "orbiter_lander",
-    "status": "orbiter_arrived_lander_destroyed",
-    "description": "Mars 2 was a Soviet orbiter-and-lander mission sent to Mars in 1971. The orbiter successfully reached Mars and returned observations, while the descent module failed during atmospheric entry and impacted the surface. The mission was an early attempt to combine orbital observations with a direct landing and surface measurements.",
-    "images": "none",
-    "external_link": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-045A",
-    "elevation": null,
-    "surface_locations": [
-      {
-        "name": "Mars 2 lander impact site",
-        "kind": "impact",
-        "lat": -45.0,
-        "lon": 47.0,
-        "accuracy": "approximate published map coordinate",
-        "source": "Planetary Society/NSSDC landing-site compilation"
-      }
-    ]
-  },
-  {
     "id": "mars-3",
     "name": "Mars 3",
     "country": "USSR",
@@ -38,33 +15,34 @@
       {
         "name": "Mars 3 lander",
         "kind": "landing",
-        "lat": -45.0,
-        "lon": -158.0,
+        "lat": -45,
+        "lon": -158,
         "accuracy": "approximate published map coordinate",
         "source": "Planetary Society"
       }
     ]
   },
   {
-    "id": "mars-6",
-    "name": "Mars 6",
-    "country": "USSR",
-    "agency": "Soviet space program",
-    "launch_date": "1973-08-05",
-    "type": "orbiter_lander",
-    "status": "lander_data_lost",
-    "description": "Mars 6 was a Soviet orbiter-and-lander mission launched in 1973. Its lander successfully entered the Martian atmosphere and transmitted measurements during descent, including direct measurements of atmospheric conditions, but contact was lost around the time of landing. The mission therefore provided valuable descent data despite failing to establish surface operations.",
-    "images": "none",
-    "external_link": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1973-052A",
-    "elevation": null,
+    "id": "pheonix",
+    "name": "Phoenix",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "2007-08-04",
+    "type": "lander",
+    "status": "ended",
+    "description": "Phoenix was a NASA lander designed to investigate the northern plains of Mars. After landing in Vastitas Borealis, it used a robotic arm to dig into the soil and directly confirmed water ice beneath the surface. The mission also analyzed soil chemistry, observed the atmosphere and weather, and studied the physical and geological properties of the polar environment.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/phoenix/",
+    "elevation": -4131,
     "surface_locations": [
       {
-        "name": "Mars 6 lander",
+        "name": "Phoenix landing site",
+        "region": "Vastitas Borealis",
         "kind": "landing",
-        "lat": -23.9,
-        "lon": -19.42,
-        "accuracy": "approximate published map coordinate",
-        "source": "Planetary Society"
+        "lat": 68.21883,
+        "lon": -125.749222,
+        "accuracy": "NASA published coordinate converted from east longitude",
+        "source": "NASA"
       }
     ]
   },
@@ -88,30 +66,6 @@
         "lat": 22.483,
         "lon": -47.968,
         "accuracy": "NASA published touchdown coordinate",
-        "source": "NASA"
-      }
-    ]
-  },
-  {
-    "id": "viking-2",
-    "name": "Viking 2",
-    "country": "USA",
-    "agency": "NASA/JPL",
-    "launch_date": "1975-09-09",
-    "type": "orbiter_lander",
-    "status": "ended",
-    "description": "Viking 2 was the second NASA Viking mission and successfully landed in Utopia Planitia. Its lander returned extensive images, weather observations, soil measurements, and biological experiments, while the orbiter studied Mars from above. Together with Viking 1, it provided the first long-duration surface investigations of Mars.",
-    "images": "",
-    "external_link": "https://science.nasa.gov/mission/viking-2/",
-    "elevation": -4507,
-    "surface_locations": [
-      {
-        "name": "Viking 2 lander",
-        "region": "Utopia Planitia",
-        "kind": "landing",
-        "lat": 47.968,
-        "lon": 134.29,
-        "accuracy": "NASA touchdown coordinate converted from west longitude",
         "source": "NASA"
       }
     ]
@@ -176,200 +130,49 @@
     "full_traverse_source": "https://azmth.space/data/mars-traverses/sojourner.json"
   },
   {
-    "id": "mars-express",
-    "name": "Mars Express / Beagle 2",
-    "country": "Europe",
-    "agency": "ESA",
-    "launch_date": "2003-06-02",
+    "id": "mars-6",
+    "name": "Mars 6",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1973-08-05",
     "type": "orbiter_lander",
-    "status": "orbiter_active_lander_lost",
-    "description": "Mars Express is a European Space Agency orbiter that has studied Mars since 2003, carrying a suite of instruments for investigating the planet's surface, atmosphere, subsurface, and water history. It also carried the Beagle 2 lander, which successfully reached the surface in the Isidis Planitia region but failed to establish communications after landing. Mars Express itself became one of the longest-running Mars orbiters.",
+    "status": "lander_data_lost",
+    "description": "Mars 6 was a Soviet orbiter-and-lander mission launched in 1973. Its lander successfully entered the Martian atmosphere and transmitted measurements during descent, including direct measurements of atmospheric conditions, but contact was lost around the time of landing. The mission therefore provided valuable descent data despite failing to establish surface operations.",
     "images": "none",
-    "external_link": "https://www.esa.int/Science_Exploration/Space_Science/Mars_Express",
-    "elevation": -3750,
+    "external_link": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1973-052A",
+    "elevation": null,
     "surface_locations": [
       {
-        "name": "Beagle 2 landing site",
-        "region": "Isidis Planitia",
-        "kind": "landing_site",
-        "lat": 10.6,
-        "lon": 90.0,
-        "accuracy": "approximate published landing-site coordinate",
-        "source": "NSSDC/Planetary Society compilation"
+        "name": "Mars 6 lander",
+        "kind": "landing",
+        "lat": -23.9,
+        "lon": -19.42,
+        "accuracy": "approximate published map coordinate",
+        "source": "Planetary Society"
       }
     ]
   },
   {
-    "id": "spirit",
-    "name": "Mars Exploration Rover Spirit",
-    "country": "USA",
-    "agency": "NASA/JPL",
-    "launch_date": "2003-06-10",
-    "type": "rover",
-    "status": "ended",
-    "description": "Spirit was one of NASA's twin Mars Exploration Rovers. After landing in Gusev Crater, it investigated rocks, soil, and geological features for evidence of past water and the history of the Martian surface. Spirit greatly exceeded its original planned mission duration and explored features including Columbia Hills and Home Plate before becoming immobile and eventually ending communications.",
-    "images": "",
-    "external_link": "https://science.nasa.gov/mission/mer-spirit/",
-    "elevation": -1900,
+    "id": "mars-2",
+    "name": "Mars 2",
+    "country": "USSR",
+    "agency": "Soviet space program",
+    "launch_date": "1971-05-19",
+    "type": "orbiter_lander",
+    "status": "orbiter_arrived_lander_destroyed",
+    "description": "Mars 2 was a Soviet orbiter-and-lander mission sent to Mars in 1971. The orbiter successfully reached Mars and returned observations, while the descent module failed during atmospheric entry and impacted the surface. The mission was an early attempt to combine orbital observations with a direct landing and surface measurements.",
+    "images": "none",
+    "external_link": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-045A",
+    "elevation": null,
     "surface_locations": [
       {
-        "name": "Columbia Memorial Station",
-        "region": "Gusev Crater",
-        "kind": "landing",
-        "lat": -14.5692,
-        "lon": 175.4729,
-        "accuracy": "NASA published landing coordinate",
-        "source": "NASA"
+        "name": "Mars 2 lander impact site",
+        "kind": "impact",
+        "lat": -45,
+        "lon": 47,
+        "accuracy": "approximate published map coordinate",
+        "source": "Planetary Society/NSSDC landing-site compilation"
       }
-    ],
-    "named_waypoints": [
-      "Bonneville Crater",
-      "Columbia Hills",
-      "Home Plate",
-      "Husband Hill",
-      "Troy"
-    ]
-  },
-  {
-    "id": "opportunity",
-    "name": "Mars Exploration Rover Opportunity",
-    "country": "USA",
-    "agency": "NASA/JPL",
-    "launch_date": "2003-07-07",
-    "type": "rover",
-    "status": "ended",
-    "description": "Opportunity was NASA's second Mars Exploration Rover and landed in Meridiani Planum. It investigated rocks and sediments for evidence of ancient water, finding extensive evidence that liquid water had once influenced the region. Opportunity operated for more than 14 years, traveling more than 45 kilometers and exploring sites including Endurance Crater, Victoria Crater, and Endeavour Crater.",
-    "images": "",
-    "external_link": "https://science.nasa.gov/mission/mer-opportunity/",
-    "elevation": -1400,
-    "surface_locations": [
-      {
-        "name": "Eagle Crater landing site",
-        "region": "Meridiani Planum",
-        "kind": "landing",
-        "lat": -1.9462,
-        "lon": 174.4734,
-        "accuracy": "published landing-site coordinate",
-        "source": "Planetary Society/JGR compilation"
-      }
-    ],
-    "named_waypoints": [
-      "Endurance Crater",
-      "Victoria Crater",
-      "Cape York",
-      "Cape Tribulation",
-      "Perseverance Valley",
-      "Endeavour Crater rim"
-    ],
-    "traverse_source": "https://science.nasa.gov/photojournal/opportunitys-route-to-endeavour-crater/"
-  },
-  {
-    "id": "pheonix",
-    "name": "Phoenix",
-    "country": "USA",
-    "agency": "NASA/JPL",
-    "launch_date": "2007-08-04",
-    "type": "lander",
-    "status": "ended",
-    "description": "Phoenix was a NASA lander designed to investigate the northern plains of Mars. After landing in Vastitas Borealis, it used a robotic arm to dig into the soil and directly confirmed water ice beneath the surface. The mission also analyzed soil chemistry, observed the atmosphere and weather, and studied the physical and geological properties of the polar environment.",
-    "images": "",
-    "external_link": "https://science.nasa.gov/mission/phoenix/",
-    "elevation": -4131,
-    "surface_locations": [
-      {
-        "name": "Phoenix landing site",
-        "region": "Vastitas Borealis",
-        "kind": "landing",
-        "lat": 68.21883,
-        "lon": -125.749222,
-        "accuracy": "NASA published coordinate converted from east longitude",
-        "source": "NASA"
-      }
-    ]
-  },
-  {
-    "id": "curiosity",
-    "name": "Mars Science Laboratory / Curiosity",
-    "country": "USA",
-    "agency": "NASA/JPL",
-    "launch_date": "2011-11-26",
-    "type": "rover",
-    "status": "active",
-    "description": "Curiosity is NASA's Mars Science Laboratory rover, designed to determine whether Gale Crater ever offered environmental conditions capable of supporting microbial life. It has studied rocks, sediments, minerals, and the atmosphere while climbing the lower slopes of Mount Sharp. Its investigations have provided evidence that ancient Gale Crater contained long-lived environments with liquid water and chemical conditions suitable for life.",
-    "images": "",
-    "external_link": "https://science.nasa.gov/mission/msl-curiosity/",
-    "elevation": -4501,
-    "surface_locations": [
-      {
-        "name": "Bradbury Landing",
-        "region": "Gale Crater",
-        "kind": "landing",
-        "lat": -4.5895,
-        "lon": 137.4417,
-        "accuracy": "published landing coordinate",
-        "source": "JGR mission paper/NASA"
-      }
-    ],
-    "named_waypoints": [
-      "Yellowknife Bay",
-      "Mount Sharp",
-      "Pahrump Hills",
-      "Bagnold Dunes",
-      "Murray Buttes",
-      "Greenheugh Pediment"
-    ],
-    "traverse_source": "https://science.nasa.gov/mission/msl-curiosity/"
-  },
-  {
-    "id": "insight",
-    "name": "InSight",
-    "country": "USA",
-    "agency": "NASA/JPL",
-    "launch_date": "2018-05-05",
-    "type": "lander",
-    "status": "ended",
-    "description": "InSight was a NASA stationary lander designed to study the deep interior of Mars rather than primarily its surface. It deployed a seismometer to detect marsquakes, a heat-flow experiment to investigate the planet's internal heat, and instruments for measuring the planet's rotation and internal structure. The mission produced the first comprehensive seismic observations of Mars before ending after dust accumulation reduced power.",
-    "images": "",
-    "external_link": "https://science.nasa.gov/mission/insight/",
-    "elevation": -2613.43,
-    "surface_locations": [
-      {
-        "name": "InSight landing site",
-        "region": "Elysium Planitia",
-        "kind": "landing",
-        "lat": 4.502,
-        "lon": 135.623,
-        "accuracy": "published final location",
-        "source": "NASA/JPL"
-      }
-    ]
-  },
-  {
-    "id": "tianwen-1",
-    "name": "Tianwen-1 / Zhurong",
-    "country": "China",
-    "agency": "CNSA",
-    "launch_date": "2020-07-23",
-    "type": "orbiter_lander_rover",
-    "status": "orbiter_mission; rover_dormant",
-    "description": "Tianwen-1 was China's first independent Mars mission and successfully placed an orbiter around Mars, landed the Zhurong rover, and operated the rover on the surface. Zhurong studied rocks, soil, surface composition, weather, and subsurface structure while the orbiter continued remote sensing and communications support. The mission demonstrated China's ability to orbit, land, and conduct rover operations at Mars in a single mission.",
-    "images": "",
-    "external_link": "https://www.cnsa.gov.cn/english/n6465652/n6465653/c6813088/content.html",
-    "elevation": -4099.4,
-    "surface_locations": [
-      {
-        "name": "Zhurong landing site",
-        "region": "Utopia Planitia",
-        "kind": "landing",
-        "lat": 24.473,
-        "lon": 110.074,
-        "accuracy": "commonly reported landing coordinate; use as approximate map point",
-        "source": "CNSA mission reporting / published mission maps"
-      }
-    ],
-    "named_waypoints": [
-      "Zhurong landing platform",
-      "Utopia Planitia traverse"
     ]
   },
   {
@@ -401,7 +204,7 @@
         "sol": 13,
         "lat": 18.44462715,
         "lon": 77.45088572,
-        "distance_km": 0.0,
+        "distance_km": 0,
         "source": "NASA M20_waypoints.json"
       },
       {
@@ -446,5 +249,202 @@
       }
     ],
     "full_traverse_source": "https://mars.nasa.gov/mmgis-maps/M20/Layers/json/M20_waypoints.json"
+  },
+  {
+    "id": "mars-express",
+    "name": "Mars Express / Beagle 2",
+    "country": "Europe",
+    "agency": "ESA",
+    "launch_date": "2003-06-02",
+    "type": "orbiter_lander",
+    "status": "orbiter_active_lander_lost",
+    "description": "Mars Express is a European Space Agency orbiter that has studied Mars since 2003, carrying a suite of instruments for investigating the planet's surface, atmosphere, subsurface, and water history. It also carried the Beagle 2 lander, which successfully reached the surface in the Isidis Planitia region but failed to establish communications after landing. Mars Express itself became one of the longest-running Mars orbiters.",
+    "images": "none",
+    "external_link": "https://www.esa.int/Science_Exploration/Space_Science/Mars_Express",
+    "elevation": -3750,
+    "surface_locations": [
+      {
+        "name": "Beagle 2 landing site",
+        "region": "Isidis Planitia",
+        "kind": "landing_site",
+        "lat": 10.6,
+        "lon": 90,
+        "accuracy": "approximate published landing-site coordinate",
+        "source": "NSSDC/Planetary Society compilation"
+      }
+    ]
+  },
+  {
+    "id": "tianwen-1",
+    "name": "Tianwen-1 / Zhurong",
+    "country": "China",
+    "agency": "CNSA",
+    "launch_date": "2020-07-23",
+    "type": "orbiter_lander_rover",
+    "status": "orbiter_mission; rover_dormant",
+    "description": "Tianwen-1 was China's first independent Mars mission and successfully placed an orbiter around Mars, landed the Zhurong rover, and operated the rover on the surface. Zhurong studied rocks, soil, surface composition, weather, and subsurface structure while the orbiter continued remote sensing and communications support. The mission demonstrated China's ability to orbit, land, and conduct rover operations at Mars in a single mission.",
+    "images": "",
+    "external_link": "https://www.cnsa.gov.cn/english/n6465652/n6465653/c6813088/content.html",
+    "elevation": -4099.4,
+    "surface_locations": [
+      {
+        "name": "Zhurong landing site",
+        "region": "Utopia Planitia",
+        "kind": "landing",
+        "lat": 24.473,
+        "lon": 110.074,
+        "accuracy": "commonly reported landing coordinate; use as approximate map point",
+        "source": "CNSA mission reporting / published mission maps"
+      }
+    ],
+    "named_waypoints": [
+      "Zhurong landing platform",
+      "Utopia Planitia traverse"
+    ]
+  },
+  {
+    "id": "viking-2",
+    "name": "Viking 2",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "1975-09-09",
+    "type": "orbiter_lander",
+    "status": "ended",
+    "description": "Viking 2 was the second NASA Viking mission and successfully landed in Utopia Planitia. Its lander returned extensive images, weather observations, soil measurements, and biological experiments, while the orbiter studied Mars from above. Together with Viking 1, it provided the first long-duration surface investigations of Mars.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/viking-2/",
+    "elevation": -4507,
+    "surface_locations": [
+      {
+        "name": "Viking 2 lander",
+        "region": "Utopia Planitia",
+        "kind": "landing",
+        "lat": 47.968,
+        "lon": 134.29,
+        "accuracy": "NASA touchdown coordinate converted from west longitude",
+        "source": "NASA"
+      }
+    ]
+  },
+  {
+    "id": "insight",
+    "name": "InSight",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "2018-05-05",
+    "type": "lander",
+    "status": "ended",
+    "description": "InSight was a NASA stationary lander designed to study the deep interior of Mars rather than primarily its surface. It deployed a seismometer to detect marsquakes, a heat-flow experiment to investigate the planet's internal heat, and instruments for measuring the planet's rotation and internal structure. The mission produced the first comprehensive seismic observations of Mars before ending after dust accumulation reduced power.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/insight/",
+    "elevation": -2613.43,
+    "surface_locations": [
+      {
+        "name": "InSight landing site",
+        "region": "Elysium Planitia",
+        "kind": "landing",
+        "lat": 4.502,
+        "lon": 135.623,
+        "accuracy": "published final location",
+        "source": "NASA/JPL"
+      }
+    ]
+  },
+  {
+    "id": "curiosity",
+    "name": "Mars Science Laboratory / Curiosity",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "2011-11-26",
+    "type": "rover",
+    "status": "active",
+    "description": "Curiosity is NASA's Mars Science Laboratory rover, designed to determine whether Gale Crater ever offered environmental conditions capable of supporting microbial life. It has studied rocks, sediments, minerals, and the atmosphere while climbing the lower slopes of Mount Sharp. Its investigations have provided evidence that ancient Gale Crater contained long-lived environments with liquid water and chemical conditions suitable for life.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/msl-curiosity/",
+    "elevation": -4501,
+    "surface_locations": [
+      {
+        "name": "Bradbury Landing",
+        "region": "Gale Crater",
+        "kind": "landing",
+        "lat": -4.5895,
+        "lon": 137.4417,
+        "accuracy": "published landing coordinate",
+        "source": "JGR mission paper/NASA"
+      }
+    ],
+    "named_waypoints": [
+      "Yellowknife Bay",
+      "Mount Sharp",
+      "Pahrump Hills",
+      "Bagnold Dunes",
+      "Murray Buttes",
+      "Greenheugh Pediment"
+    ],
+    "traverse_source": "https://science.nasa.gov/mission/msl-curiosity/"
+  },
+  {
+    "id": "opportunity",
+    "name": "Mars Exploration Rover Opportunity",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "2003-07-07",
+    "type": "rover",
+    "status": "ended",
+    "description": "Opportunity was NASA's second Mars Exploration Rover and landed in Meridiani Planum. It investigated rocks and sediments for evidence of ancient water, finding extensive evidence that liquid water had once influenced the region. Opportunity operated for more than 14 years, traveling more than 45 kilometers and exploring sites including Endurance Crater, Victoria Crater, and Endeavour Crater.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/mer-opportunity/",
+    "elevation": -1400,
+    "surface_locations": [
+      {
+        "name": "Eagle Crater landing site",
+        "region": "Meridiani Planum",
+        "kind": "landing",
+        "lat": -1.9462,
+        "lon": 174.4734,
+        "accuracy": "published landing-site coordinate",
+        "source": "Planetary Society/JGR compilation"
+      }
+    ],
+    "named_waypoints": [
+      "Endurance Crater",
+      "Victoria Crater",
+      "Cape York",
+      "Cape Tribulation",
+      "Perseverance Valley",
+      "Endeavour Crater rim"
+    ],
+    "traverse_source": "https://science.nasa.gov/photojournal/opportunitys-route-to-endeavour-crater/"
+  },
+  {
+    "id": "spirit",
+    "name": "Mars Exploration Rover Spirit",
+    "country": "USA",
+    "agency": "NASA/JPL",
+    "launch_date": "2003-06-10",
+    "type": "rover",
+    "status": "ended",
+    "description": "Spirit was one of NASA's twin Mars Exploration Rovers. After landing in Gusev Crater, it investigated rocks, soil, and geological features for evidence of past water and the history of the Martian surface. Spirit greatly exceeded its original planned mission duration and explored features including Columbia Hills and Home Plate before becoming immobile and eventually ending communications.",
+    "images": "",
+    "external_link": "https://science.nasa.gov/mission/mer-spirit/",
+    "elevation": -1900,
+    "surface_locations": [
+      {
+        "name": "Columbia Memorial Station",
+        "region": "Gusev Crater",
+        "kind": "landing",
+        "lat": -14.5692,
+        "lon": 175.4729,
+        "accuracy": "NASA published landing coordinate",
+        "source": "NASA"
+      }
+    ],
+    "named_waypoints": [
+      "Bonneville Crater",
+      "Columbia Hills",
+      "Home Plate",
+      "Husband Hill",
+      "Troy"
+    ]
   }
 ]

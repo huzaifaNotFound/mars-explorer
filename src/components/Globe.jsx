@@ -1,8 +1,11 @@
-import { useRef, useEffect, useMemo, useCallback } from "react";
+import { useRef, useEffect, useMemo, useCallback, useState } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
 import surfaceMissions from "../assets/surfacemissions.json";
 import ResetBtn from "./ResetBtn";
+import MissionPanel from "./missionPanel";
+import ModeIndicator from "./ModeIndicator";
+import useGlobeKeyboard from "../hooks/useGlobeKeyboard";
 
 function createGlowTexture() {
   const size = 128;
@@ -25,7 +28,6 @@ function createGlowTexture() {
 }
 
 const GLOW_SCALE = 0.05;
-
 const MARKER_ALTITUDE = 0.02;
 
 export default function MarsGlobe() {
@@ -33,6 +35,10 @@ export default function MarsGlobe() {
   const glowTextureRef = useRef();
   const resetButtonRef = useRef();
   const globeContainerRef = useRef();
+
+  const [mode, setMode] = useState("globe"); 
+  const [focusedIndex, setFocusedIndex] = useState(0);
+  const [selectedMission, setSelectedMission] = useState(null);
 
   useEffect(() => {
     globeContainerRef.current?.focus();
@@ -76,8 +82,8 @@ export default function MarsGlobe() {
     return () => clearTimeout(timer);
   }, []);
 
-  const marsPoints = useMemo(() => {
-    const points = surfaceMissions.flatMap((mission) =>
+  const marsPointsBase = useMemo(() => {
+    return surfaceMissions.flatMap((mission) =>
       mission.surface_locations.map((location) => ({
         lat: location.lat,
         lng: location.lon,
@@ -89,11 +95,26 @@ export default function MarsGlobe() {
         country: mission.country,
         launchDate: mission.launch_date,
         agency: mission.agency,
+        description: mission.description,
+        status: mission.status,
+        external_link: mission.external_link
       })),
     );
-
-    return points;
   }, []);
+
+  const marsPoints = useMemo(() => {
+    return marsPointsBase.map((point, index) => ({
+      ...point,
+      isFocused: mode === 'navigate' && index === focusedIndex
+    }));
+  }, [marsPointsBase, mode, focusedIndex]);
+
+  useEffect(() => {
+    if (mode === 'navigate' && globeRef.current && marsPointsBase.length > 0 && !selectedMission) {
+      const point = marsPointsBase[focusedIndex];
+      globeRef.current.pointOfView({ lat: point.lat, lng: point.lng, altitude: 1.5 }, 500);
+    }
+  }, [focusedIndex, mode, marsPointsBase, selectedMission]);
 
   const makeGlowObject = useCallback(() => {
     const radius = globeRef.current?.getGlobeRadius?.() ?? 100;
@@ -112,79 +133,24 @@ export default function MarsGlobe() {
     return sprite;
   }, []);
 
-  //Arrow keyss
-  const keysPressed = useRef(new Set());
-  const rafId = useRef(null);
-
-  useEffect(() => {
-    const SPEED = 0.6;
-
-    const tick = () => {
-      if (!globeRef.current || keysPressed.current.size === 0) {
-        rafId.current = null;
-        return;
-      }
-
-      const pov = globeRef.current.pointOfView();
-      let { lat, lng } = pov;
-
-      if (keysPressed.current.has("ArrowUp")) lat = Math.min(lat + SPEED, 90);
-      if (keysPressed.current.has("ArrowDown")) lat = Math.max(lat - SPEED, -90);
-      if (keysPressed.current.has("ArrowLeft")) lng -= SPEED;
-      if (keysPressed.current.has("ArrowRight")) lng += SPEED;
-
-      globeRef.current.pointOfView({ lat, lng }, 0);
-      rafId.current = requestAnimationFrame(tick);
-    };
-
-    const onKeyDown = (e) => {
-      if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) return;
-      e.preventDefault();
-      keysPressed.current.add(e.key);
-      if (!rafId.current) rafId.current = requestAnimationFrame(tick);
-    };
-
-    const onKeyUp = (e) => {
-      keysPressed.current.delete(e.key);
-    };
-
-    window.addEventListener("keydown", onKeyDown);
-    window.addEventListener("keyup", onKeyUp);
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-      window.removeEventListener("keyup", onKeyUp);
-      if (rafId.current) cancelAnimationFrame(rafId.current);
-    };
-  }, []);
-
-  function handleKeyboardNavigation(e) {
-    if (e.key === "Tab") {
-      e.preventDefault();
-      return;
-    }
-
-    if (e.key === "Escape") {
-      e.preventDefault();
-
-      const globeContainer = globeContainerRef.current;
-      const resetButton = resetButtonRef.current;
-
-      if (!globeContainer || !resetButton) return;
-
-      if (document.activeElement === globeContainer) {
-        resetButton.focus();
-      } else {
-        globeContainer.focus();
-      }
-    }
-  }
+  useGlobeKeyboard({
+    globeRef,
+    globeContainerRef,
+    resetButtonRef,
+    mode,
+    setMode,
+    focusedIndex,
+    setFocusedIndex,
+    selectedMission,
+    setSelectedMission,
+    marsPointsBase
+  });
 
   return (
     <div
-      className="relative w-full h-full outline-none"
+      className="relative w-full h-full outline-none pointer-events-auto"
       tabIndex={-1}
       ref={globeContainerRef}
-      onKeyDown={handleKeyboardNavigation}
     >
       <Globe
         ref={globeRef}
@@ -215,18 +181,25 @@ export default function MarsGlobe() {
           wrapper.style.display = "flex";
           wrapper.style.alignItems = "center";
           wrapper.style.whiteSpace = "nowrap";
-          wrapper.style.transition = "opacity 0.3s ease";
-          wrapper.style.transform = "translateY(20px)"; 
+          wrapper.style.transition = "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
+          
+          if (d.isFocused) {
+             wrapper.style.transform = "translateY(20px) scale(1.4)";
+             wrapper.style.zIndex = "10";
+          } else {
+             wrapper.style.transform = "translateY(20px) scale(1)";
+             wrapper.style.zIndex = "1";
+          }
 
           const label = document.createElement("span");
           label.textContent = d.name;
-          label.style.color = "#ECEAE6";
+          label.style.color = d.isFocused ? "#F2B84B" : "#ECEAE6"; // text-primary and accent-amber
           label.style.fontSize = "12px";
           label.style.fontFamily = "'Space Grotesk', system-ui, sans-serif";
-          label.style.fontWeight = "500";
-          label.style.textShadow = "0 0 4px rgba(0,0,0,0.8)";
+          label.style.fontWeight = d.isFocused ? "700" : "500";
+          label.style.textShadow = d.isFocused ? "0 0 12px rgba(242,184,75,0.8)" : "0 0 4px rgba(0,0,0,0.8)";
+          
           wrapper.appendChild(label);
-
           outer.appendChild(wrapper);
           return outer;
         }}
@@ -237,6 +210,13 @@ export default function MarsGlobe() {
       />
 
       <ResetBtn globeRef={globeRef} resetButtonRef={resetButtonRef} globeContainerRef={globeContainerRef} />
+      
+      <MissionPanel mission={selectedMission} onClose={() => {
+        setSelectedMission(null);
+        globeContainerRef.current?.focus();
+      }} />
+
+      <ModeIndicator mode={mode} />
     </div>
   );
 }
