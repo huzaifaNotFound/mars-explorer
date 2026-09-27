@@ -1,36 +1,146 @@
-
-
 export default function ModeIndicator({ mode }) {
   return (
-    <div className="absolute bottom-0 right-0 transform z-50 flex items-center space-x-4 bg-bg-surface px-6 py-3 rounded-tl-sm font-mono text-base text-text-primary border border-white/10  pointer-events-none transition-all duration-300">
-      {mode === 'globe' ? (
+    <div className="absolute bottom-0 right-0 z-50 flex items-center space-x-4 bg-bg-surface px-6 py-3 rounded-tl-sm font-mono text-base text-text-primary border border-white/10 pointer-events-none transition-all duration-300">
+      {mode === "globe" ? (
         <>
-          <span className="text-accent-primary tracking-wide">Globe view</span>
-          <span className="w-px h-5 bg-white/20"></span>
-          <div className="flex items-center space-x-3 text-xs">
-            <div className="flex items-center space-x-1">
-              <span className="bg-accent-primary/20 text-accent-primary px-2 py-0.5 rounded border border-accent-primary/30 shadow-[0_0_8px_rgba(217,98,47,0.2)]">Esc</span>
-              <span className="text-text-muted">Navigate missions</span>
+          
+
+          <div className="flex items-center space-x-3 text-sm">
+            
+            <div className="flex items-center space-x-3">
+              <div className="flex flex-col items-center">
+                
+                <span className="bg-accent-secondary/20 text-accent-secondary px-1.5 py-0.5 rounded border border-accent-secondary/30 mb-1">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M12 19V5" />
+                    <path d="M6 11l6-6 6 6" />
+                  </svg>
+                </span>
+
+                <div className="flex items-center gap-1">
+                  <span className="bg-accent-secondary/20 text-accent-secondary px-1.5 py-0.5 rounded border border-accent-secondary/30">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M19 12H5" />
+                      <path d="M11 6l-6 6 6 6" />
+                    </svg>
+                  </span>
+
+                  <span className="bg-accent-secondary/20 text-accent-secondary px-1.5 py-0.5 rounded border border-accent-secondary/30">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M12 5v14" />
+                      <path d="M18 13l-6 6-6-6" />
+                    </svg>
+                  </span>
+
+                  <span className="bg-accent-secondary/20 text-accent-secondary px-1.5 py-0.5 rounded border border-accent-secondary/30">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="M13 6l6 6-6 6" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
+              <span className="text-text-muted whitespace-nowrap">
+                Rotate the Globe
+              </span>
+            </div>
+
+            {/* Esc */}
+            <div className="flex items-center space-x-1 whitespace-nowrap">
+              <span className="bg-accent-primary/20 text-accent-green px-2 py-0.5 rounded border border-accent-green/30">
+                Esc
+              </span>
+              <span className="text-text-muted ml-2">
+                Navigate missions
+              </span>
             </div>
           </div>
         </>
       ) : (
         <>
-          <span className="text-accent-secondary font-semibold tracking-wide capitalize">Navigate mode</span>
-          <span className="w-px h-5 bg-white/20"></span>
-          <div className="flex items-center space-x-3 text-xs">
+
+          <div className="flex items-center space-x-3 text-sm whitespace-nowrap">
             <div className="flex items-center space-x-1">
-              <span className="bg-accent-secondary/20 text-accent-secondary px-1.5 py-0.5 rounded border border-accent-secondary/30">←</span>
-              <span className="bg-accent-secondary/20 text-accent-secondary px-1.5 py-0.5 rounded border border-accent-secondary/30">→</span>
-              <span className="text-text-muted pr-1">Move</span>
+              <span className="bg-accent-secondary/20 text-accent-secondary px-1.5 py-0.5 rounded border border-accent-secondary/30">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M19 12H5" />
+                      <path d="M11 6l-6 6 6 6" />
+                    </svg>
+                  </span>
+
+              <span className="bg-accent-secondary/20 text-accent-secondary px-1.5 py-0.5 rounded border border-accent-secondary/30">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="M13 6l6 6-6 6" />
+                    </svg>
+                  </span>
+
+              <span className="text-text-muted pr-1 ml-2">Move</span>
             </div>
+
             <div className="flex items-center space-x-1">
-              <span className="bg-accent-secondary/20 text-accent-secondary px-2 py-0.5 rounded border border-accent-secondary/30">Enter</span>
-              <span className="text-text-muted pr-1">Select</span>
+              <span className="bg-accent-secondary/20 text-accent-secondary px-2 py-0.5 rounded border border-accent-secondary/30">
+                Enter
+              </span>
+
+              <span className="text-text-muted pr-1 ml-2">Select</span>
             </div>
+
             <div className="flex items-center space-x-1">
-              <span className="bg-accent-primary/20 text-accent-primary px-2 py-0.5 rounded border border-accent-primary/30">Esc</span>
-              <span className="text-text-muted">Globe view</span>
+              <span className="bg-accent-primary/20 text-accent-primary px-2 py-0.5 rounded border border-accent-primary/30">
+                Esc
+              </span>
+
+              <span className="text-text-muted ml-2">Globe view</span>
             </div>
           </div>
         </>
