@@ -71,7 +71,7 @@ export default function MissionPanel({ mission, onClose }) {
     <div 
       ref={panelRef}
       tabIndex={-1}
-      className={`absolute top-0 right-0 h-full w-[400px] bg-bg-primary/95 backdrop-blur-md border-l border-white/10 p-8 flex flex-col z-40 overflow-y-auto text-text-primary font-inter shadow-2xl focus:outline-none transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      className={`absolute top-0 right-0 h-full w-100 bg-bg-primary/95 backdrop-blur-md border-l border-white/10 p-8 flex flex-col z-40 overflow-y-auto text-text-primary font-inter shadow-2xl focus:outline-none transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isVisible ? "translate-x-0 pointer-events-auto" : "translate-x-[110%] pointer-events-none"
       }`}
     >
