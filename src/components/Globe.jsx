@@ -35,10 +35,12 @@ export default function MarsGlobe() {
   const glowTextureRef = useRef();
   const resetButtonRef = useRef();
   const globeContainerRef = useRef();
+  const panelApiRef = useRef(null); // MissionPanel exposes next/prev photo here
 
-  const [mode, setMode] = useState("globe"); 
+  const [mode, setMode] = useState("globe"); // "globe" | "navigate" | "panel"
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [selectedMission, setSelectedMission] = useState(null);
+  const [photoCount, setPhotoCount] = useState(0);
 
   useEffect(() => {
     globeContainerRef.current?.focus();
@@ -97,7 +99,12 @@ export default function MarsGlobe() {
         agency: mission.agency,
         description: mission.description,
         status: mission.status,
-        external_link: mission.external_link
+        external_link: mission.external_link,
+        // new: used by the redesigned panel
+        images: mission.images,
+        type: mission.type,
+        elevation: mission.elevation,
+        region: location.region,
       })),
     );
   }, []);
@@ -105,16 +112,18 @@ export default function MarsGlobe() {
   const marsPoints = useMemo(() => {
     return marsPointsBase.map((point, index) => ({
       ...point,
-      isFocused: mode === 'navigate' && index === focusedIndex
+      // keep the current mission highlighted while its panel is open too
+      isFocused: (mode === "navigate" || mode === "panel") && index === focusedIndex,
     }));
   }, [marsPointsBase, mode, focusedIndex]);
 
+  // Fly to the focused mission when browsing, and when switching missions in the panel
   useEffect(() => {
-    if (mode === 'navigate' && globeRef.current && marsPointsBase.length > 0 && !selectedMission) {
+    if ((mode === "navigate" || mode === "panel") && globeRef.current && marsPointsBase.length > 0) {
       const point = marsPointsBase[focusedIndex];
       globeRef.current.pointOfView({ lat: point.lat, lng: point.lng, altitude: 1.5 }, 500);
     }
-  }, [focusedIndex, mode, marsPointsBase, selectedMission]);
+  }, [focusedIndex, mode, marsPointsBase]);
 
   const makeGlowObject = useCallback(() => {
     const radius = globeRef.current?.getGlobeRadius?.() ?? 100;
@@ -133,7 +142,7 @@ export default function MarsGlobe() {
     return sprite;
   }, []);
 
-  useGlobeKeyboard({
+  const { pressedKeys, focusZone, openMission, closePanel, exitToGlobe } = useGlobeKeyboard({
     globeRef,
     globeContainerRef,
     resetButtonRef,
@@ -143,7 +152,8 @@ export default function MarsGlobe() {
     setFocusedIndex,
     selectedMission,
     setSelectedMission,
-    marsPointsBase
+    marsPointsBase,
+    panelApiRef,
   });
 
   return (
@@ -169,6 +179,7 @@ export default function MarsGlobe() {
         objectAltitude={MARKER_ALTITUDE}
         objectFacesSurface={false}
         objectThreeObject={makeGlowObject}
+        onObjectClick={(point) => openMission(point)}
         htmlElementsData={marsPoints}
         htmlLat="lat"
         htmlLng="lng"
@@ -182,18 +193,18 @@ export default function MarsGlobe() {
           wrapper.style.alignItems = "center";
           wrapper.style.whiteSpace = "nowrap";
           wrapper.style.transition = "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
-          
+
           if (d.isFocused) {
-             wrapper.style.transform = "translateY(20px) scale(1.4)";
-             wrapper.style.zIndex = "10";
+            wrapper.style.transform = "translateY(20px) scale(1.4)";
+            wrapper.style.zIndex = "10";
           } else {
-             wrapper.style.transform = "translateY(20px) scale(1)";
-             wrapper.style.zIndex = "1";
+            wrapper.style.transform = "translateY(20px) scale(1)";
+            wrapper.style.zIndex = "1";
           }
 
           const label = document.createElement("span");
           label.textContent = d.name;
-          label.style.color = d.isFocused ? "#D8B766" : "#ECEAE6"; 
+          label.style.color = d.isFocused ? "#D8B766" : "#ECEAE6";
           label.style.fontSize = "12px";
           label.style.fontFamily = "'JetBrains Mono', system-ui, sans-serif";
           label.style.fontWeight = d.isFocused ? "700" : "500";
@@ -201,8 +212,7 @@ export default function MarsGlobe() {
           label.style.outline = d.isFocused ? "2px dashed #ECEAE6" : "none";
           label.style.outlineOffset = d.isFocused ? "4px" : "none";
           label.style.padding = d.isFocused ? "2px" : "none";
-          // label.style.borderRadius = d.isFocused ? "2px" : "none";
-          
+
           wrapper.appendChild(label);
           outer.appendChild(wrapper);
           return outer;
@@ -213,14 +223,30 @@ export default function MarsGlobe() {
         }}
       />
 
-      <ResetBtn globeRef={globeRef} resetButtonRef={resetButtonRef} globeContainerRef={globeContainerRef} />
-      
-      <MissionPanel mission={selectedMission} onClose={() => {
-        setSelectedMission(null);
-        globeContainerRef.current?.focus();
-      }} />
+      <ResetBtn
+        globeRef={globeRef}
+        resetButtonRef={resetButtonRef}
+        globeContainerRef={globeContainerRef}
+        onReset={exitToGlobe}
+        pressedKeys={pressedKeys}
+      />
 
-      <ModeIndicator mode={mode} />
+      <MissionPanel
+        mission={selectedMission}
+        onClose={closePanel}
+        focusZone={focusZone}
+        pressedKeys={pressedKeys}
+        apiRef={panelApiRef}
+        onPhotoCountChange={setPhotoCount}
+      />
+
+      <ModeIndicator
+        mode={mode}
+        focusZone={focusZone}
+        pressedKeys={pressedKeys}
+        hasLink={!!selectedMission?.external_link}
+        photoCount={photoCount}
+      />
     </div>
   );
 }
