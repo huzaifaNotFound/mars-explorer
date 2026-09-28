@@ -1,14 +1,17 @@
-function ResetBtn({ globeRef, globeContainerRef, resetButtonRef }) {
+function ResetBtn({ globeRef, globeContainerRef, resetButtonRef, onReset, pressedKeys }) {
   const handleReset = () => {
     if (!globeRef.current) return;
     globeRef.current.pointOfView({ lat: 0, lng: 0, altitude: 2.5 }, 800);
+
+    // Close any open panel and switch back to Globe Mode
+    onReset?.();
 
     requestAnimationFrame(() => {
       globeContainerRef.current?.focus();
     });
   };
 
-  
+  const rPressed = !!pressedKeys?.has("r");
 
   return (
     <>
@@ -70,11 +73,14 @@ function ResetBtn({ globeRef, globeContainerRef, resetButtonRef }) {
             focus-visible:-translate-y-px
              group "
         >
-        
-        
           <span
-          id="r"
-            className="absolute -top-5 -right-5 flex items-center justify-center w-8 h-7 px-1 text-sm font-mono font-semibold leading-none bg-accent-amber/20 text-accent-amber rounded border border-accent-amber pointer-events-none group-focus:-translate-y-1 group-focus:translate-x-1 transition-all duration-400 ease-in-out">
+            id="r"
+            className={`absolute -top-5 -right-5 flex items-center justify-center w-8 h-7 px-1 text-sm font-mono font-semibold leading-none rounded border border-accent-amber pointer-events-none group-focus:-translate-y-1 group-focus:translate-x-1 transition-all duration-400 ease-in-out ${
+              rPressed
+                ? "bg-accent-amber/60 text-text-primary scale-90"
+                : "bg-accent-amber/20 text-accent-amber"
+            }`}
+          >
             R
           </span>
           <svg
@@ -95,8 +101,6 @@ function ResetBtn({ globeRef, globeContainerRef, resetButtonRef }) {
       </div>
     </>
   );
-
-  
 }
 
 export default ResetBtn;
