@@ -193,11 +193,15 @@ export default function MarsGlobe() {
 
           const label = document.createElement("span");
           label.textContent = d.name;
-          label.style.color = d.isFocused ? "#F2B84B" : "#ECEAE6"; 
+          label.style.color = d.isFocused ? "#D8B766" : "#ECEAE6"; 
           label.style.fontSize = "12px";
           label.style.fontFamily = "'JetBrains Mono', system-ui, sans-serif";
           label.style.fontWeight = d.isFocused ? "700" : "500";
           label.style.textShadow = d.isFocused ? "0 0 12px rgba(242,184,75,0.8)" : "0 0 4px rgba(0,0,0,0.8)";
+          label.style.outline = d.isFocused ? "2px dashed #ECEAE6" : "none";
+          label.style.outlineOffset = d.isFocused ? "4px" : "none";
+          label.style.padding = d.isFocused ? "2px" : "none";
+          // label.style.borderRadius = d.isFocused ? "2px" : "none";
           
           wrapper.appendChild(label);
           outer.appendChild(wrapper);

@@ -22,6 +22,6 @@
 
 *{
   cursor: none !important;
-  pointer-events: none;
+  pointer-events: none !important;
   user-select: none !important;
 }

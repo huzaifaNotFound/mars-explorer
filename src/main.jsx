@@ -9,6 +9,11 @@ document.addEventListener("keydown",(e)=>{
   }
 });
 
+document.addEventListener('contextmenu', function (event) {
+    event.preventDefault();
+});
+
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <App/>
