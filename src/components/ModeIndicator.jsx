@@ -1,4 +1,4 @@
-import { Arrow, Keycap, HELP_BOX_HEIGHT, PANEL_WIDTH } from "./ui";
+import { Arrow, Keycap, HELP_BOX_HEIGHT, HELP_BOX_WIDTH } from "./ui";
 
 const ARROW_KEY = {
   up: "ArrowUp",
@@ -8,27 +8,27 @@ const ARROW_KEY = {
 };
 
 const CSS = `
-@keyframes helpFade {
+@keyframes modeIndicatorFadeIn {
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.help-fade { animation: helpFade 250ms ease-out; }
-@media (prefers-reduced-motion: reduce) { .help-fade { animation: none; } }
 `;
 
+// keys + label, same layout as the original help box
 function Hint({ label, children }) {
   return (
-    <div className="flex items-center gap-1 whitespace-nowrap">
+    <div className="flex items-center space-x-1 whitespace-nowrap">
       {children}
-      <span className="ml-1.5 text-text-muted">{label}</span>
+      <span className="text-text-muted ml-2">{label}</span>
     </div>
   );
 }
 
 /**
- * Always bottom-right, always the same size. Only the hints inside change.
- * mode:       "globe" | "navigate" | "panel"
- * focusZone:  "view" | "link" | "reset"
+ * Original help-box look, fixed size, always bottom-right.
+ * Only the hints inside change.
+ *   mode:       "globe" | "navigate" | "panel"
+ *   focusZone:  "view" | "link" | "reset"
  */
 export default function ModeIndicator({
   mode,
@@ -41,33 +41,34 @@ export default function ModeIndicator({
   const context = focusZone === "view" ? mode : focusZone;
 
   const arrow = (dir) => (
-    <Keycap key={dir} tone="secondary" pressed={down(ARROW_KEY[dir])}>
-      <Arrow dir={dir} />
+    <Keycap key={dir} icon tone="secondary" pressed={down(ARROW_KEY[dir])}>
+      <Arrow dir={dir} className="w-5 h-5" />
     </Keycap>
   );
 
   return (
     <div
-      className={`pointer-events-none absolute bottom-0 right-0 z-50 max-w-full select-none border border-white/10 bg-bg-surface font-mono text-[13px] text-text-primary ${PANEL_WIDTH} ${HELP_BOX_HEIGHT}`}
+      className={`absolute bottom-0 right-0 z-50 flex items-center justify-center bg-bg-surface rounded-tl-sm font-mono text-base text-text-primary border border-white/10 pointer-events-none ${HELP_BOX_WIDTH} ${HELP_BOX_HEIGHT}`}
     >
       <style>{CSS}</style>
 
       <div
         key={context}
-        className="help-fade flex h-full items-center justify-center gap-5 px-4"
+        className="flex items-center space-x-4"
+        style={{ animation: "modeIndicatorFadeIn 300ms ease-out" }}
       >
         {context === "globe" && (
           <>
             <div className="relative flex items-center gap-1">
-              <div className="absolute bottom-[calc(100%+20px)] left-1/2 -translate-x-1/2 rounded-t-sm border border-b-0 border-white/10 bg-bg-surface px-2 pb-1 pt-2">
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 bg-bg-surface border border-white/10 border-b-0 rounded-t-sm px-2 pt-2 mb-2">
                 {arrow("up")}
               </div>
               {arrow("left")}
               {arrow("down")}
               {arrow("right")}
             </div>
-            <span className="whitespace-nowrap text-text-muted">Rotate globe</span>
-            <Hint label="Browse missions">
+            <span className="text-text-muted whitespace-nowrap">Rotate the Globe</span>
+            <Hint label="Navigate missions">
               <Keycap tone="green" pressed={down("Escape")}>Esc</Keycap>
             </Hint>
           </>
@@ -75,11 +76,11 @@ export default function ModeIndicator({
 
         {context === "navigate" && (
           <>
-            <Hint label="Browse">
+            <Hint label="Move">
               {arrow("left")}
               {arrow("right")}
             </Hint>
-            <Hint label="Open mission">
+            <Hint label="Select">
               <Keycap tone="primary" pressed={down("Enter")}>Enter</Keycap>
             </Hint>
             <Hint label="Globe view">
@@ -101,7 +102,7 @@ export default function ModeIndicator({
               </Hint>
             )}
             {hasLink && (
-              <Hint label="More info">
+              <Hint label="Link">
                 <Keycap tone="amber" pressed={down("l")}>L</Keycap>
               </Hint>
             )}
@@ -116,7 +117,7 @@ export default function ModeIndicator({
             <Hint label="Back">
               <Keycap tone="amber" pressed={down("l")}>L</Keycap>
             </Hint>
-            <Hint label="Open link">
+            <Hint label="Open">
               <Keycap tone="primary" pressed={down("Enter")}>Enter</Keycap>
             </Hint>
           </>
@@ -127,7 +128,7 @@ export default function ModeIndicator({
             <Hint label="Back">
               <Keycap tone="amber" pressed={down("r")}>R</Keycap>
             </Hint>
-            <Hint label="Reset globe">
+            <Hint label="Reset">
               <Keycap tone="primary" pressed={down("Enter")}>Enter</Keycap>
             </Hint>
           </>
