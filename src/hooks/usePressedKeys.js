@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-// Very quick taps would flash too briefly to see, so a key stays
-// highlighted for at least this long after it was pressed.
 const MIN_VISIBLE_MS = 120;
 
 // Returns a Set of currently held keys. Letters are lowercase ("a", "d", "l", "r")
