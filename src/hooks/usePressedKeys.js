@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from "react";
 
 const MIN_VISIBLE_MS = 120;
 
-// Returns a Set of currently held keys. Letters are lowercase ("a", "d", "l", "r")
-// everything else uses e.key ("ArrowLeft", "Enter", "Escape").
 export default function usePressedKeys() {
   const [pressed, setPressed] = useState(() => new Set());
   const downAt = useRef(new Map());
@@ -11,8 +9,7 @@ export default function usePressedKeys() {
   useEffect(() => {
     const norm = (key) => (key.length === 1 ? key.toLowerCase() : key);
 
-    const add = (k) =>
-      setPressed((prev) => (prev.has(k) ? prev : new Set(prev).add(k)));
+    const add = (k) => setPressed((prev) => (prev.has(k) ? prev : new Set(prev).add(k)));
 
     const remove = (k) =>
       setPressed((prev) => {
@@ -37,18 +34,21 @@ export default function usePressedKeys() {
       clearTimeout(timers.current.get(k));
       timers.current.set(
         k,
-        setTimeout(() => {
-          timers.current.delete(k);
-          remove(k);
-        }, Math.max(0, MIN_VISIBLE_MS - held))
+        setTimeout(
+          () => {
+            timers.current.delete(k);
+            remove(k);
+          },
+          Math.max(0, MIN_VISIBLE_MS - held),
+        ),
       );
     };
 
     const clearAll = () => {
-      timers.current.forEach(clearTimeout)
+      timers.current.forEach(clearTimeout);
       timers.current.clear();
-      downAt.current.clear();
-      setPressed(new Set());
+      downAt.current.clear()
+      setPressed(new Set())
     };
 
     window.addEventListener("keydown", onDown);

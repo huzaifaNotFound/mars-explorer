@@ -119,7 +119,7 @@ export default function useGlobeKeyboard({
 
   const toggleLink = useCallback(() => {
     if (modeRef.current !== "panel") return;
-    if (!selectedMissionRef.current?.external_link) return;
+    if (!selectedMissionRef.current?.mission?.external_link) return;
     setZone(zoneRef.current === "link" ? "view" : "link");
   }, [setZone]);
 
@@ -282,7 +282,7 @@ export default function useGlobeKeyboard({
         if (zone === "link") {
           if (key === "Enter") {
             e.preventDefault();
-            const url = selectedMissionRef.current?.external_link;
+            const url = selectedMissionRef.current?.mission?.external_link;
             if (url) window.open(url, "_blank", "noopener,noreferrer");
           }
           return;

@@ -1,19 +1,17 @@
 // Shared UI bits so the panel, help box and Reset button always match.
 // Tailwind needs full class names, so everything here is a static string.
 
-// The help box and the panel share one width. Panel content stops above the box.
-export const PANEL_WIDTH = "w-[32rem]";
-export const HELP_BOX_HEIGHT = "h-16"; // 4rem
-export const HELP_BOX_RESERVE = "pb-20"; // 4rem box + 1rem gap
+// The panel is compact; the help box is a fixed-size HUD anchored bottom-right.
+// Panel content stops above the box: keep HELP_BOX_RESERVE = box height + a small gap.
+export const PANEL_WIDTH = "w-[26rem]";
+export const HELP_BOX_WIDTH = "w-[38rem]";
+export const HELP_BOX_HEIGHT = "h-14"; // 3.5rem
+export const HELP_BOX_RESERVE = "pb-[4.5rem]"; // 3.5rem box + 1rem gap
 
-// One focus look for Reset, photo controls, Close and More info:
-// the same dashed outline your Reset button already uses.
+// The same dashed outline your Reset button uses when focused.
 // FOCUS_ON = this control is the active keyboard target.
-// FOCUS_VISIBLE = real DOM focus.
 export const FOCUS_ON =
   "outline-2 outline-dashed outline-text-primary outline-offset-2";
-export const FOCUS_VISIBLE =
-  "focus-visible:outline-2 focus-visible:outline-dashed focus-visible:outline-text-primary focus-visible:outline-offset-2";
 
 const TONES = {
   secondary: {
@@ -34,12 +32,15 @@ const TONES = {
   },
 };
 
-// A key label. `pressed` fades in while the key is held and out on release.
-export function Keycap({ tone = "secondary", pressed = false, className = "", children }) {
+// A key label in the original help-box style. `pressed` fades in while the key
+// is held and out on release. Use `icon` for arrow keys (tighter padding).
+export function Keycap({ tone = "secondary", pressed = false, icon = false, className = "", children }) {
   const t = TONES[tone];
   return (
     <span
-      className={`inline-flex h-6 min-w-[1.5rem] select-none items-center justify-center rounded border px-1.5 font-mono text-xs leading-none transition-all duration-200 ease-out ${
+      className={`inline-flex select-none items-center rounded border py-0.5 transition-all duration-200 ease-out ${
+        icon ? "px-1.5" : "px-2"
+      } ${
         pressed
           ? `${t.down} scale-90 shadow-[0_0_10px_rgba(255,255,255,0.25)]`
           : t.idle

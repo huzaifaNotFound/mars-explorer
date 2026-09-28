@@ -84,27 +84,15 @@ export default function MarsGlobe() {
     return () => clearTimeout(timer);
   }, []);
 
+  // One globe point per surface location. `mission` is the full JSON entry,
+  // so the panel reads everything straight from surfacemissions.json.
   const marsPointsBase = useMemo(() => {
     return surfaceMissions.flatMap((mission) =>
       mission.surface_locations.map((location) => ({
         lat: location.lat,
         lng: location.lon,
         name: location.name,
-        mission: mission.name,
-        missionId: mission.id,
-        kind: location.kind,
-        accuracy: location.accuracy,
-        country: mission.country,
-        launchDate: mission.launch_date,
-        agency: mission.agency,
-        description: mission.description,
-        status: mission.status,
-        external_link: mission.external_link,
-        // new: used by the redesigned panel
-        images: mission.images,
-        type: mission.type,
-        elevation: mission.elevation,
-        region: location.region,
+        mission,
       })),
     );
   }, []);
@@ -142,7 +130,7 @@ export default function MarsGlobe() {
     return sprite;
   }, []);
 
-  const { pressedKeys, focusZone, openMission, closePanel, exitToGlobe } = useGlobeKeyboard({
+  const { pressedKeys, focusZone, exitToGlobe } = useGlobeKeyboard({
     globeRef,
     globeContainerRef,
     resetButtonRef,
@@ -179,7 +167,6 @@ export default function MarsGlobe() {
         objectAltitude={MARKER_ALTITUDE}
         objectFacesSurface={false}
         objectThreeObject={makeGlowObject}
-        onObjectClick={(point) => openMission(point)}
         htmlElementsData={marsPoints}
         htmlLat="lat"
         htmlLng="lng"
@@ -233,7 +220,6 @@ export default function MarsGlobe() {
 
       <MissionPanel
         mission={selectedMission}
-        onClose={closePanel}
         focusZone={focusZone}
         pressedKeys={pressedKeys}
         apiRef={panelApiRef}
@@ -244,7 +230,7 @@ export default function MarsGlobe() {
         mode={mode}
         focusZone={focusZone}
         pressedKeys={pressedKeys}
-        hasLink={!!selectedMission?.external_link}
+        hasLink={!!selectedMission?.mission?.external_link}
         photoCount={photoCount}
       />
     </div>
