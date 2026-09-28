@@ -11,14 +11,8 @@ export default function ModeIndicator({ mode }) {
       <div key={mode} className="flex items-center space-x-4" style={{ animation: "modeIndicatorFadeIn 300ms ease-out" }}>
         {mode === "globe" ? (
           <>
-            {/* Left / Down / Right stay in normal flow (one line).
-                Up floats directly above this cluster via absolute positioning,
-                so it's sized to just itself - no leftover empty space beside it. */}
             <div className="relative flex items-center gap-1">
-              {/* Small tab sharing the bar's own bg/border, so the up key reads as
-                  a slight protrusion of the same shape rather than a separate
-                  floating badge. -mb-px overlaps the bar's top border to hide the seam. */}
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 -mb-px bg-bg-surface border border-white/10 border-b-0 rounded-t-sm px-2 pt-2 mb-2">
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2  bg-bg-surface border border-white/10 border-b-0 rounded-t-sm px-2 pt-2 mb-2">
                 <span className="flex bg-accent-secondary/20 text-accent-secondary px-1.5 py-0.5 rounded border border-accent-secondary/30">
                   <svg
                     viewBox="0 0 24 24"
@@ -83,7 +77,6 @@ export default function ModeIndicator({ mode }) {
 
             <span className="text-text-muted whitespace-nowrap">Rotate the Globe</span>
 
-            {/* Esc */}
             <div className="flex items-center space-x-1 whitespace-nowrap">
               <span className="bg-accent-primary/20 text-accent-green px-2 py-0.5 rounded border border-accent-green/30">
                 Esc
@@ -130,7 +123,7 @@ export default function ModeIndicator({ mode }) {
             </div>
 
             <div className="flex items-center space-x-1">
-              <span className="bg-accent-secondary/20 text-accent-secondary px-2 py-0.5 rounded border border-accent-secondary/30">
+              <span className="bg-accent-primary/20 text-accent-primary px-2 py-0.5 rounded border border-accent-primary/30">
                 Enter
               </span>
 
@@ -138,7 +131,7 @@ export default function ModeIndicator({ mode }) {
             </div>
 
             <div className="flex items-center space-x-1">
-              <span className="bg-accent-primary/20 text-accent-primary px-2 py-0.5 rounded border border-accent-primary/30">
+              <span className="bg-accent-green/20 text-accent-green px-2 py-0.5 rounded border border-accent-green/30">
                 Esc
               </span>
 
