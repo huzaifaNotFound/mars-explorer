@@ -3,7 +3,6 @@ function ResetBtn({ globeRef, globeContainerRef, resetButtonRef, onReset, presse
     if (!globeRef.current) return;
     globeRef.current.pointOfView({ lat: 0, lng: 0, altitude: 2.5 }, 800);
 
-    // Close any open panel and switch back to Globe Mode
     onReset?.();
 
     requestAnimationFrame(() => {
