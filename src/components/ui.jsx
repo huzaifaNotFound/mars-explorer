@@ -1,15 +1,9 @@
-// Shared UI bits so the panel, help box and Reset button always match.
-// Tailwind needs full class names, so everything here is a static string.
 
-// The panel is compact; the help box is a fixed-size HUD anchored bottom-right.
-// Panel content stops above the box: keep HELP_BOX_RESERVE = box height + a small gap.
 export const PANEL_WIDTH = "w-[26rem]";
 export const HELP_BOX_WIDTH = "w-[38rem]";
-export const HELP_BOX_HEIGHT = "h-14"; // 3.5rem
-export const HELP_BOX_RESERVE = "pb-[4.5rem]"; // 3.5rem box + 1rem gap
+export const HELP_BOX_HEIGHT = "h-14"; 
+export const HELP_BOX_RESERVE = "pb-[4.5rem]"; 
 
-// The same dashed outline your Reset button uses when focused.
-// FOCUS_ON = this control is the active keyboard target.
 export const FOCUS_ON =
   "outline-2 outline-dashed outline-text-primary outline-offset-2";
 
@@ -30,10 +24,12 @@ const TONES = {
     idle: "bg-accent-amber/20 text-accent-amber border-accent-amber/40",
     down: "bg-accent-amber/60 text-text-primary border-accent-amber",
   },
+  red: {
+    idle: "bg-accent-red/20 text-accent-red border-accent-red/40",
+    down: "bg-accent-red/60 text-text-red border-accent-red",
+  }
 };
 
-// A key label in the original help-box style. `pressed` fades in while the key
-// is held and out on release. Use `icon` for arrow keys (tighter padding).
 export function Keycap({ tone = "secondary", pressed = false, icon = false, className = "", children }) {
   const t = TONES[tone];
   return (

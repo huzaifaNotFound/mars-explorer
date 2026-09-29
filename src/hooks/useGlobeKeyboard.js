@@ -3,13 +3,8 @@ import usePressedKeys from "./usePressedKeys";
 
 const SPEED = 0.6;
 const DISCRETE = new Set(["r", "l", "a", "d", "Escape", "Enter"]);
+const ACTION_COOLDOWN_MS = 350;
 
-/**
- * Modes:      "globe" | "navigate" | "panel"
- * focusZone:  "view"  (normal keys for the current mode)
- *             "link"  (panel only: More info box is the target)
- *             "reset" (Reset button is the target, reachable from any mode)
- */
 export default function useGlobeKeyboard({
   globeRef,
   globeContainerRef,
@@ -21,17 +16,18 @@ export default function useGlobeKeyboard({
   selectedMission,
   setSelectedMission,
   marsPointsBase,
-  panelApiRef, // MissionPanel fills this with { nextPhoto, prevPhoto }
+  panelApiRef, 
 }) {
   const pressedKeys = usePressedKeys();
   const [focusZone, setFocusZone] = useState("view");
 
   const keysPressed = useRef(new Set());
   const rafId = useRef(null);
+  const lastActionAt = useRef(0);
 
   const zoneRef = useRef("view");
-  const previousZoneRef = useRef("view"); // where R returns to
-  const panelOriginRef = useRef("navigate"); // where Esc returns to from a panel
+  const previousZoneRef = useRef("view"); 
+  const panelOriginRef = useRef("navigate"); 
 
   const modeRef = useRef(mode);
   const focusedIndexRef = useRef(focusedIndex);
@@ -45,7 +41,6 @@ export default function useGlobeKeyboard({
     selectedMissionRef.current = selectedMission;
   }, [mode, focusedIndex, marsPointsBase, selectedMission]);
 
-  /* ---------- helpers (also returned so App/mouse handlers can reuse them) ---------- */
 
   const setZone = useCallback((z) => {
     zoneRef.current = z;
@@ -65,7 +60,6 @@ export default function useGlobeKeyboard({
     [globeContainerRef]
   );
 
-  // Accepts a point index or a point object (e.g. from a mouse click).
   const openMission = useCallback(
     (target) => {
       const points = marsPointsBaseRef.current;
@@ -88,7 +82,6 @@ export default function useGlobeKeyboard({
     [applyMode, focusGlobe, setFocusedIndex, setSelectedMission, setZone]
   );
 
-  // Leave the panel, back to whichever mode opened it.
   const closePanel = useCallback(() => {
     selectedMissionRef.current = null;
     setSelectedMission(null);
@@ -97,7 +90,6 @@ export default function useGlobeKeyboard({
     focusGlobe();
   }, [applyMode, focusGlobe, setSelectedMission, setZone]);
 
-  // Call this from your Reset button's onClick after resetting the camera.
   const exitToGlobe = useCallback(() => {
     selectedMissionRef.current = null;
     setSelectedMission(null);
@@ -106,7 +98,6 @@ export default function useGlobeKeyboard({
     focusGlobe();
   }, [applyMode, focusGlobe, setSelectedMission, setZone]);
 
-  // R: jump to Reset, or go back to exactly where you were.
   const toggleReset = useCallback(() => {
     if (zoneRef.current === "reset") {
       setZone(previousZoneRef.current);
@@ -123,7 +114,6 @@ export default function useGlobeKeyboard({
     setZone(zoneRef.current === "link" ? "view" : "link");
   }, [setZone]);
 
-  /* ---------- keep the Reset button's DOM focus and the zone in sync ---------- */
 
   useEffect(() => {
     const btn = resetButtonRef?.current;
@@ -146,7 +136,6 @@ export default function useGlobeKeyboard({
     };
   }, [resetButtonRef, setZone]);
 
-  /* ---------- key handling ---------- */
 
   useEffect(() => {
     const tick = () => {
@@ -185,7 +174,7 @@ export default function useGlobeKeyboard({
     };
 
     const onKeyDown = (e) => {
-      if (e.ctrlKey || e.metaKey || e.altKey) return; // leave browser shortcuts alone
+      if (e.ctrlKey || e.metaKey || e.altKey) return; 
       const tag = document.activeElement?.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA") return;
 
@@ -198,20 +187,26 @@ export default function useGlobeKeyboard({
         DISCRETE.has(key) ||
         (mode !== "globe" && (key === "ArrowLeft" || key === "ArrowRight"));
 
-      // Ignore browser key-repeat for one-shot actions
       if (discrete && e.repeat) {
         if (isArrow) e.preventDefault();
         return;
       }
 
-      // R works everywhere and only toggles back and forth
+      if (discrete) {
+        const now = performance.now();
+        if (now - lastActionAt.current < ACTION_COOLDOWN_MS) {
+          e.preventDefault();
+          return;
+        }
+        lastActionAt.current = now;
+      }
+
       if (key === "r") {
         e.preventDefault();
         toggleReset();
         return;
       }
 
-      // Reset view: Enter is handled natively by the focused Reset button
       if (zone === "reset") {
         if (key === "Escape") {
           e.preventDefault();
@@ -242,7 +237,6 @@ export default function useGlobeKeyboard({
           return;
         }
 
-        // globe -> navigate, starting from the mission nearest the view centre
         const points = marsPointsBaseRef.current;
         if (pov && points.length > 0) {
           let minIndex = 0;
@@ -271,7 +265,6 @@ export default function useGlobeKeyboard({
 
       if (document.activeElement !== globeContainerRef.current) return;
 
-      /* ----- panel mode ----- */
       if (mode === "panel") {
         if (key === "l") {
           e.preventDefault();
@@ -302,7 +295,6 @@ export default function useGlobeKeyboard({
         return;
       }
 
-      /* ----- navigate mode ----- */
       if (mode === "navigate") {
         if (key === "ArrowRight") {
           e.preventDefault();
@@ -317,7 +309,6 @@ export default function useGlobeKeyboard({
         return;
       }
 
-      /* ----- globe mode ----- */
       if (isArrow) {
         e.preventDefault();
         keysPressed.current.add(key);

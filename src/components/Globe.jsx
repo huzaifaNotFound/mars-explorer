@@ -35,9 +35,9 @@ export default function MarsGlobe() {
   const glowTextureRef = useRef();
   const resetButtonRef = useRef();
   const globeContainerRef = useRef();
-  const panelApiRef = useRef(null); // MissionPanel exposes next/prev photo here
+  const panelApiRef = useRef(null); 
 
-  const [mode, setMode] = useState("globe"); // "globe" | "navigate" | "panel"
+  const [mode, setMode] = useState("globe"); 
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [selectedMission, setSelectedMission] = useState(null);
   const [photoCount, setPhotoCount] = useState(0);
@@ -84,8 +84,6 @@ export default function MarsGlobe() {
     return () => clearTimeout(timer);
   }, []);
 
-  // One globe point per surface location. `mission` is the full JSON entry,
-  // so the panel reads everything straight from surfacemissions.json.
   const marsPointsBase = useMemo(() => {
     return surfaceMissions.flatMap((mission) =>
       mission.surface_locations.map((location) => ({
@@ -100,12 +98,10 @@ export default function MarsGlobe() {
   const marsPoints = useMemo(() => {
     return marsPointsBase.map((point, index) => ({
       ...point,
-      // keep the current mission highlighted while its panel is open too
       isFocused: (mode === "navigate" || mode === "panel") && index === focusedIndex,
     }));
   }, [marsPointsBase, mode, focusedIndex]);
 
-  // Fly to the focused mission when browsing, and when switching missions in the panel
   useEffect(() => {
     if ((mode === "navigate" || mode === "panel") && globeRef.current && marsPointsBase.length > 0) {
       const point = marsPointsBase[focusedIndex];
@@ -190,7 +186,7 @@ export default function MarsGlobe() {
           }
 
           const label = document.createElement("span");
-          label.textContent = d.name;
+          label.textContent = d.mission.name;
           label.style.color = d.isFocused ? "#D8B766" : "#ECEAE6";
           label.style.fontSize = "12px";
           label.style.fontFamily = "'JetBrains Mono', system-ui, sans-serif";

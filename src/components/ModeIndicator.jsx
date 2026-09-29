@@ -14,7 +14,6 @@ const CSS = `
 }
 `;
 
-// keys + label, same layout as the original help box
 function Hint({ label, children }) {
   return (
     <div className="flex items-center space-x-1 whitespace-nowrap">
@@ -24,12 +23,7 @@ function Hint({ label, children }) {
   );
 }
 
-/**
- * Original help-box look, fixed size, always bottom-right.
- * Only the hints inside change.
- *   mode:       "globe" | "navigate" | "panel"
- *   focusZone:  "view" | "link" | "reset"
- */
+
 export default function ModeIndicator({
   mode,
   focusZone = "view",
@@ -97,8 +91,8 @@ export default function ModeIndicator({
             </Hint>
             {photoCount > 1 && (
               <Hint label="Photos">
-                <Keycap tone="secondary" pressed={down("a")}>A</Keycap>
-                <Keycap tone="secondary" pressed={down("d")}>D</Keycap>
+                <Keycap tone="primary" pressed={down("a")}>A</Keycap>
+                <Keycap tone="primary" pressed={down("d")}>D</Keycap>
               </Hint>
             )}
             {hasLink && (
@@ -106,8 +100,8 @@ export default function ModeIndicator({
                 <Keycap tone="amber" pressed={down("l")}>L</Keycap>
               </Hint>
             )}
-            <Hint label="Close">
-              <Keycap tone="green" pressed={down("Escape")}>Esc</Keycap>
+            <Hint label="Back">
+              <Keycap tone="red" pressed={down("Escape")}>Esc</Keycap>
             </Hint>
           </>
         )}
