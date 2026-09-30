@@ -4,19 +4,6 @@ import { Arrow, FOCUS_ON } from "./ui";
 const NO_PHOTOS = [];
 const keyOf = (point) => point?.name;
 
-const formatDate = (s) => {
-  if (!s) return null;
-  const d = new Date(`${s}T00:00:00Z`);
-  return Number.isNaN(d.getTime())
-    ? s
-    : d.toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-        timeZone: "UTC",
-      });
-};
-
 function statusTone(status = "") {
   if (/active/i.test(status)) return { pill: "border-accent-green/40 text-accent-green", dot: "bg-accent-green" };
   if (/^ended/i.test(status)) return { pill: "border-white/15 text-text-muted", dot: "bg-text-muted" };
@@ -108,6 +95,7 @@ export default function MissionPanel({ mission: point, focusZone = "view", press
     if (!apiRef) return;
     const count = photos.length;
     apiRef.current = {
+      photoCount: count,
       prevPhoto: () => setPhotoIndex((i) => (count > 1 ? (i - 1 + count) % count : i)),
       nextPhoto: () => setPhotoIndex((i) => (count > 1 ? (i + 1) % count : i)),
     };
@@ -121,6 +109,7 @@ export default function MissionPanel({ mission: point, focusZone = "view", press
   const canBrowse = photos.length > 1;
   const photoControlsActive = canBrowse && focusZone === "view";
   const linkActive = focusZone === "link";
+  const zoomed = open && focusZone === "zoom";
   const tone = statusTone(m.status);
 
   const currentPhotoName = photos[photoIndex]?.split("/").pop();
@@ -128,125 +117,155 @@ export default function MissionPanel({ mission: point, focusZone = "view", press
   const currentPhotoDetails = m.photo_details?.[currentPhotoName] ?? "No description available.";
 
   return (
-    <aside
-      aria-hidden={!open}
-      className={`pl-1 mp-root absolute inset-y-0 right-0 z-40 max-w-full border-l border-white/15 bg-bg-primary font-inter text-text-primary transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] w-104 ${
-        open ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
-      }`}
-    >
-      <style>{CSS}</style>
+    <>
+      <aside
+        aria-hidden={!open}
+        className={`pl-1 mp-root absolute inset-y-0 right-0 z-40 max-w-full border-l border-white/15 bg-bg-primary font-inter text-text-primary transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] w-104 ${
+          open ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+        }`}
+      >
+        <style>{CSS}</style>
 
-      <div className="flex h-full flex-col overflow-hidden px-5 pt-5 pb-18">
-        <div
-          className={`mp-swap flex min-h-0 flex-1 flex-col gap-4 transition-all duration-200 ease-out ${
-            swapping ? "translate-y-1.5 opacity-0" : "translate-y-0 opacity-100"
-          }`}
-        >
-          <header className="shrink-0">
-            <div className="mb-2 flex items-center justify-between gap-3 font-mono text-xs pt-3">
-              <span className="flex min-w-0 items-center gap-2">
-                <span className="shrink-0 rounded-sm border border-white/15 px-2 py-0.5">{m.country}</span>
-                <span className="truncate text-text-muted">{m.agency}</span>
-              </span>
-              <span className={`inline-flex shrink-0 items-center gap-1.5 rounded-sm border px-2 py-0.5 ${tone.pill}`}>
-                <span className={`h-1.5 w-1.5 rounded-full ${tone.dot}`} />
-                {m.status}
-              </span>
-            </div>
-            <h2 className="font-space text-2xl font-bold leading-tight tracking-tight pt-2">{m.name}</h2>
-          </header>
-
-          <p className="shrink-0 text-sm leading-relaxed text-text-primary/90">{m.details}</p>
-
-          <hr className="w-[90%] border-text-muted/70 mx-auto my-1" />
-
-          <h3 className="text-base font-inter text-primary font-semibold text-accent-amber/85 -mb-1">Details</h3>
-
-          <div className="grid grid-cols-[auto_auto] gap-y-2 text-sm mb-1">
-            <span className="text-text-muted font-mono">Launch Date</span>
-            <span className="text-text- font-mono">{m.launch_date}</span>
-
-            <span className="text-text-muted font-mono">Landing Date</span>
-            <span className="text-text- font-mono">{m.landing_date}</span>
-
-            <span className="text-text-muted font-mono">Site</span>
-            <span className="text-text- font-mono max-w-60 wrap-break-word">{m.site}</span>
-
-            <span className="text-text-muted font-mono">Coordinate</span>
-            <span className="text-text- font-mono">
-              {m.surface_locations[0].lat}, {m.surface_locations[0].lon}
-            </span>
-          </div>
-
-          {photos.length > 0 && (
-            <div className="relative max-h-56 min-h-20 flex-1 overflow-hidden rounded-sm border border-white/15 bg-bg-surface">
-              {photos.map((src, i) => (
-                <img
-                  key={src}
-                  src={src}
-                  alt={`${m.name}, photo ${i + 1} of ${photos.length}`}
-                  draggable={false}
-                  className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 ease-out ${
-                    i === photoIndex ? "opacity-100" : "opacity-0"
-                  }`}
-                />
-              ))}
-              {canBrowse && (
-                <>
-                  <PhotoArrow dir="left" active={photoControlsActive} />
-                  <PhotoArrow dir="right" active={photoControlsActive} />
-                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-sm bg-bg-primary/70 px-2 py-0.5 font-mono text-xs text-text-muted">
-                    {photoIndex + 1} / {photos.length}
-                  </span>
-                </>
-              )}
-            </div>
-          )}
-
-          <h3 className="text-base font-inter text-primary font-semibold text-accent-amber/85">About the Photo</h3>
-          <p className="shrink-0 text-sm leading-relaxed text-text-primary/90 -mt-2">{currentPhotoDetails}</p>
-
-          {m.external_link && (
-            <div className="relative mt-auto shrink-0">
-              <div
-                className={`flex items-center justify-between gap-2 rounded-sm border border-accent-amber/30 px-4 py-2.5 font-mono text-base font-medium tracking-wider text-text-primary transition-all duration-200 ease-in-out ${
-                  linkActive ? `${FOCUS_ON} -translate-y-px bg-bg-surface` : "bg-bg-primary"
-                }`}
-              >
-                <span>More info</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </div>
-
-              <span
-                className={`absolute -right-3 -top-3 rounded bg-bg-primary transition-all duration-300 ease-in-out ${
-                  linkActive ? "-translate-y-1 translate-x-1" : ""
-                }`}
-              >
-                <span
-                  className={`flex h-7 w-8 items-center justify-center rounded border border-accent-amber font-mono text-sm font-semibold leading-none transition-all duration-200 ${
-                    pressedKeys?.has("l")
-                      ? "scale-90 bg-accent-amber/60 text-text-primary"
-                      : "bg-accent-amber/20 text-accent-amber"
-                  }`}
-                >
-                  L
+        <div className="flex h-full flex-col overflow-hidden px-5 pt-5 pb-18">
+          <div
+            className={`mp-swap flex min-h-0 flex-1 flex-col gap-4 transition-all duration-200 ease-out ${
+              swapping ? "translate-y-1.5 opacity-0" : "translate-y-0 opacity-100"
+            }`}
+          >
+            <header className="shrink-0">
+              <div className="mb-2 flex items-center justify-between gap-3 font-mono text-xs pt-3">
+                <span className="flex min-w-0 items-center gap-2">
+                  <span className="shrink-0 rounded-sm border border-white/15 px-2 py-0.5">{m.country}</span>
+                  <span className="truncate text-text-muted">{m.agency}</span>
                 </span>
+                <span
+                  className={`inline-flex shrink-0 items-center gap-1.5 rounded-sm border px-2 py-0.5 ${tone.pill}`}
+                >
+                  <span className={`h-1.5 w-1.5 rounded-full ${tone.dot}`} />
+                  {m.status}
+                </span>
+              </div>
+              <h2 className="font-space text-2xl font-bold leading-tight tracking-tight pt-2">{m.name}</h2>
+            </header>
+
+            <p className="shrink-0 text-sm leading-relaxed text-text-primary/90">{m.details}</p>
+
+            <hr className="w-[90%] border-text-muted/70 mx-auto my-1" />
+
+            <h3 className="text-base font-inter text-primary font-semibold text-accent-amber/85 -mb-1">Details</h3>
+
+            <div className="grid grid-cols-[auto_auto] gap-y-2 text-sm mb-1">
+              <span className="text-text-muted font-mono">Launch Date</span>
+              <span className="text-text- font-mono">{m.launch_date}</span>
+
+              <span className="text-text-muted font-mono">Landing Date</span>
+              <span className="text-text- font-mono">{m.landing_date}</span>
+
+              <span className="text-text-muted font-mono">Site</span>
+              <span className="text-text- font-mono max-w-60 wrap-break-word">{m.site}</span>
+
+              <span className="text-text-muted font-mono">Coordinate</span>
+              <span className="text-text- font-mono">
+                {m.surface_locations[0].lat}, {m.surface_locations[0].lon}
               </span>
             </div>
-          )}
+
+            {photos.length > 0 && (
+              <div className="relative max-h-56 min-h-20 flex-1 overflow-hidden rounded-sm border-2 border-accent-primary/15 bg-bg-surface">
+                {photos.map((src, i) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt={`${m.name}, photo ${i + 1} of ${photos.length}`}
+                    draggable={false}
+                    className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 ease-out ${
+                      i === photoIndex ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+                ))}
+                {canBrowse && (
+                  <>
+                    <PhotoArrow dir="left" active={photoControlsActive} />
+                    <PhotoArrow dir="right" active={photoControlsActive} />
+                    <span className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-sm bg-bg-primary/70 px-2 py-0.5 font-mono text-xs text-text-muted">
+                      {photoIndex + 1} / {photos.length}
+                    </span>
+                  </>
+                )}
+                <span className="absolute right-2 top-2 rounded bg-bg-primary">
+                  <span
+                    className={`flex h-7 w-8 items-center justify-center rounded border border-accent-primary font-mono text-sm font-semibold leading-none transition-all duration-200 ${
+                      pressedKeys?.has("e")
+                        ? "scale-90 bg-accent-primary/60 text-text-primary"
+                        : "bg-accent-primary/20 text-accent-primary"
+                    }`}
+                  >
+                    E
+                  </span>
+                </span>
+              </div>
+            )}
+
+            <h3 className="text-base font-inter text-primary font-semibold text-accent-amber/85">About the Photo</h3>
+            <p className="shrink-0 text-sm leading-relaxed text-text-primary/90 -mt-2">{currentPhotoDetails}</p>
+
+            {m.external_link && (
+              <div className="relative mt-auto shrink-0">
+                <div
+                  className={`flex items-center justify-between gap-2 rounded-sm border border-accent-amber/30 px-4 py-2.5 font-mono text-base font-medium tracking-wider text-text-primary transition-all duration-200 ease-in-out ${
+                    linkActive ? `${FOCUS_ON} -translate-y-px bg-bg-surface` : "bg-bg-primary"
+                  }`}
+                >
+                  <span>More info</span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </div>
+
+                <span
+                  className={`absolute -right-3 -top-3 rounded bg-bg-primary transition-all duration-300 ease-in-out ${
+                    linkActive ? "-translate-y-1 translate-x-1" : ""
+                  }`}
+                >
+                  <span
+                    className={`flex h-7 w-8 items-center justify-center rounded border border-accent-amber font-mono text-sm font-semibold leading-none transition-all duration-200 ${
+                      pressedKeys?.has("l")
+                        ? "scale-90 bg-accent-amber/60 text-text-primary"
+                        : "bg-accent-amber/20 text-accent-amber"
+                    }`}
+                  >
+                    L
+                  </span>
+                </span>
+              </div>
+            )}
+          </div>
         </div>
+      </aside>
+      <div
+        aria-hidden={!zoomed}
+        className={`absolute inset-0 z-45 flex items-center justify-center bg-black/80 transition-opacity duration-300 ease-out ${
+          zoomed ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
+        {photos[photoIndex] && (
+          <img
+            src={photos[photoIndex]}
+            alt={`${m.name}, photo ${photoIndex + 1} of ${photos.length}`}
+            draggable={false}
+            className="max-h-[70%] max-w-[70%] object-contain"
+          />
+        )}
       </div>
-    </aside>
+    </>
   );
 }

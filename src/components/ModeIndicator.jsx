@@ -90,10 +90,10 @@ export default function ModeIndicator({ mode, focusZone = "view", pressedKeys, h
             </Hint>
             {photoCount > 1 && (
               <Hint label="Photos">
-                <Keycap tone="primary" pressed={down("a")}>
+                <Keycap tone="green" pressed={down("a")}>
                   A
                 </Keycap>
-                <Keycap tone="primary" pressed={down("d")}>
+                <Keycap tone="green" pressed={down("d")}>
                   D
                 </Keycap>
               </Hint>
@@ -102,6 +102,13 @@ export default function ModeIndicator({ mode, focusZone = "view", pressedKeys, h
               <Hint label="Link">
                 <Keycap tone="amber" pressed={down("l")}>
                   L
+                </Keycap>
+              </Hint>
+            )}
+            {photoCount > 0 && (
+              <Hint label="Enlarge">
+                <Keycap tone="primary" pressed={down("e")}>
+                  E
                 </Keycap>
               </Hint>
             )}
@@ -123,6 +130,19 @@ export default function ModeIndicator({ mode, focusZone = "view", pressedKeys, h
             <Hint label="Open">
               <Keycap tone="primary" pressed={down("Enter")}>
                 Enter
+              </Keycap>
+            </Hint>
+          </>
+        )}
+        {context === "zoom" && (
+          <>
+            <Hint label="Photos">
+              {arrow("left")}
+              {arrow("right")}
+            </Hint>
+            <Hint label="Back">
+              <Keycap tone="red" pressed={down("e")}>
+                E
               </Keycap>
             </Hint>
           </>

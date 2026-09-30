@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import usePressedKeys from "./usePressedKeys";
 
 const SPEED = 0.6;
-const DISCRETE = new Set(["r", "l", "a", "d", "Escape", "Enter"]);
+const DISCRETE = new Set(["r", "l", "a", "d", "e", "Escape", "Enter"]);
 const ACTION_COOLDOWN_MS = 350;
 
 export default function useGlobeKeyboard({
@@ -107,6 +107,16 @@ export default function useGlobeKeyboard({
     setZone(zoneRef.current === "link" ? "view" : "link");
   }, [setZone]);
 
+  const toggleZoom = useCallback(() => {
+    if (modeRef.current !== "panel") return;
+    if (zoneRef.current === "zoom") {
+      setZone("view");
+      return;
+    }
+    if (!panelApiRef?.current?.photoCount) return;
+    setZone("zoom");
+  }, [panelApiRef, setZone]);
+
   useEffect(() => {
     const btn = resetButtonRef?.current;
     if (!btn) return;
@@ -192,7 +202,7 @@ export default function useGlobeKeyboard({
 
       if (key === "r") {
         e.preventDefault();
-        toggleReset();
+        if (zone !== "zoom") toggleReset();
         return;
       }
 
@@ -206,6 +216,11 @@ export default function useGlobeKeyboard({
 
       if (key === "Escape") {
         e.preventDefault();
+
+        if (zone === "zoom") {
+          setZone("view");
+          return;
+        }
 
         if (mode === "panel") {
           closePanel();
@@ -250,6 +265,22 @@ export default function useGlobeKeyboard({
       if (document.activeElement !== globeContainerRef.current) return;
 
       if (mode === "panel") {
+        if (key === "e") {
+          e.preventDefault();
+          toggleZoom();
+          return;
+        }
+
+        if (zone === "zoom") {
+          if (key === "ArrowRight") {
+            e.preventDefault();
+            panelApiRef?.current?.nextPhoto?.();
+          } else if (key === "ArrowLeft") {
+            e.preventDefault();
+            panelApiRef?.current?.prevPhoto?.();
+          }
+          return;
+        }
         if (key === "l") {
           e.preventDefault();
           toggleLink();
@@ -333,6 +364,7 @@ export default function useGlobeKeyboard({
     setSelectedMission,
     toggleLink,
     toggleReset,
+    toggleZoom,
   ]);
 
   return { pressedKeys, focusZone, openMission, closePanel, exitToGlobe };

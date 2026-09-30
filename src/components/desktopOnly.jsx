@@ -34,9 +34,6 @@ export default function DesktopOnly({ children }) {
       Please switch to a larger screen to explore Mars.
     </p>
 
-    <div className="mt-8 font-mono text-xs text-text-muted">
-      MINIMUM WIDTH — 1024 PX
-    </div>
   </div>
 </div>
     );
