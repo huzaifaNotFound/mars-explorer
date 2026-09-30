@@ -1,8 +1,4 @@
 
-export const PANEL_WIDTH = "w-[26rem]";
-export const HELP_BOX_WIDTH = "w-[38rem]";
-export const HELP_BOX_HEIGHT = "h-14"; 
-export const HELP_BOX_RESERVE = "pb-[4.5rem]"; 
 
 export const FOCUS_ON =
   "outline-2 outline-dashed outline-text-primary outline-offset-2";
