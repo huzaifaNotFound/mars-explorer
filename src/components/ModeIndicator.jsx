@@ -1,4 +1,4 @@
-import { Arrow, Keycap, HELP_BOX_HEIGHT, HELP_BOX_WIDTH } from "./ui";
+import { Arrow, Keycap} from "./ui";
 
 const ARROW_KEY = {
   up: "ArrowUp",
@@ -42,7 +42,7 @@ export default function ModeIndicator({
 
   return (
     <div
-      className={`absolute bottom-0 right-0 z-50 flex items-center justify-center bg-bg-surface rounded-tl-sm font-mono text-base text-text-primary border border-white/10 pointer-events-none ${HELP_BOX_WIDTH} ${HELP_BOX_HEIGHT}`}
+      className={`absolute bottom-0 right-0 z-50 flex items-center justify-center bg-bg-surface rounded-tl-sm font-mono text-base text-text-primary border border-white/10 pointer-events-none w-auto min-w-120 px-7 h-14`}
     >
       <style>{CSS}</style>
 
@@ -74,7 +74,7 @@ export default function ModeIndicator({
               {arrow("left")}
               {arrow("right")}
             </Hint>
-            <Hint label="Select">
+            <Hint label="Info">
               <Keycap tone="primary" pressed={down("Enter")}>Enter</Keycap>
             </Hint>
             <Hint label="Globe view">

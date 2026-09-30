@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Arrow, FOCUS_ON, HELP_BOX_RESERVE, PANEL_WIDTH } from "./ui";
+import { Arrow, FOCUS_ON} from "./ui";
 
 const NO_PHOTOS = [];
 const keyOf = (point) => point?.name;
@@ -18,10 +18,8 @@ const formatDate = (s) => {
 };
 
 function statusTone(status = "") {
-  if (/active/i.test(status))
-    return { pill: "border-accent-green/40 text-accent-green", dot: "bg-accent-green" };
-  if (/^ended/i.test(status))
-    return { pill: "border-white/15 text-text-muted", dot: "bg-text-muted" };
+  if (/active/i.test(status)) return { pill: "border-accent-green/40 text-accent-green", dot: "bg-accent-green" };
+  if (/^ended/i.test(status)) return { pill: "border-white/15 text-text-muted", dot: "bg-text-muted" };
   return { pill: "border-accent-red/40 text-accent-red", dot: "bg-accent-red" };
 }
 
@@ -44,13 +42,7 @@ const CSS = `
 }
 `;
 
-export default function MissionPanel({
-  mission: point,
-  focusZone = "view",
-  pressedKeys,
-  apiRef, 
-  onPhotoCountChange,
-}) {
+export default function MissionPanel({ mission: point, focusZone = "view", pressedKeys, apiRef, onPhotoCountChange }) {
   const [displayed, setDisplayed] = useState(null);
   const [open, setOpen] = useState(false);
   const [swapping, setSwapping] = useState(false);
@@ -126,23 +118,27 @@ export default function MissionPanel({
 
   if (!displayed || !m) return null;
 
-  const canBrowse = photos.length > 1;
-  const photoControlsActive = canBrowse && focusZone === "view";
-  const linkActive = focusZone === "link";
-  const tone = statusTone(m.status);
-  const launched = formatDate(m.launch_date);
-  const meta = [launched && `Launched ${launched}`, m.site].filter(Boolean).join(" · ");
+const canBrowse = photos.length > 1;
+const photoControlsActive = canBrowse && focusZone === "view";
+const linkActive = focusZone === "link";
+const tone = statusTone(m.status);
+
+const currentPhotoName = photos[photoIndex]?.split("/").pop();
+
+const currentPhotoDetails =
+  m.photo_details?.[currentPhotoName] ?? "No description available.";
+
 
   return (
     <aside
       aria-hidden={!open}
-      className={`pl-1 mp-root absolute inset-y-0 right-0 z-40 max-w-full border-l border-white/15 bg-bg-primary font-inter text-text-primary transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${PANEL_WIDTH} ${
+      className={`pl-1 mp-root absolute inset-y-0 right-0 z-40 max-w-full border-l border-white/15 bg-bg-primary font-inter text-text-primary transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] w-104 ${
         open ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
       }`}
     >
       <style>{CSS}</style>
 
-      <div className={`flex h-full flex-col overflow-hidden px-5 pt-5 ${HELP_BOX_RESERVE}`}>
+      <div className="flex h-full flex-col overflow-hidden px-5 pt-5 pb-18">
         <div
           className={`mp-swap flex min-h-0 flex-1 flex-col gap-4 transition-all duration-200 ease-out ${
             swapping ? "translate-y-1.5 opacity-0" : "translate-y-0 opacity-100"
@@ -151,45 +147,39 @@ export default function MissionPanel({
           <header className="shrink-0">
             <div className="mb-2 flex items-center justify-between gap-3 font-mono text-xs pt-3">
               <span className="flex min-w-0 items-center gap-2">
-                <span className="shrink-0 rounded-sm border border-white/15 px-2 py-0.5">
-                  {m.country}
-                </span>
+                <span className="shrink-0 rounded-sm border border-white/15 px-2 py-0.5">{m.country}</span>
                 <span className="truncate text-text-muted">{m.agency}</span>
               </span>
-              <span
-                className={`inline-flex shrink-0 items-center gap-1.5 rounded-sm border px-2 py-0.5 ${tone.pill}`}
-              >
+              <span className={`inline-flex shrink-0 items-center gap-1.5 rounded-sm border px-2 py-0.5 ${tone.pill}`}>
                 <span className={`h-1.5 w-1.5 rounded-full ${tone.dot}`} />
                 {m.status}
               </span>
             </div>
-            <h2 className="font-space text-2xl font-bold leading-tight tracking-tight pt-2">
-              {m.name}
-            </h2>
+            <h2 className="font-space text-2xl font-bold leading-tight tracking-tight pt-2">{m.name}</h2>
           </header>
 
-            <p className="shrink-0 text-sm leading-relaxed text-text-primary/90">{m.details}</p>
+          <p className="shrink-0 text-sm leading-relaxed text-text-primary/90">{m.details}</p>
 
-            <hr className="w-[90%] border-text-muted/70 mx-auto my-1"/>
+          <hr className="w-[90%] border-text-muted/70 mx-auto my-1" />
 
-            <h3 className="text-base font-inter text-primary font-semibold text-accent-amber/85 -mb-1">Details</h3>
-            
-            <div className="grid grid-cols-[auto_auto] gap-y-2 text-sm mb-1">
-          <span className="text-text-muted font-mono">Launch Date</span>
-          <span className="text-text- font-mono">{m.launch_date}</span>
+          <h3 className="text-base font-inter text-primary font-semibold text-accent-amber/85 -mb-1">Details</h3>
 
-          <span className="text-text-muted font-mono">Landing Date</span>
-          <span className="text-text- font-mono">{m.landing_date}</span>
+          <div className="grid grid-cols-[auto_auto] gap-y-2 text-sm mb-1">
+            <span className="text-text-muted font-mono">Launch Date</span>
+            <span className="text-text- font-mono">{m.launch_date}</span>
 
-          <span className="text-text-muted font-mono">Site</span>
-          <span className="text-text- font-mono max-w-60 wrap-break-word">{m.site}</span>
+            <span className="text-text-muted font-mono">Landing Date</span>
+            <span className="text-text- font-mono">{m.landing_date}</span>
 
-          <span className="text-text-muted font-mono">Coordinate</span>
-          <span className="text-text- font-mono">{m.surface_locations[0].lat}, {m.surface_locations[0].lon}</span>
+            <span className="text-text-muted font-mono">Site</span>
+            <span className="text-text- font-mono max-w-60 wrap-break-word">{m.site}</span>
 
-        </div>
+            <span className="text-text-muted font-mono">Coordinate</span>
+            <span className="text-text- font-mono">
+              {m.surface_locations[0].lat}, {m.surface_locations[0].lon}
+            </span>
+          </div>
 
-            
           {photos.length > 0 && (
             <div className="relative max-h-56 min-h-20 flex-1 overflow-hidden rounded-sm border border-white/15 bg-bg-surface">
               {photos.map((src, i) => (
@@ -198,7 +188,7 @@ export default function MissionPanel({
                   src={src}
                   alt={`${m.name}, photo ${i + 1} of ${photos.length}`}
                   draggable={false}
-                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ease-out ${
+                  className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 ease-out ${
                     i === photoIndex ? "opacity-100" : "opacity-0"
                   }`}
                 />
@@ -215,10 +205,8 @@ export default function MissionPanel({
             </div>
           )}
 
-           <h3 className="text-base font-inter text-primary font-semibold text-accent-amber/85">About the Photo</h3> 
-          
-
-          
+          <h3 className="text-base font-inter text-primary font-semibold text-accent-amber/85">About the Photo</h3>
+          <p className="shrink-0 text-sm leading-relaxed text-text-primary/90 -mt-2">{currentPhotoDetails}</p>
 
           {m.external_link && (
             <div className="relative mt-auto shrink-0">

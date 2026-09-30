@@ -9,11 +9,14 @@
     "status": "Contact lost",
     "site": "Terra Sirenum (approximate)",
     "details": "Mars 3 was a Soviet orbiter and lander aiming to study Mars and achieve the first soft landing on it. The lander touched down successfully, the first spacecraft to do so, but transmitted for only about 20 seconds before contact was lost, possibly due to a dust storm. The orbiter kept returning observations for months.",
-    "photos": ["/images/mars3/mars3.jpg", "/images/mars3/mars3a.png", "/images/mars3/mars3b.jpg"],
+    "photos": ["/images/mars3/mars3b.jpg", "/images/mars3/mars3-wreckage.jpg", "/images/mars3/mars3c.png"],
+    "photo_details":{
+      "mars3-wreckage.jpg":"The bright feature in this image might be the parachute from Mars 3. The image was taken by the High Resolution Imaging Science Experiment (HiRISE) camera on NASA's Mars Reconnaissance Orbiter",
+      "mars3b.jpg":"This is the first ever data transmitted from mars surface, this 70-line partial image was the only image trasmitted by Mars 3 before shutting down just 20 seconds after landing",
+      "mars3c.jpg":"This picture shows Mars 3 Lander model at the Memorial Museum of Cosmonautics in Russia, which was exactlyidentical to Mars 2 Lander."
+    },
     "external_link": "https://en.wikipedia.org/wiki/Mars_3",
-    "surface_locations": [
-      { "name": "Mars 3 lander", "lat": -45.0, "lon": -158.0 }
-    ]
+    "surface_locations": [{ "name": "Mars 3 lander", "lat": -45.0, "lon": -158.0 }]
   },
   {
     "id": "phoenix",
@@ -27,9 +30,7 @@
     "details": "Phoenix was a NASA lander sent to the Martian arctic to search for water ice and judge whether the soil could support life. Its robotic arm dug in and directly confirmed water ice, and it analyzed soil chemistry and weather. It ran about five months, ending when polar winter cut off its solar power.",
     "photos": [],
     "external_link": "https://en.wikipedia.org/wiki/Phoenix_(spacecraft)",
-    "surface_locations": [
-      { "name": "Phoenix landing site", "lat": 68.21883, "lon": -125.749222 }
-    ]
+    "surface_locations": [{ "name": "Phoenix landing site", "lat": 68.21883, "lon": -125.749222 }]
   },
   {
     "id": "viking-1",
@@ -43,9 +44,7 @@
     "details": "Viking 1 was NASA's first mission to land and operate on Mars, aiming to photograph the surface, study soil and weather, and test for life. It returned the first color surface images and ran inconclusive biology experiments, while its orbiter mapped the planet. The lander worked until 1982, over six years.",
     "photos": [],
     "external_link": "https://en.wikipedia.org/wiki/Viking_1",
-    "surface_locations": [
-      { "name": "Viking 1 lander", "lat": 22.483, "lon": -47.968 }
-    ]
+    "surface_locations": [{ "name": "Viking 1 lander", "lat": 22.483, "lon": -47.968 }]
   },
   {
     "id": "mars-pathfinder",
@@ -59,9 +58,7 @@
     "details": "Mars Pathfinder was a low-cost NASA mission to demonstrate airbag landing and deploy the first Mars rover, Sojourner. The rover examined rocks and soil shaped by ancient floods, and the lander sent thousands of images. Both far outlasted their plans before contact ended in 1997.",
     "photos": [],
     "external_link": "https://en.wikipedia.org/wiki/Mars_Pathfinder",
-    "surface_locations": [
-      { "name": "Carl Sagan Memorial Station", "lat": 19.13, "lon": -33.22 }
-    ]
+    "surface_locations": [{ "name": "Carl Sagan Memorial Station", "lat": 19.13, "lon": -33.22 }]
   },
   {
     "id": "mars-6",
@@ -73,11 +70,9 @@
     "status": "Contact lost",
     "site": "Margaritifer Terra (approximate)",
     "details": "Mars 6 was a Soviet orbiter and lander aiming to study the atmosphere and surface of Mars. The lander returned the first direct atmospheric data during descent, but contact was lost at touchdown and it crashed. No surface operations took place, though the flyby section gave some measurements.",
-    "photos": ["/public/images/mars6/mars6.jpg", "/public/images/mars6/Mars_6.jpg"],
+    "photos": ["/images/mars6/mars6.jpg", "/images/mars6/Mars_6.jpg"],
     "external_link": "https://en.wikipedia.org/wiki/Mars_6",
-    "surface_locations": [
-      { "name": "Mars 6 lander", "lat": -23.9, "lon": -19.42 }
-    ]
+    "surface_locations": [{ "name": "Mars 6 lander", "lat": -23.9, "lon": -19.42 }]
   },
   {
     "id": "mars-2",
@@ -90,10 +85,9 @@
     "site": "Hellas Planitia region (approximate)",
     "details": "Mars 2 was a Soviet orbiter and lander aiming to map the planet and attempt one of the first landings. The orbiter returned observations for months, but the descent module failed during entry and crashed, becoming the first human-made object on Mars. The impact site is approximate.",
     "photos": ["/public/images/mars2/mars2.png"],
+    "photo_details":"The is the image of Mars 2 Lander Model which was exactly identical to Mars 3 Lander model.",
     "external_link": "https://en.wikipedia.org/wiki/Mars_2",
-    "surface_locations": [
-      { "name": "Mars 2 lander impact site", "lat": -45.0, "lon": 47.0 }
-    ]
+    "surface_locations": [{ "name": "Mars 2 lander impact site", "lat": -45.0, "lon": 47.0 }]
   },
   {
     "id": "perseverance",
@@ -107,9 +101,7 @@
     "details": "Perseverance is a NASA rover searching for signs of ancient microbial life and collecting rock samples for possible return to Earth. It is exploring an ancient river delta in Jezero Crater. It also carried Ingenuity, the first helicopter to fly on another planet.",
     "photos": [],
     "external_link": "https://en.wikipedia.org/wiki/Perseverance_(rover)",
-    "surface_locations": [
-      { "name": "Octavia E. Butler Landing", "lat": 18.44462715, "lon": 77.45088572 }
-    ]
+    "surface_locations": [{ "name": "Octavia E. Butler Landing", "lat": 18.44462715, "lon": 77.45088572 }]
   },
   {
     "id": "mars-express",
@@ -123,9 +115,7 @@
     "details": "Mars Express is ESA's orbiter, studying Mars' surface, atmosphere, subsurface and water history, and it carried the Beagle 2 lander to search for life. The orbiter has operated since 2003. Beagle 2 landed on Christmas Day 2003 but never made contact, and was found intact in 2015.",
     "photos": [],
     "external_link": "https://en.wikipedia.org/wiki/Mars_Express",
-    "surface_locations": [
-      { "name": "Beagle 2 landing site", "lat": 10.6, "lon": 90.0 }
-    ]
+    "surface_locations": [{ "name": "Beagle 2 landing site", "lat": 10.6, "lon": 90.0 }]
   },
   {
     "id": "tianwen-1",
@@ -139,9 +129,7 @@
     "details": "Tianwen-1 was China's first independent Mars mission, aiming to orbit, land and deploy a rover in one attempt. Zhurong studied rocks, soil, weather and the subsurface, finding hints of past water. It went dormant in 2022 and has not resumed, while the orbiter continues working.",
     "photos": [],
     "external_link": "https://en.wikipedia.org/wiki/Tianwen-1",
-    "surface_locations": [
-      { "name": "Zhurong landing site", "lat": 24.473, "lon": 110.074 }
-    ]
+    "surface_locations": [{ "name": "Zhurong landing site", "lat": 24.473, "lon": 110.074 }]
   },
   {
     "id": "viking-2",
@@ -155,9 +143,7 @@
     "details": "Viking 2 was the second Viking mission, aiming to image the surface, measure weather and soil, and search for life far north of Viking 1. Together the landers gave the first long-duration look at Mars. Its lander worked until 1980, and its orbiter until 1978.",
     "photos": [],
     "external_link": "https://en.wikipedia.org/wiki/Viking_2",
-    "surface_locations": [
-      { "name": "Viking 2 lander", "lat": 47.968, "lon": 134.29 }
-    ]
+    "surface_locations": [{ "name": "Viking 2 lander", "lat": 47.968, "lon": 134.29 }]
   },
   {
     "id": "insight",
@@ -171,9 +157,7 @@
     "details": "InSight was a stationary NASA lander built to study the deep interior of Mars, including its crust, mantle and core. Its seismometer recorded hundreds of marsquakes, though the heat-flow probe could not dig in. The mission ended in December 2022 when dust cut its power.",
     "photos": [],
     "external_link": "https://en.wikipedia.org/wiki/InSight",
-    "surface_locations": [
-      { "name": "InSight landing site", "lat": 4.502, "lon": 135.623 }
-    ]
+    "surface_locations": [{ "name": "InSight landing site", "lat": 4.502, "lon": 135.623 }]
   },
   {
     "id": "curiosity",
@@ -185,11 +169,36 @@
     "status": "Active",
     "site": "Gale Crater",
     "details": "Curiosity is a NASA rover sent to learn whether Gale Crater once had conditions able to support microbial life. Landing by sky crane, it found evidence of long-lived liquid water. It remains active, climbing Mount Sharp and studying rocks and the atmosphere.",
-    "photos": [],
+    "photos": [
+      "/images/curiosity/curiosity.jpg",
+      "/images/curiosity/lightning.webp",
+      "/images/curiosity/dusty-curiosity.webp",
+      "/images/curiosity/sun-curiosity.webp",
+      "/images/curiosity/curiosity-drills.webp",
+      "/images/curiosity/carved.webp",
+      "/images/curiosity/mount-sharp.webp",
+      "/images/curiosity/panorama.jpg",
+      "/images/curiosity/valley.webp",
+      "/images/curiosity/self-photo.webp",
+      "/images/curiosity/sulfur.webp",
+      "/images/curiosity/thumbprint.webp"
+    ],
+    "photo_details": {
+      "dusty-curiosity.webp": "Curiosity captures a self-portrait using the MAHLI camera at the end of her robotic arm. the rover has accumulated lots of dust and a few holes in her wheels.",
+      "sun-curiosity.webp": "Curiosity took a photo of the Martian sunset in color for the first time on April 15, 2015, revealing a brilliant blue sky just before the sun dipped behind the shrouded mountains in the distance",
+      "self-photo.webp": "Curiosity took the 57 MAHLI photos used to assemble this self-portrait on sol 1228 (January 19, 2016)",
+      "curiosity-drills.webp": "This photos shows all sample sites curiosity drilled for sampling. The drill powders the rock so that the samples can be transported to Curiosity's science instruments, which measure their chemical composition.",
+      "mount-sharp.webp": "Curiosity snapped this photo of Mount Sharp on Feb. 19, 2014, about a year and a half after it landed on Mars.",
+      "carved.webp": "This photo sent by curiosity on May 7, 2022 looks like a gate carved out by aliens but is actually a 3 foot tall opening caused by vertical fractures intersecting with horizontal layers in the rock.",
+      "thumbprint.webp": " Sept. 17, 2017, Curiosity dusted off the surface of a rock at Vera Rubin Ridge and took a picture for geologists to compare to rocks on Earth. ",
+      "curiosity.jpg": "The rover for NASA's Mars Science Laboratory mission, named Curiosity, is seen here inside the Spacecraft Assembly Facility at NASA's Jet Propulsion Laboratory, Pasadena, Calif, on April 4, 2011.",
+      "panorama.jpg": "NASA's Curiosity rover captured its highest-resolution panorama yet of the Martian surface between Nov. 24 and Dec. 1, 2019. This picture contains nearly 650 million pixels. ",
+      "lightning.webp": "Just after the sun went down on Jan. 27, 2023, Curiosity took this photo of a noctilucent (night-shining) cloud which according to scientists is formed of dry ice.",
+      "valley.webp": "This photo taken on Sep 26, 2025, shows ridges, made from hardened minerals deposited by water seeping into cracked rock, on the Martian surface.",
+      "sulfur.webp": "In June 2024, Curiosity unintentionally ran over a rock and crushed it, revealing a yellow, odorless surprise: rare crystals of elemental sulfur."
+    },
     "external_link": "https://en.wikipedia.org/wiki/Curiosity_(rover)",
-    "surface_locations": [
-      { "name": "Bradbury Landing", "lat": -4.5895, "lon": 137.4417 }
-    ]
+    "surface_locations": [{ "name": "Bradbury Landing", "lat": -4.5895, "lon": 137.4417 }]
   },
   {
     "id": "opportunity",
@@ -203,9 +212,7 @@
     "details": "Opportunity was a NASA rover sent to Meridiani Planum to look for evidence of past liquid water. It found extensive proof and visited Endurance, Victoria and Endeavour craters. Planned for 90 days, it worked over 14 years before a dust storm ended contact in 2018.",
     "photos": [],
     "external_link": "https://en.wikipedia.org/wiki/Opportunity_(rover)",
-    "surface_locations": [
-      { "name": "Eagle Crater landing site", "lat": -1.9462, "lon": 174.4734 }
-    ]
+    "surface_locations": [{ "name": "Eagle Crater landing site", "lat": -1.9462, "lon": 174.4734 }]
   },
   {
     "id": "spirit",
@@ -219,8 +226,6 @@
     "details": "Spirit was a NASA rover sent to Gusev Crater to search for evidence of past water. It explored the Columbia Hills and Home Plate, finding signs of ancient hot springs. Planned for 90 days, it lasted about six years, stuck in sand by 2009 and silent by 2010.",
     "photos": [],
     "external_link": "https://en.wikipedia.org/wiki/Spirit_(rover)",
-    "surface_locations": [
-      { "name": "Columbia Memorial Station", "lat": -14.5692, "lon": 175.4729 }
-    ]
+    "surface_locations": [{ "name": "Columbia Memorial Station", "lat": -14.5692, "lon": 175.4729 }]
   }
 ]
