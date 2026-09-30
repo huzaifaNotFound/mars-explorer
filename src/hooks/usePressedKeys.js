@@ -47,8 +47,8 @@ export default function usePressedKeys() {
     const clearAll = () => {
       timers.current.forEach(clearTimeout);
       timers.current.clear();
-      downAt.current.clear()
-      setPressed(new Set())
+      downAt.current.clear();
+      setPressed(new Set());
     };
 
     window.addEventListener("keydown", onDown);

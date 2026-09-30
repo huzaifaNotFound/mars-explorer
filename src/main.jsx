@@ -1,20 +1,20 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App"; 
+import App from "./App";
 
-document.addEventListener("keydown",(e)=>{
-  if(e.key === 'Tab'){
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Tab") {
     e.preventDefault();
   }
 });
 
-document.addEventListener('contextmenu', function (event) {
-    event.preventDefault();
+document.addEventListener("contextmenu", function (event) {
+  event.preventDefault();
 });
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App/>
-  </StrictMode> 
-);  
+    <App />
+  </StrictMode>,
+);

@@ -1,4 +1,4 @@
-import { Arrow, Keycap} from "./ui";
+import { Arrow, Keycap } from "./ui";
 
 const ARROW_KEY = {
   up: "ArrowUp",
@@ -23,14 +23,7 @@ function Hint({ label, children }) {
   );
 }
 
-
-export default function ModeIndicator({
-  mode,
-  focusZone = "view",
-  pressedKeys,
-  hasLink = false,
-  photoCount = 0,
-}) {
+export default function ModeIndicator({ mode, focusZone = "view", pressedKeys, hasLink = false, photoCount = 0 }) {
   const down = (k) => !!pressedKeys?.has(k);
   const context = focusZone === "view" ? mode : focusZone;
 
@@ -63,7 +56,9 @@ export default function ModeIndicator({
             </div>
             <span className="text-text-muted whitespace-nowrap">Rotate the Globe</span>
             <Hint label="Navigate missions">
-              <Keycap tone="green" pressed={down("Escape")}>Esc</Keycap>
+              <Keycap tone="green" pressed={down("Escape")}>
+                Esc
+              </Keycap>
             </Hint>
           </>
         )}
@@ -75,10 +70,14 @@ export default function ModeIndicator({
               {arrow("right")}
             </Hint>
             <Hint label="Info">
-              <Keycap tone="primary" pressed={down("Enter")}>Enter</Keycap>
+              <Keycap tone="primary" pressed={down("Enter")}>
+                Enter
+              </Keycap>
             </Hint>
             <Hint label="Globe view">
-              <Keycap tone="green" pressed={down("Escape")}>Esc</Keycap>
+              <Keycap tone="green" pressed={down("Escape")}>
+                Esc
+              </Keycap>
             </Hint>
           </>
         )}
@@ -91,17 +90,25 @@ export default function ModeIndicator({
             </Hint>
             {photoCount > 1 && (
               <Hint label="Photos">
-                <Keycap tone="primary" pressed={down("a")}>A</Keycap>
-                <Keycap tone="primary" pressed={down("d")}>D</Keycap>
+                <Keycap tone="primary" pressed={down("a")}>
+                  A
+                </Keycap>
+                <Keycap tone="primary" pressed={down("d")}>
+                  D
+                </Keycap>
               </Hint>
             )}
             {hasLink && (
               <Hint label="Link">
-                <Keycap tone="amber" pressed={down("l")}>L</Keycap>
+                <Keycap tone="amber" pressed={down("l")}>
+                  L
+                </Keycap>
               </Hint>
             )}
             <Hint label="Back">
-              <Keycap tone="red" pressed={down("Escape")}>Esc</Keycap>
+              <Keycap tone="red" pressed={down("Escape")}>
+                Esc
+              </Keycap>
             </Hint>
           </>
         )}
@@ -109,10 +116,14 @@ export default function ModeIndicator({
         {context === "link" && (
           <>
             <Hint label="Back">
-              <Keycap tone="amber" pressed={down("l")}>L</Keycap>
+              <Keycap tone="amber" pressed={down("l")}>
+                L
+              </Keycap>
             </Hint>
             <Hint label="Open">
-              <Keycap tone="primary" pressed={down("Enter")}>Enter</Keycap>
+              <Keycap tone="primary" pressed={down("Enter")}>
+                Enter
+              </Keycap>
             </Hint>
           </>
         )}
@@ -120,10 +131,14 @@ export default function ModeIndicator({
         {context === "reset" && (
           <>
             <Hint label="Back">
-              <Keycap tone="amber" pressed={down("r")}>R</Keycap>
+              <Keycap tone="amber" pressed={down("r")}>
+                R
+              </Keycap>
             </Hint>
             <Hint label="Reset">
-              <Keycap tone="primary" pressed={down("Enter")}>Enter</Keycap>
+              <Keycap tone="primary" pressed={down("Enter")}>
+                Enter
+              </Keycap>
             </Hint>
           </>
         )}
