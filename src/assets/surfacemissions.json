@@ -279,7 +279,14 @@
     "status": "Ended",
     "site": "Meridiani Planum",
     "details": "Opportunity was a NASA rover sent to Meridiani Planum to look for evidence of past liquid water. It found extensive proof and visited Endurance, Victoria and Endeavour craters. Planned for 90 days, it worked over 14 years before a dust storm ended contact in 2018.",
-    "photos": [],
+    "photos": ["/images/oppurtunity/opputunity.jpg","/images/oppurtunity/panorama.webp","/images/oppurtunity/dune.webp","/images/oppurtunity/terrain.webp"],
+    "photo_details":{
+      "oppurtunity.jpg":"This image shows Mars Exploration Rover 1, fully assembled. at a NASA premise.",
+      "panorama.webp":"This 360-degree panorama is one of the first images beamed back to Earth from the Mars Exploration Rover Opportunity shortly after it touched down at Meridiani Planum, Mars. The unmanned, six-wheeled rover landed at 9:05 p.m. PST Saturday Jan. 24, 2004, in Meridiani Planum.",
+      "tracks.webp":"This photo released Thursday, Feb. 5, 2004 made by one of the rear hazard-avoidance cameras on NASA's Opportunity rover, shows Opportunity's landing platform, with freshly made tracks leading away from it.",
+      "dune.webp":"This photo made available by NASA on Aug. 6, 2004, shows sand dunes less than 1 meter (3.3 feet) high in the \"Endurance Crater\" on the planet Mars, seen by the Opportunity rover.",
+      "terrain.webp":"This composite of March 2015 photos made available by NASA shows a shallow crater called Spirit of St. Louis, about 110 feet (34 meters) long and about 80 feet (24 meters) wide, with a floor slightly darker than surrounding terrain."
+    },
     "external_link": "https://en.wikipedia.org/wiki/Opportunity_(rover)",
     "surface_locations": [{ "name": "Eagle Crater landing site", "lat": -1.9462, "lon": 174.4734 }]
   },
