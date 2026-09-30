@@ -279,7 +279,7 @@
     "status": "Ended",
     "site": "Meridiani Planum",
     "details": "Opportunity was a NASA rover sent to Meridiani Planum to look for evidence of past liquid water. It found extensive proof and visited Endurance, Victoria and Endeavour craters. Planned for 90 days, it worked over 14 years before a dust storm ended contact in 2018.",
-    "photos": ["/images/oppurtunity/opputunity.jpg","/images/oppurtunity/panorama.webp","/images/oppurtunity/dune.webp","/images/oppurtunity/terrain.webp"],
+    "photos": ["/images/oppurtunity/oppurtunity.jpg","/images/oppurtunity/panorama.webp","/images/oppurtunity/dune.webp","/images/oppurtunity/terrain.webp"],
     "photo_details":{
       "oppurtunity.jpg":"This image shows Mars Exploration Rover 1, fully assembled. at a NASA premise.",
       "panorama.webp":"This 360-degree panorama is one of the first images beamed back to Earth from the Mars Exploration Rover Opportunity shortly after it touched down at Meridiani Planum, Mars. The unmanned, six-wheeled rover landed at 9:05 p.m. PST Saturday Jan. 24, 2004, in Meridiani Planum.",
