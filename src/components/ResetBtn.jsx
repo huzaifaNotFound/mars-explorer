@@ -28,7 +28,7 @@ function ResetBtn({ globeRef, globeContainerRef, resetButtonRef, onReset, presse
           <span className="text-text- font-mono">6,779 km</span>
 
           <span className="text-text-muted font-mono">Day Length</span>
-          <span className="text-text- font-mono">24h 37m</span>
+          <span className="text-text- font-mono">24h 39m 35s (called sol)</span>
 
           <span className="text-text-muted font-mono">Gravity</span>
           <span className="text-text- font-mono">3.71 m/s²</span>
