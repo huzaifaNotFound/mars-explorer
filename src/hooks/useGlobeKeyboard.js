@@ -17,6 +17,7 @@ export default function useGlobeKeyboard({
   setSelectedMission,
   marsPointsBase,
   panelApiRef,
+  enabled = true,
 }) {
   const pressedKeys = usePressedKeys();
   const [focusZone, setFocusZone] = useState("view");
@@ -51,33 +52,54 @@ export default function useGlobeKeyboard({
       modeRef.current = m;
       setMode(m);
     },
-    [setMode],
+    [setMode]
   );
 
-  const focusGlobe = useCallback(() => globeContainerRef.current?.focus(), [globeContainerRef]);
+  const focusGlobe = useCallback(
+    () => globeContainerRef.current?.focus(),
+    [globeContainerRef]
+  );
 
   const openMission = useCallback(
     (target) => {
       const points = marsPointsBaseRef.current;
-      const index = typeof target === "number" ? target : points.findIndex((p) => p.name === target?.name);
+
+      const index =
+        typeof target === "number"
+          ? target
+          : points.findIndex((p) => p.name === target?.name);
+
       const point = points[index];
+
       if (!point) return;
 
-      if (modeRef.current !== "panel") panelOriginRef.current = modeRef.current;
+      if (modeRef.current !== "panel") {
+        panelOriginRef.current = modeRef.current;
+      }
+
       focusedIndexRef.current = index;
       setFocusedIndex(index);
+
       selectedMissionRef.current = point;
       setSelectedMission(point);
+
       applyMode("panel");
       setZone("view");
       focusGlobe();
     },
-    [applyMode, focusGlobe, setFocusedIndex, setSelectedMission, setZone],
+    [
+      applyMode,
+      focusGlobe,
+      setFocusedIndex,
+      setSelectedMission,
+      setZone,
+    ]
   );
 
   const closePanel = useCallback(() => {
     selectedMissionRef.current = null;
     setSelectedMission(null);
+
     applyMode(panelOriginRef.current);
     setZone("view");
     focusGlobe();
@@ -86,6 +108,7 @@ export default function useGlobeKeyboard({
   const exitToGlobe = useCallback(() => {
     selectedMissionRef.current = null;
     setSelectedMission(null);
+
     applyMode("globe");
     setZone("view");
     focusGlobe();
@@ -104,34 +127,44 @@ export default function useGlobeKeyboard({
   const toggleLink = useCallback(() => {
     if (modeRef.current !== "panel") return;
     if (!selectedMissionRef.current?.mission?.external_link) return;
+
     setZone(zoneRef.current === "link" ? "view" : "link");
   }, [setZone]);
 
   const toggleZoom = useCallback(() => {
     if (modeRef.current !== "panel") return;
+
     if (zoneRef.current === "zoom") {
       setZone("view");
       return;
     }
+
     if (!panelApiRef?.current?.photoCount) return;
+
     setZone("zoom");
   }, [panelApiRef, setZone]);
 
   useEffect(() => {
     const btn = resetButtonRef?.current;
+
     if (!btn) return;
 
     const onFocus = () => {
       if (zoneRef.current === "reset") return;
+
       previousZoneRef.current = zoneRef.current;
       setZone("reset");
     };
+
     const onBlur = () => {
-      if (zoneRef.current === "reset") setZone(previousZoneRef.current);
+      if (zoneRef.current === "reset") {
+        setZone(previousZoneRef.current);
+      }
     };
 
     btn.addEventListener("focus", onFocus);
     btn.addEventListener("blur", onBlur);
+
     return () => {
       btn.removeEventListener("focus", onFocus);
       btn.removeEventListener("blur", onBlur);
@@ -141,6 +174,7 @@ export default function useGlobeKeyboard({
   useEffect(() => {
     const tick = () => {
       if (
+        !enabled ||
         !globeRef.current ||
         keysPressed.current.size === 0 ||
         modeRef.current !== "globe" ||
@@ -151,23 +185,42 @@ export default function useGlobeKeyboard({
       }
 
       const pov = globeRef.current.pointOfView();
+
       let { lat, lng } = pov;
 
-      if (keysPressed.current.has("ArrowUp")) lat = Math.min(lat + SPEED, 90);
-      if (keysPressed.current.has("ArrowDown")) lat = Math.max(lat - SPEED, -90);
-      if (keysPressed.current.has("ArrowLeft")) lng -= SPEED;
-      if (keysPressed.current.has("ArrowRight")) lng += SPEED;
+      if (keysPressed.current.has("ArrowUp")) {
+        lat = Math.min(lat + SPEED, 90);
+      }
+
+      if (keysPressed.current.has("ArrowDown")) {
+        lat = Math.max(lat - SPEED, -90);
+      }
+
+      if (keysPressed.current.has("ArrowLeft")) {
+        lng -= SPEED;
+      }
+
+      if (keysPressed.current.has("ArrowRight")) {
+        lng += SPEED;
+      }
 
       globeRef.current.pointOfView({ lat, lng }, 0);
+
       rafId.current = requestAnimationFrame(tick);
     };
 
     const stepMission = (dir) => {
       const points = marsPointsBaseRef.current;
+
       if (!points.length) return;
-      const next = (focusedIndexRef.current + dir + points.length) % points.length;
+
+      const next =
+        (focusedIndexRef.current + dir + points.length) %
+        points.length;
+
       focusedIndexRef.current = next;
       setFocusedIndex(next);
+
       if (modeRef.current === "panel") {
         selectedMissionRef.current = points[next];
         setSelectedMission(points[next]);
@@ -175,16 +228,29 @@ export default function useGlobeKeyboard({
     };
 
     const onKeyDown = (e) => {
+      // Do absolutely nothing while the welcome screen is open.
+      if (!enabled) return;
+
       if (e.ctrlKey || e.metaKey || e.altKey) return;
+
       const tag = document.activeElement?.tagName;
+
       if (tag === "INPUT" || tag === "TEXTAREA") return;
 
-      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      const key =
+        e.key.length === 1
+          ? e.key.toLowerCase()
+          : e.key;
+
       const isArrow = key.startsWith("Arrow");
+
       const mode = modeRef.current;
       const zone = zoneRef.current;
 
-      const discrete = DISCRETE.has(key) || (mode !== "globe" && (key === "ArrowLeft" || key === "ArrowRight"));
+      const discrete =
+        DISCRETE.has(key) ||
+        (mode !== "globe" &&
+          (key === "ArrowLeft" || key === "ArrowRight"));
 
       if (discrete && e.repeat) {
         if (isArrow) e.preventDefault();
@@ -193,16 +259,25 @@ export default function useGlobeKeyboard({
 
       if (discrete) {
         const now = performance.now();
-        if (now - lastActionAt.current < ACTION_COOLDOWN_MS) {
+
+        if (
+          now - lastActionAt.current <
+          ACTION_COOLDOWN_MS
+        ) {
           e.preventDefault();
           return;
         }
+
         lastActionAt.current = now;
       }
 
       if (key === "r") {
         e.preventDefault();
-        if (zone !== "zoom") toggleReset();
+
+        if (zone !== "zoom") {
+          toggleReset();
+        }
+
         return;
       }
 
@@ -211,6 +286,7 @@ export default function useGlobeKeyboard({
           e.preventDefault();
           toggleReset();
         }
+
         return;
       }
 
@@ -231,22 +307,40 @@ export default function useGlobeKeyboard({
 
         if (mode === "navigate") {
           if (pov) {
-            globeRef.current.pointOfView({ lat: pov.lat, lng: pov.lng, altitude: 2.5 }, 800);
+            globeRef.current.pointOfView(
+              {
+                lat: pov.lat,
+                lng: pov.lng,
+                altitude: 2.5,
+              },
+              800
+            );
           }
+
           applyMode("globe");
           focusGlobe();
+
           return;
         }
 
         const points = marsPointsBaseRef.current;
+
         if (pov && points.length > 0) {
           let minIndex = 0;
           let minDistance = Infinity;
 
           points.forEach((point, index) => {
-            const x = (point.lng - pov.lng) * Math.cos(((pov.lat + point.lat) / 2) * (Math.PI / 180));
+            const x =
+              (point.lng - pov.lng) *
+              Math.cos(
+                ((pov.lat + point.lat) / 2) *
+                  (Math.PI / 180)
+              );
+
             const y = point.lat - pov.lat;
+
             const distanceSq = x * x + y * y;
+
             if (distanceSq < minDistance) {
               minDistance = distanceSq;
               minIndex = index;
@@ -259,10 +353,16 @@ export default function useGlobeKeyboard({
 
         applyMode("navigate");
         focusGlobe();
+
         return;
       }
 
-      if (document.activeElement !== globeContainerRef.current) return;
+      if (
+        document.activeElement !==
+        globeContainerRef.current
+      ) {
+        return;
+      }
 
       if (mode === "panel") {
         if (key === "e") {
@@ -279,8 +379,10 @@ export default function useGlobeKeyboard({
             e.preventDefault();
             panelApiRef?.current?.prevPhoto?.();
           }
+
           return;
         }
+
         if (key === "l") {
           e.preventDefault();
           toggleLink();
@@ -290,9 +392,20 @@ export default function useGlobeKeyboard({
         if (zone === "link") {
           if (key === "Enter") {
             e.preventDefault();
-            const url = selectedMissionRef.current?.mission?.external_link;
-            if (url) window.open(url, "_blank", "noopener,noreferrer");
+
+            const url =
+              selectedMissionRef.current?.mission
+                ?.external_link;
+
+            if (url) {
+              window.open(
+                url,
+                "_blank",
+                "noopener,noreferrer"
+              );
+            }
           }
+
           return;
         }
 
@@ -307,6 +420,7 @@ export default function useGlobeKeyboard({
         } else if (key === "d") {
           panelApiRef?.current?.nextPhoto?.();
         }
+
         return;
       }
 
@@ -321,13 +435,18 @@ export default function useGlobeKeyboard({
           e.preventDefault();
           openMission(focusedIndexRef.current);
         }
+
         return;
       }
 
       if (isArrow) {
         e.preventDefault();
+
         keysPressed.current.add(key);
-        if (!rafId.current) rafId.current = requestAnimationFrame(tick);
+
+        if (!rafId.current) {
+          rafId.current = requestAnimationFrame(tick);
+        }
       }
     };
 
@@ -335,7 +454,9 @@ export default function useGlobeKeyboard({
       keysPressed.current.delete(e.key);
     };
 
-    const onBlur = () => keysPressed.current.clear();
+    const onBlur = () => {
+      keysPressed.current.clear();
+    };
 
     window.addEventListener("keydown", onKeyDown);
     window.addEventListener("keyup", onKeyUp);
@@ -350,6 +471,7 @@ export default function useGlobeKeyboard({
         cancelAnimationFrame(rafId.current);
         rafId.current = null;
       }
+
       keysPressed.current.clear();
     };
   }, [
@@ -365,7 +487,15 @@ export default function useGlobeKeyboard({
     toggleLink,
     toggleReset,
     toggleZoom,
+    setZone,
+    enabled,
   ]);
 
-  return { pressedKeys, focusZone, openMission, closePanel, exitToGlobe };
+  return {
+    pressedKeys,
+    focusZone,
+    openMission,
+    closePanel,
+    exitToGlobe,
+  };
 }
