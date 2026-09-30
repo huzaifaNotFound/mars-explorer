@@ -168,7 +168,7 @@
     "status": "Lander lost",
     "site": "Hellas Planitia region (approximate)",
     "details": "Mars 2 was a Soviet orbiter and lander aiming to map the planet and attempt one of the first landings. The orbiter returned observations for months, but the descent module failed during entry and crashed, becoming the first human-made object on Mars. The impact site is approximate.",
-    "photos": ["/public/images/mars2/mars2.png"],
+    "photos": ["/images/mars2/mars2.png"],
     "photo_details": {
       "mars2.png": "The is the image of Mars 2 Lander Model which was exactly identical to Mars 3 Lander model."
     },
