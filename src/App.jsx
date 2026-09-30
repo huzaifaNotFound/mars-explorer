@@ -1,9 +1,13 @@
+import DesktopOnly from "./components/desktopOnly";
 import MarsGlobe from "./components/Globe";
 
 function App() {
   return (
     <main className="w-screen h-screen overflow-hidden bg-bg-primary">
-      <MarsGlobe/>
+      
+      <DesktopOnly>
+          <MarsGlobe/>
+      </DesktopOnly>
     </main>
   );
 }
