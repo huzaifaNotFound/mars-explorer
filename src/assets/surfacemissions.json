@@ -1,5 +1,46 @@
 [
   {
+  "id": "mars-polar-lander",
+  "name": "Mars Polar Lander",
+  "country": "USA",
+  "agency": "NASA/JPL",
+  "launch_date": "1999-01-03",
+  "landing_date": "1999-12-03 (lost during landing)",
+  "status": "Lost",
+  "site": "Planum Australe (planned)",
+  "details": "Mars Polar Lander was a NASA lander designed to study the Martian south polar region, including its soil, climate and possible subsurface water ice. Contact was lost during the landing sequence, and the spacecraft was never confirmed to have successfully reached the surface.",
+  "photos": [],
+  "external_link": "https://en.wikipedia.org/wiki/Mars_Polar_Lander",
+  "surface_locations": [
+    {
+      "name": "Mars Polar Lander planned landing site",
+      "lat": -76.0,
+      "lon": 165.0
+    }
+  ]
+},
+
+  {
+  "id": "deep-space-2",
+  "name": "Deep Space 2",
+  "country": "USA",
+  "agency": "NASA/JPL",
+  "launch_date": "1999-01-03",
+  "landing_date": "1999-12-03 (no contact)",
+  "status": "Lost",
+  "site": "Planum Australe (target region)",
+  "details": "Deep Space 2 consisted of two small NASA penetrators, Amundsen and Scott, designed to impact Mars and penetrate beneath the surface to investigate the soil and search for subsurface water ice. Neither probe transmitted after the planned landing sequence, and their actual impact locations were never confirmed.",
+  "photos": [],
+  "external_link": "https://en.wikipedia.org/wiki/Deep_Space_2",
+  "surface_locations": [
+    {
+      "name": "Deep Space 2 target region",
+      "lat": -76.0,
+      "lon": 165.0
+    }
+  ]
+},
+  {
     "id": "mars-3",
     "name": "Mars 3",
     "country": "USSR",
@@ -10,10 +51,10 @@
     "site": "Terra Sirenum (approximate)",
     "details": "Mars 3 was a Soviet orbiter and lander aiming to study Mars and achieve the first soft landing on it. The lander touched down successfully, the first spacecraft to do so, but transmitted for only about 20 seconds before contact was lost, possibly due to a dust storm. The orbiter kept returning observations for months.",
     "photos": ["/images/mars3/mars3b.jpg", "/images/mars3/mars3-wreckage.jpg", "/images/mars3/mars3c.png"],
-    "photo_details":{
-      "mars3-wreckage.jpg":"The bright feature in this image might be the parachute from Mars 3. The image was taken by the High Resolution Imaging Science Experiment (HiRISE) camera on NASA's Mars Reconnaissance Orbiter",
-      "mars3b.jpg":"This is the first ever data transmitted from mars surface, this 70-line partial image was the only image trasmitted by Mars 3 before shutting down just 20 seconds after landing",
-      "mars3c.png":"This picture shows Mars 3 Lander model at the Memorial Museum of Cosmonautics in Russia, which was exactlyidentical to Mars 2 Lander."
+    "photo_details": {
+      "mars3-wreckage.jpg": "The bright feature in this image might be the parachute from Mars 3. The image was taken by the High Resolution Imaging Science Experiment (HiRISE) camera on NASA's Mars Reconnaissance Orbiter",
+      "mars3b.jpg": "This is the first ever data transmitted from mars surface, this 70-line partial image was the only image trasmitted by Mars 3 before shutting down just 20 seconds after landing",
+      "mars3c.png": "This picture shows Mars 3 Lander model at the Memorial Museum of Cosmonautics in Russia, which was exactlyidentical to Mars 2 Lander."
     },
     "external_link": "https://en.wikipedia.org/wiki/Mars_3",
     "surface_locations": [{ "name": "Mars 3 lander", "lat": -45.0, "lon": -158.0 }]
@@ -28,16 +69,25 @@
     "status": "Ended",
     "site": "Vastitas Borealis",
     "details": "Phoenix was a NASA lander sent to the Martian arctic to search for water ice and judge whether the soil could support life. Its robotic arm dug in and directly confirmed water ice, and it analyzed soil chemistry and weather. It ran about five months, ending when polar winter cut off its solar power.",
-    "photos": ["/images/phoenix/phoenix_descent.webp", "/images/phoenix/phoenix-lander2.webp", "/images/phoenix/roboticarm.webp","/images/phoenix/PIA12105.jpg", "/images/phoenix/scoop.jpg", "/images/phoenix/phoenix-icy-trenches.webp","/images/phoenix/phoenix-deck-instruments.webp", "/images/phoenix/polygonal.webp"],
-    "photo_details":{
-      "PIA12105.jpg":"This mosaic of images from the Surface Stereo Imager camera on NASA's Phoenix Mars Lander shows several trenches dug by Phoenix.",
-      "phoenix-lander2.webp":"Pheonix Lander is being assembled and inspected inside a cleanroom. Its two large, radial solar panels surround a central lander body covered in thermal insulation, cables, instruments, and other equipment.",
-      "phoenix-icy-trenches.webp":"Several of the trenches dug by NASA's Phoenix Mars Lander are displayed in this image. The white spots seen are water ice",
-      "phoenix-deck-instruments.webp":"This mosaic of images from the Surface Stereo Imager camera on NASA's Phoenix Mars Lander shows a portion of the spacecraft's deck after deliveries of several Martian soil samples to instruments on the deck.",
-      "polygonal.webp":"This image shows a polygonal pattern in the ground near NASA's Phoenix Mars Lander, similar in appearance to icy ground in the arctic regions of Earth. This is an approximate-color image taken shortly after landing on May 25, 2008.",
-      "roboticarm.webp":"This image shows the Phoenix rover taking sample of Martian soil using its robotic arm. One of ots solar panel is also semi visible in the bottom left corner of the image.",
-      "scoop.jpg":"This image from NASA's Phoenix Mars Lander's Robotic Arm Camera (RAC) shows material from the Martian surface captured by the Robotic Arm (RA) scoop during its first test dig and dump on the seventh Martian day of the mission, or Sol 7 (June 1, 2008).",
-      "phoenix_descent.webp":"This is one of most the iconic images of the history of Maritan Exploration. Mars Reconnaissance Orbiter's High Resolution Imaging Science Experiment (HiRISE) camera acquired this image of Phoenix hanging from its parachute as it descended to the Martian surface. Shown here is a 10 kilometer (6 mile) diameter crater informally called \"Heimdall\"."
+    "photos": [
+      "/images/phoenix/phoenix_descent.webp",
+      "/images/phoenix/phoenix-lander2.webp",
+      "/images/phoenix/roboticarm.webp",
+      "/images/phoenix/PIA12105.jpg",
+      "/images/phoenix/scoop.jpg",
+      "/images/phoenix/phoenix-icy-trenches.webp",
+      "/images/phoenix/phoenix-deck-instruments.webp",
+      "/images/phoenix/polygonal.webp"
+    ],
+    "photo_details": {
+      "PIA12105.jpg": "This mosaic of images from the Surface Stereo Imager camera on NASA's Phoenix Mars Lander shows several trenches dug by Phoenix.",
+      "phoenix-lander2.webp": "Pheonix Lander is being assembled and inspected inside a cleanroom. Its two large, radial solar panels surround a central lander body covered in thermal insulation, cables, instruments, and other equipment.",
+      "phoenix-icy-trenches.webp": "Several of the trenches dug by NASA's Phoenix Mars Lander are displayed in this image. The white spots seen are water ice",
+      "phoenix-deck-instruments.webp": "This mosaic of images from the Surface Stereo Imager camera on NASA's Phoenix Mars Lander shows a portion of the spacecraft's deck after deliveries of several Martian soil samples to instruments on the deck.",
+      "polygonal.webp": "This image shows a polygonal pattern in the ground near NASA's Phoenix Mars Lander, similar in appearance to icy ground in the arctic regions of Earth. This is an approximate-color image taken shortly after landing on May 25, 2008.",
+      "roboticarm.webp": "This image shows the Phoenix rover taking sample of Martian soil using its robotic arm. One of ots solar panel is also semi visible in the bottom left corner of the image.",
+      "scoop.jpg": "This image from NASA's Phoenix Mars Lander's Robotic Arm Camera (RAC) shows material from the Martian surface captured by the Robotic Arm (RA) scoop during its first test dig and dump on the seventh Martian day of the mission, or Sol 7 (June 1, 2008).",
+      "phoenix_descent.webp": "This is one of most the iconic images of the history of Maritan Exploration. Mars Reconnaissance Orbiter's High Resolution Imaging Science Experiment (HiRISE) camera acquired this image of Phoenix hanging from its parachute as it descended to the Martian surface. Shown here is a 10 kilometer (6 mile) diameter crater informally called \"Heimdall\"."
     },
     "external_link": "https://en.wikipedia.org/wiki/Phoenix_(spacecraft)",
     "surface_locations": [{ "name": "Phoenix landing site", "lat": 68.21883, "lon": -125.749222 }]
@@ -53,6 +103,7 @@
     "site": "Chryse Planitia",
     "details": "Viking 1 was NASA's first mission to land and operate on Mars, aiming to photograph the surface, study soil and weather, and test for life. It returned the first color surface images and ran inconclusive biology experiments, while its orbiter mapped the planet. The lander worked until 1982, over six years.",
     "photos": [],
+    "photo_details": {},
     "external_link": "https://en.wikipedia.org/wiki/Viking_1",
     "surface_locations": [{ "name": "Viking 1 lander", "lat": 22.483, "lon": -47.968 }]
   },
@@ -81,9 +132,31 @@
     "site": "Margaritifer Terra (approximate)",
     "details": "Mars 6 was a Soviet orbiter and lander aiming to study the atmosphere and surface of Mars. The lander returned the first direct atmospheric data during descent, but contact was lost at touchdown and it crashed. No surface operations took place, though the flyby section gave some measurements.",
     "photos": ["/images/mars6/Mars_6.jpg"],
-    "photo_details":{"Mars_6.jpg":"A museum display of the Mars 6 spacecraft, showing its large circular, fan-patterned parabolic antenna, instrument assembly, and supporting structure. "},
+    "photo_details": {
+      "Mars_6.jpg": "A museum display of the Mars 6 spacecraft, showing its large circular, fan-patterned parabolic antenna, instrument assembly, and supporting structure. "
+    },
     "external_link": "https://en.wikipedia.org/wiki/Mars_6.jpg",
     "surface_locations": [{ "name": "Mars 6 lander", "lat": -23.9, "lon": -19.42 }]
+  },
+  {
+    "id": "schiaparelli",
+    "name": "Schiaparelli EDM",
+    "country": "Europe",
+    "agency": "ESA/Roscosmos",
+    "launch_date": "2016-03-14",
+    "landing_date": "2016-10-19 (crashed)",
+    "status": "Crashed",
+    "site": "Meridiani Planum",
+    "details": "Schiaparelli was ESA's technology demonstrator for testing entry, descent and landing systems for future Mars missions. It entered the atmosphere and deployed its parachute, but a navigation error caused the descent sequence to terminate prematurely. The lander then impacted the Martian surface at high speed before any planned surface operations could begin.",
+    "photos": [],
+    "external_link": "https://en.wikipedia.org/wiki/Schiaparelli_EDM",
+    "surface_locations": [
+      {
+        "name": "Schiaparelli impact site",
+        "lat": -2.0524,
+        "lon": -6.2076
+      }
+    ]
   },
   {
     "id": "mars-2",
@@ -96,7 +169,9 @@
     "site": "Hellas Planitia region (approximate)",
     "details": "Mars 2 was a Soviet orbiter and lander aiming to map the planet and attempt one of the first landings. The orbiter returned observations for months, but the descent module failed during entry and crashed, becoming the first human-made object on Mars. The impact site is approximate.",
     "photos": ["/public/images/mars2/mars2.png"],
-    "photo_details":{"mars2.png":"The is the image of Mars 2 Lander Model which was exactly identical to Mars 3 Lander model."},
+    "photo_details": {
+      "mars2.png": "The is the image of Mars 2 Lander Model which was exactly identical to Mars 3 Lander model."
+    },
     "external_link": "https://en.wikipedia.org/wiki/Mars_2",
     "surface_locations": [{ "name": "Mars 2 lander impact site", "lat": -45.0, "lon": 47.0 }]
   },
