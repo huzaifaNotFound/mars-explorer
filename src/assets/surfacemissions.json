@@ -19,27 +19,6 @@
     }
   ]
 },
-
-  {
-  "id": "deep-space-2",
-  "name": "Deep Space 2",
-  "country": "USA",
-  "agency": "NASA/JPL",
-  "launch_date": "1999-01-03",
-  "landing_date": "1999-12-03 (no contact)",
-  "status": "Lost",
-  "site": "Planum Australe (target region)",
-  "details": "Deep Space 2 consisted of two small NASA penetrators, Amundsen and Scott, designed to impact Mars and penetrate beneath the surface to investigate the soil and search for subsurface water ice. Neither probe transmitted after the planned landing sequence, and their actual impact locations were never confirmed.",
-  "photos": [],
-  "external_link": "https://en.wikipedia.org/wiki/Deep_Space_2",
-  "surface_locations": [
-    {
-      "name": "Deep Space 2 target region",
-      "lat": -76.0,
-      "lon": 165.0
-    }
-  ]
-},
   {
     "id": "mars-3",
     "name": "Mars 3",
