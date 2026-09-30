@@ -60,7 +60,7 @@ The project is currently in production.
 
 ## AI Usage
 
-In the production of this project i have used ai several times. Mostly i used for debugging through, and at few placed i used chat gpt's help to plan the logic building.
+In the production of this project i have used ai several times. Mostly i used for debugging through antigravity, and at few placed i used chat gpt's help to plan the logic building.
 
 ## Technologies
 
