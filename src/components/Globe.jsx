@@ -148,7 +148,7 @@ export default function MarsGlobe() {
     >
       <Globe
         ref={globeRef}
-        globeImageUrl="/textures/marscolor.webp"
+        globeImageUrl="/textures/mars-color.webp"
         bumpImageUrl="/textures/mars-texture.webp"
         backgroundColor="#05070a"
         backgroundImageUrl="/starsbg1.jpg"
