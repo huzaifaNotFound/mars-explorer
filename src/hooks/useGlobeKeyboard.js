@@ -16,7 +16,7 @@ export default function useGlobeKeyboard({
   selectedMission,
   setSelectedMission,
   marsPointsBase,
-  panelApiRef, 
+  panelApiRef,
 }) {
   const pressedKeys = usePressedKeys();
   const [focusZone, setFocusZone] = useState("view");
@@ -26,8 +26,8 @@ export default function useGlobeKeyboard({
   const lastActionAt = useRef(0);
 
   const zoneRef = useRef("view");
-  const previousZoneRef = useRef("view"); 
-  const panelOriginRef = useRef("navigate"); 
+  const previousZoneRef = useRef("view");
+  const panelOriginRef = useRef("navigate");
 
   const modeRef = useRef(mode);
   const focusedIndexRef = useRef(focusedIndex);
@@ -41,7 +41,6 @@ export default function useGlobeKeyboard({
     selectedMissionRef.current = selectedMission;
   }, [mode, focusedIndex, marsPointsBase, selectedMission]);
 
-
   const setZone = useCallback((z) => {
     zoneRef.current = z;
     setFocusZone(z);
@@ -52,21 +51,15 @@ export default function useGlobeKeyboard({
       modeRef.current = m;
       setMode(m);
     },
-    [setMode]
+    [setMode],
   );
 
-  const focusGlobe = useCallback(
-    () => globeContainerRef.current?.focus(),
-    [globeContainerRef]
-  );
+  const focusGlobe = useCallback(() => globeContainerRef.current?.focus(), [globeContainerRef]);
 
   const openMission = useCallback(
     (target) => {
       const points = marsPointsBaseRef.current;
-      const index =
-        typeof target === "number"
-          ? target
-          : points.findIndex((p) => p.name === target?.name);
+      const index = typeof target === "number" ? target : points.findIndex((p) => p.name === target?.name);
       const point = points[index];
       if (!point) return;
 
@@ -79,7 +72,7 @@ export default function useGlobeKeyboard({
       setZone("view");
       focusGlobe();
     },
-    [applyMode, focusGlobe, setFocusedIndex, setSelectedMission, setZone]
+    [applyMode, focusGlobe, setFocusedIndex, setSelectedMission, setZone],
   );
 
   const closePanel = useCallback(() => {
@@ -114,7 +107,6 @@ export default function useGlobeKeyboard({
     setZone(zoneRef.current === "link" ? "view" : "link");
   }, [setZone]);
 
-
   useEffect(() => {
     const btn = resetButtonRef?.current;
     if (!btn) return;
@@ -135,7 +127,6 @@ export default function useGlobeKeyboard({
       btn.removeEventListener("blur", onBlur);
     };
   }, [resetButtonRef, setZone]);
-
 
   useEffect(() => {
     const tick = () => {
@@ -174,7 +165,7 @@ export default function useGlobeKeyboard({
     };
 
     const onKeyDown = (e) => {
-      if (e.ctrlKey || e.metaKey || e.altKey) return; 
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
       const tag = document.activeElement?.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA") return;
 
@@ -183,9 +174,7 @@ export default function useGlobeKeyboard({
       const mode = modeRef.current;
       const zone = zoneRef.current;
 
-      const discrete =
-        DISCRETE.has(key) ||
-        (mode !== "globe" && (key === "ArrowLeft" || key === "ArrowRight"));
+      const discrete = DISCRETE.has(key) || (mode !== "globe" && (key === "ArrowLeft" || key === "ArrowRight"));
 
       if (discrete && e.repeat) {
         if (isArrow) e.preventDefault();
@@ -227,10 +216,7 @@ export default function useGlobeKeyboard({
 
         if (mode === "navigate") {
           if (pov) {
-            globeRef.current.pointOfView(
-              { lat: pov.lat, lng: pov.lng, altitude: 2.5 },
-              800
-            );
+            globeRef.current.pointOfView({ lat: pov.lat, lng: pov.lng, altitude: 2.5 }, 800);
           }
           applyMode("globe");
           focusGlobe();
@@ -243,9 +229,7 @@ export default function useGlobeKeyboard({
           let minDistance = Infinity;
 
           points.forEach((point, index) => {
-            const x =
-              (point.lng - pov.lng) *
-              Math.cos(((pov.lat + point.lat) / 2) * (Math.PI / 180));
+            const x = (point.lng - pov.lng) * Math.cos(((pov.lat + point.lat) / 2) * (Math.PI / 180));
             const y = point.lat - pov.lat;
             const distanceSq = x * x + y * y;
             if (distanceSq < minDistance) {

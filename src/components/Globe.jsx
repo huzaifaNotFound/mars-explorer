@@ -35,9 +35,9 @@ export default function MarsGlobe() {
   const glowTextureRef = useRef();
   const resetButtonRef = useRef();
   const globeContainerRef = useRef();
-  const panelApiRef = useRef(null); 
+  const panelApiRef = useRef(null);
 
-  const [mode, setMode] = useState("globe"); 
+  const [mode, setMode] = useState("globe");
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [selectedMission, setSelectedMission] = useState(null);
   const [photoCount, setPhotoCount] = useState(0);
@@ -141,11 +141,7 @@ export default function MarsGlobe() {
   });
 
   return (
-    <div
-      className="relative w-full h-full outline-none pointer-events-auto"
-      tabIndex={-1}
-      ref={globeContainerRef}
-    >
+    <div className="relative w-full h-full outline-none pointer-events-auto" tabIndex={-1} ref={globeContainerRef}>
       <Globe
         ref={globeRef}
         globeImageUrl="/textures/mars-color.webp"

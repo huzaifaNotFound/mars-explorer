@@ -1,7 +1,4 @@
-
-
-export const FOCUS_ON =
-  "outline-2 outline-dashed outline-text-primary outline-offset-2";
+export const FOCUS_ON = "outline-2 outline-dashed outline-text-primary outline-offset-2";
 
 const TONES = {
   secondary: {
@@ -23,7 +20,7 @@ const TONES = {
   red: {
     idle: "bg-accent-red/20 text-accent-red border-accent-red/40",
     down: "bg-accent-red/60 text-text-red border-accent-red",
-  }
+  },
 };
 
 export function Keycap({ tone = "secondary", pressed = false, icon = false, className = "", children }) {
@@ -32,11 +29,7 @@ export function Keycap({ tone = "secondary", pressed = false, icon = false, clas
     <span
       className={`inline-flex select-none items-center rounded border py-0.5 transition-all duration-200 ease-out ${
         icon ? "px-1.5" : "px-2"
-      } ${
-        pressed
-          ? `${t.down} scale-90 shadow-[0_0_10px_rgba(255,255,255,0.25)]`
-          : t.idle
-      } ${className}`}
+      } ${pressed ? `${t.down} scale-90 shadow-[0_0_10px_rgba(255,255,255,0.25)]` : t.idle} ${className}`}
     >
       {children}
     </span>

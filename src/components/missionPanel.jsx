@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Arrow, FOCUS_ON} from "./ui";
+import { Arrow, FOCUS_ON } from "./ui";
 
 const NO_PHOTOS = [];
 const keyOf = (point) => point?.name;
@@ -118,16 +118,14 @@ export default function MissionPanel({ mission: point, focusZone = "view", press
 
   if (!displayed || !m) return null;
 
-const canBrowse = photos.length > 1;
-const photoControlsActive = canBrowse && focusZone === "view";
-const linkActive = focusZone === "link";
-const tone = statusTone(m.status);
+  const canBrowse = photos.length > 1;
+  const photoControlsActive = canBrowse && focusZone === "view";
+  const linkActive = focusZone === "link";
+  const tone = statusTone(m.status);
 
-const currentPhotoName = photos[photoIndex]?.split("/").pop();
+  const currentPhotoName = photos[photoIndex]?.split("/").pop();
 
-const currentPhotoDetails =
-  m.photo_details?.[currentPhotoName] ?? "No description available.";
-
+  const currentPhotoDetails = m.photo_details?.[currentPhotoName] ?? "No description available.";
 
   return (
     <aside
