@@ -148,7 +148,11 @@
     "status": "Crashed",
     "site": "Meridiani Planum",
     "details": "Schiaparelli was ESA's technology demonstrator for testing entry, descent and landing systems for future Mars missions. It entered the atmosphere and deployed its parachute, but a navigation error caused the descent sequence to terminate prematurely. The lander then impacted the Martian surface at high speed before any planned surface operations could begin.",
-    "photos": [],
+    "photos": ["/images/schiaparelli/Schiaparelli.jpg" ,"/images/schiaparelli/PIA21130.jpg"],
+    "photo_details":{
+      "PIA21130.jpg":"The area indicated with a black outline is enlarged at right. The bright spot near the lower edge of the enlargement is interpreted as likely to be the lander's parachute, and the larger dark spot near the upper edge of the enlargement was likely formed by the Schiaparelli lander.",
+      "Schiaparelli.jpg":"This image shows the Schiaparelli's landing module being assembled in a Contamination Controlled Clean Room that was established in Thales Alenia Space (Italy) premises by the ExoMars project."
+    },
     "external_link": "https://en.wikipedia.org/wiki/Schiaparelli_EDM",
     "surface_locations": [
       {
