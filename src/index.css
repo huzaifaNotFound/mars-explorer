@@ -25,3 +25,25 @@
   pointer-events: none !important;
   user-select: none !important;
 }
+
+:root {
+  --ui-scale: 1;
+}
+
+@media (max-width: 1600px) {
+  :root {
+    --ui-scale: 0.9;
+  }
+}
+
+@media (max-width: 1400px) {
+  :root {
+    --ui-scale: 0.8;
+  }
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --ui-scale: 0.7;
+  }
+}
