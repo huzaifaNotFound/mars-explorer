@@ -26,8 +26,8 @@ export default function WelcomeScreen({ onClose }) {
 
     
 
-        <div className="relative border border-white/15 bg-bg-surface pl-16">
-          <img src="/mars-globe.png" alt="Mars" draggable={false} className="block h-[220px] w-5/6 object-cover" />
+        <div className="relative border border-white/15 bg-bg-surface ">
+          <img src="/mars-globe.png" alt="Mars" draggable={false} className="block h-[220px] w-full object-cover" />
 
    
 
