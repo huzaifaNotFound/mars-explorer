@@ -2,7 +2,7 @@ import { useState } from "react";
 import DesktopOnly from "./components/desktopOnly";
 import MarsGlobe from "./components/Globe";
 import WelcomeScreen from "./components/WelcomeScreen";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [showWelcome, setShowWelcome] = useState(true);
