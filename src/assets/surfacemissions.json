@@ -1,24 +1,5 @@
 [
-  {
-  "id": "mars-polar-lander",
-  "name": "Mars Polar Lander",
-  "country": "USA",
-  "agency": "NASA/JPL",
-  "launch_date": "1999-01-03",
-  "landing_date": "1999-12-03 (lost during landing)",
-  "status": "Lost",
-  "site": "Planum Australe (planned)",
-  "details": "Mars Polar Lander was a NASA lander designed to study the Martian south polar region, including its soil, climate and possible subsurface water ice. Contact was lost during the landing sequence, and the spacecraft was never confirmed to have successfully reached the surface.",
-  "photos": [],
-  "external_link": "https://en.wikipedia.org/wiki/Mars_Polar_Lander",
-  "surface_locations": [
-    {
-      "name": "Mars Polar Lander planned landing site",
-      "lat": -76.0,
-      "lon": 165.0
-    }
-  ]
-},
+  
   {
     "id": "mars-3",
     "name": "Mars 3",
@@ -81,8 +62,13 @@
     "status": "Ended",
     "site": "Chryse Planitia",
     "details": "Viking 1 was NASA's first mission to land and operate on Mars, aiming to photograph the surface, study soil and weather, and test for life. It returned the first color surface images and ran inconclusive biology experiments, while its orbiter mapped the planet. The lander worked until 1982, over six years.",
-    "photos": [],
-    "photo_details": {},
+    "photos": ["/images/viking1/lander.webp", "/images/viking1/firstphoto.webp","/images/viking1/colorimage.jpg","/images/viking1/bigjoe.jpg"],
+    "photo_details": {
+      "lander.webp":"This closeup view shows mated Viking lander (top) and orbiter in Kennedy Space Center's Spacecraft Assembly and Encapsulation Facility.",
+      "firstphoto.webp":"This is the first photograph ever taken on the surface of the planet Mars. It was obtained by Viking 1 just minutes after the spacecraft landed successfully early today [July 20, 1976].",
+      "bigjoe.jpg":"Near the Viking 1 Lander on the Chryse Plains of Mars, 'Big Joe' stands a silent vigil. This large, often-photographed dark rock has a topping of reddish fine-grained silt that spills down its sides. It is about 2 meters (6.6 feet) long and lies about 8 meters (26 feet) from the spacecraft.",
+      "colorimage.jpg":"This is the first ever color photo transmitted from mars surface.This picture was taken July 21 the day following Viking 1's successful landing on the planet. The local time on Mars is approximately noon."
+    },
     "external_link": "https://en.wikipedia.org/wiki/Viking_1",
     "surface_locations": [{ "name": "Viking 1 lander", "lat": 22.483, "lon": -47.968 }]
   },
@@ -96,7 +82,14 @@
     "status": "Ended",
     "site": "Ares Vallis",
     "details": "Mars Pathfinder was a low-cost NASA mission to demonstrate airbag landing and deploy the first Mars rover, Sojourner. The rover examined rocks and soil shaped by ancient floods, and the lander sent thousands of images. Both far outlasted their plans before contact ended in 1997.",
-    "photos": [],
+    "photos": ["/images/pathfinder/airbag.jpg", "/images/pathfinder/yogi.jpg", "/images/pathfinder/panorama.webp", "/images/pathfinder/mosaic.webp", "/images/pathfinder/twinpeaks.webp"],
+    "photo_details":{
+      "panorama.webp":"This panorama taken by the Pathfinder lander. Roughly 100 frames have been stitched manually to produce this seamless image",
+      "airbag.jpg":"This is one of the first pictures taken by the camera on the Mars Pathfinder lander shortly after its touchdown on July 4, 1997. The small rover, named Sojourner, is seen in the foreground. The white material on either side of the rover is part of the deflated airbag system used to absorb the shock of the landing. ",
+      "twinpeaks.webp":"This photo showing Twin Peaks, that are modest-size hills to the southwest of the Mars Pathfinder landing site. They were discovered on the first panoramas taken by the Imager for Mars Pathfinder (IMP) camera on the 4th of July, 1997.",
+      "yogi.jpg":"A close up of Sojourner as it placed its Alpha Proton X-Ray Spectrometer (APXS) upon the surface of the rock \"Yogi\" was taken by the Imager for Mars Pathfinder (IMP) over sols 8, 9 and 10.",
+      "mosaic.webp":"This image, which is a 75-frame, color-enhanced mosaic taken by the Imager for Mars Pathfinder, looks to the southwest toward the Rock Garden, a cluster of large, angular rocks tilted in a downstream direction from the floods. The Pathfinder rover, Sojourner, is shown snuggled against a rock nicknamed Moe."
+    },
     "external_link": "https://en.wikipedia.org/wiki/Mars_Pathfinder",
     "surface_locations": [{ "name": "Carl Sagan Memorial Station", "lat": 19.13, "lon": -33.22 }]
   },
