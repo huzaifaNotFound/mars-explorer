@@ -7,18 +7,13 @@
 
     <title>404 - Page Not Found</title>
 
-    <meta
-      name="description"
-      content="The requested mission trajectory could not be found."
-    />
-
     <link rel="icon" href="/mars-globe.png" type="image/png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
@@ -30,13 +25,11 @@
       html,
       body {
         margin: 0;
-        width: 100%;
         min-height: 100%;
       }
 
       body {
         min-height: 100vh;
-        overflow: hidden;
         background: #131313;
         color: #eceae6;
         font-family: "Inter", sans-serif;
@@ -47,130 +40,79 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
-        overflow: hidden;
-        padding: 32px;
-      }
-
-      .glow {
-        position: absolute;
-        width: 520px;
-        height: 520px;
-        border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          rgba(184, 119, 96, 0.14) 0%,
-          rgba(184, 119, 96, 0.05) 35%,
-          transparent 70%
-        );
-        pointer-events: none;
+        padding: 24px;
       }
 
       .content {
-        position: relative;
-        z-index: 1;
-        width: min(100%, 620px);
-        text-align: center;
+        width: 100%;
+        max-width: 32rem;
       }
 
-      .code {
-        margin-bottom: 18px;
+      .brand {
+        margin-bottom: 2rem;
         color: #a39a8e;
         font-family: "JetBrains Mono", monospace;
-        font-size: 13px;
-        letter-spacing: 0.14em;
+        font-size: 0.75rem;
+        line-height: 1rem;
       }
 
       h1 {
-        margin: 0;
+        margin: 0 0 1rem;
+        color: #eceae6;
         font-family: "Space Grotesk", sans-serif;
-        font-size: clamp(48px, 9vw, 86px);
-        line-height: 0.95;
-        font-weight: 600;
-        letter-spacing: -0.04em;
+        font-size: 2.25rem;
+        font-weight: 400;
+        line-height: 1.1;
       }
 
-      .divider {
-        width: 80px;
-        height: 1px;
-        margin: 28px auto;
-        background: #5b93c9;
-        opacity: 0.7;
-      }
-
-      .message {
-        max-width: 460px;
-        margin: 0 auto;
+      p {
+        max-width: 28rem;
+        margin: 0;
         color: #a39a8e;
-        font-size: 15px;
-        line-height: 1.7;
+        font-size: 0.875rem;
+        line-height: 1.75rem;
       }
 
-      .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 32px;
-        padding: 12px 20px;
-        border: 1px solid rgba(236, 234, 230, 0.12);
-        border-radius: 12px;
-        background: #232323;
+      .code {
+        margin-top: 2rem;
+        color: #6f6961;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+      }
+
+      .home {
+        display: inline-block;
+        margin-top: 2rem;
         color: #eceae6;
         font-family: "Inter", sans-serif;
-        font-size: 14px;
+        font-size: 0.875rem;
         text-decoration: none;
-        transition:
-          background 160ms ease,
-          border-color 160ms ease,
-          transform 160ms ease;
+        border-bottom: 1px solid #5b93c9;
+        padding-bottom: 2px;
       }
 
-      .button:hover {
-        background: #2b2b2b;
-        border-color: rgba(236, 234, 230, 0.2);
-        transform: translateY(-1px);
-      }
-
-      .button:active {
-        transform: translateY(0);
-      }
-
-      @media (max-width: 600px) {
-        .page {
-          padding: 24px;
-        }
-
-        h1 {
-          font-size: 52px;
-        }
-
-        .message {
-          font-size: 14px;
-        }
+      .home:hover {
+        opacity: 0.7;
       }
     </style>
   </head>
 
   <body>
     <main class="page">
-      <div class="glow"></div>
+      <div class="content">
+        <div class="brand">MARS EXPLORER</div>
 
-      <section class="content">
-        <div class="code">ERROR 404</div>
+        <h1>Page not found.</h1>
 
-        <h1>Page Not Found</h1>
-
-        <div class="divider"></div>
-
-        <p class="message">
-          This trajectory does not exist in the Mars Explorer mission database.
-          The requested destination could not be located.
+        <p>
+          The destination you're looking for doesn't exist.
+          Please return to Mars and continue exploring the mission archive.
         </p>
 
-        <a class="button" href="/">
-          Return to Mars
-        </a>
-      </section>
+        <div class="code">ERROR 404 · TRAJECTORY NOT FOUND</div>
+
+        <a class="home" href="/">Return to Mars</a>
+      </div>
     </main>
   </body>
 </html>
