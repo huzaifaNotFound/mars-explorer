@@ -34,9 +34,29 @@ export default function MarsGlobe({ keyboardEnabled = true }) {
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [selectedMission, setSelectedMission] = useState(null);
   const [photoCount, setPhotoCount] = useState(0);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   useEffect(() => {
     globeContainerRef.current?.focus();
   }, []);
+  useEffect(() => {
+    const container = globeContainerRef.current;
+    if (!container) return;
+
+    const updateSize = () => {
+      setDimensions({
+        width: container.clientWidth,
+        height: container.clientHeight,
+      });
+    };
+
+    updateSize();
+
+    const ro = new ResizeObserver(updateSize);
+    ro.observe(container);
+
+    return () => ro.disconnect();
+  }, []);
+
   useEffect(() => {
     glowTextureRef.current = createGlowTexture();
     return () => glowTextureRef.current?.dispose();
@@ -123,7 +143,10 @@ export default function MarsGlobe({ keyboardEnabled = true }) {
   });
   return (
     <div className="relative h-full w-full pointer-events-auto outline-none" tabIndex={-1} ref={globeContainerRef}>
+      
       <Globe
+      width={dimensions.width}
+  height={dimensions.height}
         ref={globeRef}
         globeImageUrl="/textures/mars-color.webp"
         bumpImageUrl="/textures/mars-texture.webp"
