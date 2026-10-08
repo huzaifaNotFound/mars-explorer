@@ -161,7 +161,15 @@
     "status": "Active",
     "site": "Jezero Crater",
     "details": "Perseverance is a NASA rover searching for signs of ancient microbial life and collecting rock samples for possible return to Earth. It is exploring an ancient river delta in Jezero Crater. It also carried Ingenuity, the first helicopter to fly on another planet.",
-    "photos": [],
+    "photos": ["/images/perserverance/perserverance.jpg", "/images/perserverance/rover_drop.jpg", "/images/perserverance/firstpic.webp", "/images/perserverance/mountains.jpg","/images/perserverance/mosaic.jpg", "/images/perserverance/crash.webp"],
+    "photo_details":{
+      "perserverance.jpg":"This image of the rocket-powered descent stage sitting on top of NASA's Perseverance rover was taken in a clean room at Kennedy Space Center on April 29, 2020.",
+      "rover_drop.jpg":"Slung beneath its rocket powered descent stage Perseverance hangs only a few meters above the martian surface, captured here moments before its February 18 touchdown on the Red Planet.",
+      "firstpic.webp":"The photo was taken by the hazard cameras on the underside of the Perseverance Mars rover after its landing on Feb. 18, 2021.",
+      "mountains.jpg":"This photo taken by perserverance rover on the martian surface(sol 1207) shows the terrain of mars that looks like a neighbouring country rather than a different planet",
+      "mosaic.jpg":"This image of a Martian vista in Jezero Crater, made from smaller individual images, was taken by NASA's Perseverance rover on July 3, 2021 (the 131th sol, or Martian day, of its mission). The rover's tracks from its autonomous drive that day are visible on the right.",
+      "crash.webp":"The rocket-powered sky crane lowered the car-sized Perseverance rover to the floor of Mars' Jezero Crater on cables Thursday (Feb. 18), Just after the rover's wheels touched down, the sky crane flew off to crash-land intentionally a safe distance away — and Perseverance snapped a photo of the impact's immediate aftermath."
+    },
     "external_link": "https://en.wikipedia.org/wiki/Perseverance_(rover)",
     "surface_locations": [{ "name": "Octavia E. Butler Landing", "lat": 18.44462715, "lon": 77.45088572 }]
   },
@@ -175,7 +183,11 @@
     "status": "Orbiter active",
     "site": "Isidis Planitia",
     "details": "Mars Express is ESA's orbiter, studying Mars' surface, atmosphere, subsurface and water history, and it carried the Beagle 2 lander to search for life. The orbiter has operated since 2003. Beagle 2 landed on Christmas Day 2003 but never made contact, and was found intact in 2015.",
-    "photos": [],
+    "photos": ["/images/mars-express/site.jpg", "/images/mars-express/crash.jpg"],
+    "photo_details":{
+      "crash.jpg":"This annotated image shows a bright feature interpreted as the United Kingdom's Beagle 2 Lander with solar arrays at least partially deployed on the surface of Mars. Beagle 2 was released by the European Space Agency's Mars Express orbiter but never heard from after its expected Dec. 25, 2003, landing. ",
+      "site.jpg":"This photo taken by Mars Reconnaissance Orbiter spotted the United Kingdom's Beagle 2 lander on Mars. The probe has been lost since 2003. In this photo we can see the components of rover highlighted."
+    },
     "external_link": "https://en.wikipedia.org/wiki/Mars_Express",
     "surface_locations": [{ "name": "Beagle 2 landing site", "lat": 10.6, "lon": 90.0 }]
   },
