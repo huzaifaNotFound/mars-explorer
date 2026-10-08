@@ -222,7 +222,14 @@
     "status": "Ended",
     "site": "Utopia Planitia",
     "details": "Viking 2 was the second Viking mission, aiming to image the surface, measure weather and soil, and search for life far north of Viking 1. Together the landers gave the first long-duration look at Mars. Its lander worked until 1980, and its orbiter until 1978.",
-    "photos": [],
+    "photos": ["/images/viking2/viking2.jpg", "/images/viking2/summer.jpg","/images/viking2/sunrise.jpg","/images/viking2/frost.jpg","/images/viking2/first.jpg"],
+    "photo_details":{
+      "viking2.jpg":"At the Kennedy Space Center in Florida, technicians inspect the Viking Lander 2 in Kennedy's Spacecraft Assembly and Encapsulation Facility 1.",
+      "summer.jpg":"A UTOPIAN BRIGHT SUMMER AFTERNOON ON MARS--Looking south from Viking 2 on September 6, the orange-red surface of the nearly level plain upon which the spacecraft sits is seen strewn with rocks as large as three feet across. Many of these rocks are porous and sponge-like, similar to some of Earth's volcanic rocks.",
+      "sunrise.jpg":"A Martian sunrise was captured in this Viking 2 Lander picture taken June 14, 1978, at the spacecraft's Utopia Planitia landing site. The data composing this image were acquired just as the Sun peaked over the horizon on the Lander's 631st sol (Martian solar day).",
+      "first.jpg":"Viking 2's first picture on the surface of Mars was taken within minutes after the spacecraft touched down on September 3. The scene reveals a wide variety of rocks littering a surface of fine-grained deposit. ",
+      "frost.jpg":"This high-resolution color photo of the surface of Mars was taken by Viking Lander 2 at its Utopia Planitia landing site on May 18, 1979, and relayed to Earth by Orbiter 1 on June 7. It shows a thin coating of water ice on the rocks and soil."
+    },
     "external_link": "https://en.wikipedia.org/wiki/Viking_2",
     "surface_locations": [{ "name": "Viking 2 lander", "lat": 47.968, "lon": 134.29 }]
   },
