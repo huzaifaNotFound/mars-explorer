@@ -153,22 +153,22 @@ export default function MarsGlobe({ keyboardEnabled = true }) {
           wrapper.style.whiteSpace = "nowrap";
           wrapper.style.transition = "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
           if (d.isFocused) {
-            wrapper.style.transform = "translateY(20px) scale(1.4)";
+            wrapper.style.transform = "translateY(1.25rem) scale(1.4)";
             wrapper.style.zIndex = "10";
           } else {
-            wrapper.style.transform = "translateY(20px) scale(1)";
+            wrapper.style.transform = "translateY(1.25rem) scale(1)";
             wrapper.style.zIndex = "1";
           }
           const label = document.createElement("span");
           label.textContent = d.mission.name;
           label.style.color = d.isFocused ? "#D8B766" : "#ECEAE6";
-          label.style.fontSize = "12px";
+          label.style.fontSize = "0.75rem";
           label.style.fontFamily = "'JetBrains Mono', system-ui, sans-serif";
           label.style.fontWeight = d.isFocused ? "700" : "500";
-          label.style.textShadow = d.isFocused ? "0 0 12px rgba(242,184,75,0.8)" : "0 0 4px rgba(0,0,0,0.8)";
-          label.style.outline = d.isFocused ? "2px dashed #ECEAE6" : "none";
-          label.style.outlineOffset = d.isFocused ? "4px" : "none";
-          label.style.padding = d.isFocused ? "2px" : "none";
+          label.style.textShadow = d.isFocused ? "0 0 0.75rem rgba(242,184,75,0.8)" : "0 0 0.25rem rgba(0,0,0,0.8)";
+          label.style.outline = d.isFocused ? "0.125rem dashed #ECEAE6" : "none";
+          label.style.outlineOffset = d.isFocused ? "0.25rem" : "none";
+          label.style.padding = d.isFocused ? "0.125rem" : "none";
           wrapper.appendChild(label);
           outer.appendChild(wrapper);
           return outer;

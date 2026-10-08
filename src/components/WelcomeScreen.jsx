@@ -13,7 +13,7 @@ export default function WelcomeScreen({ onClose }) {
   }, [onClose]);
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/65 ">
-      <section className="w-[50vw] max-w-2xl min-w-[520px] border border-white/15 bg-bg-primary px-7 py-6 rounded-sm">
+      <section className="w-[50vw] max-w-2xl border border-white/15 bg-bg-primary px-7 py-6 rounded-sm">
         <div className="flex items-center justify-between border-b border-white/10 pb-4">
           <span className="font-mono text-xs tracking-[0.18em] text-text-muted"> MARS / EXPLORER </span>
           <span className="font-mono text-xs text-text-muted"> ESC </span>

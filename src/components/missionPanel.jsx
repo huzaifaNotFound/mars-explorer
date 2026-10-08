@@ -171,7 +171,7 @@ export default function MissionPanel({ mission: point, focusZone = "view", press
             </div>
 
             {photos.length > 0 && (
-              <div className="relative max-h-56 min-h-20 flex-1 overflow-hidden rounded-sm border-2 border-accent-primary/15 bg-bg-surface">
+              <div className="relative max-h-[28vh] min-h-20 flex-1 overflow-hidden rounded-sm border-2 border-accent-primary/15 bg-bg-surface">
                 {photos.map((src, i) => (
                   <img
                     key={src}
