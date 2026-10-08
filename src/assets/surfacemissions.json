@@ -326,7 +326,13 @@
     "status": "Ended",
     "site": "Gusev Crater",
     "details": "Spirit was a NASA rover sent to Gusev Crater to search for evidence of past water. It explored the Columbia Hills and Home Plate, finding signs of ancient hot springs. Planned for 90 days, it lasted about six years, stuck in sand by 2009 and silent by 2010.",
-    "photos": [],
+    "photos": ["/images/spirit/photo.webp", "/images/spirit/mountain.jpg", "/images/spirit/sunrise.webp", "/images/spirit/first.jpg"],
+    "photo_details":{
+      "first.jpg":"This is the first color image sent by the Spirit rover from the martian surface.",
+      "sunrise.webp":"A Moment Frozen in Time On May 19th, 2005, NASA's Mars Exploration Rover Spirit captured this stunning view as the Sun sank below the rim of Gusev crater on Mars. This Panoramic Camera (Pancam) mosaic was taken around 6:07 in the evening of Sol 489.",
+      "mountain.jpg":"This view from where Spirit stood on its 149th martian day (June 3, 2004) shows, on the hillside at the center of the image, the terrain that the rover is crossing six months later. The view is a mosaic of several frames taken with Spirit's panoramic camera.",
+      "photo.webp":"This image shows the middle section of an approximate true-color panorama, dubbed \"Lion King,\" showing \"Eagle Crater\" and the surrounding plains of Meridiani Planum. It was obtained by the Mars Exploration Rover Opportunity's panoramic camera on sols 58 and 60 using infrared (750-nanometer), green (530-nanometer) and blue (430-nanometer) filters."
+    },
     "external_link": "https://en.wikipedia.org/wiki/Spirit_(rover)",
     "surface_locations": [{ "name": "Columbia Memorial Station", "lat": -14.5692, "lon": 175.4729 }]
   }
