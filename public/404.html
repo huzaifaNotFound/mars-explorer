@@ -114,5 +114,47 @@
         <a class="home" href="/">Return to Mars</a>
       </div>
     </main>
+
+     <script>
+    const isMobile = window.matchMedia("(max-width: 1023px)").matches;
+
+    const page = document.getElementById("page");
+
+    if (isMobile) {
+      page.innerHTML = `
+        <div class="page">
+          <div class="content">
+            <div class="brand">MARS EXPLORER</div>
+
+            <h1>Larger screen required.</h1>
+
+            <p>
+              This experience is designed for laptop and desktop screens.
+              Please switch to a larger screen to explore Mars.
+            </p>
+          </div>
+        </div>
+      `;
+    } else {
+      page.innerHTML = `
+        <div class="page">
+          <div class="content">
+            <div class="brand">MARS EXPLORER</div>
+
+            <h1>Mission not found.</h1>
+
+            <p>
+              The destination you're looking for doesn't exist.
+              Please return to Mars and continue exploring the mission archive.
+            </p>
+
+            <div class="code">ERROR 404 · TRAJECTORY NOT FOUND</div>
+
+            <a class="home" href="/">Return to Mars</a>
+          </div>
+        </div>
+      `;
+    }
+  </script>
   </body>
 </html>
