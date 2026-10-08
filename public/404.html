@@ -5,7 +5,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>404 - Page Not Found</title>
+    <title>404 - Page not Found</title>
 
     <link rel="icon" href="/mars-globe.png" type="image/png" />
 
@@ -25,6 +25,7 @@
       html,
       body {
         margin: 0;
+        width: 100%;
         min-height: 100%;
       }
 
@@ -40,7 +41,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 24px;
+        padding: 0 24px;
       }
 
       .content {
@@ -49,50 +50,55 @@
       }
 
       .brand {
-        margin-bottom: 2rem;
+        margin-bottom: 32px;
         color: #a39a8e;
         font-family: "JetBrains Mono", monospace;
-        font-size: 0.75rem;
-        line-height: 1rem;
+        font-size: 12px;
+        line-height: 16px;
       }
 
       h1 {
-        margin: 0 0 1rem;
+        margin: 0 0 16px;
         color: #eceae6;
         font-family: "Space Grotesk", sans-serif;
-        font-size: 2.25rem;
+        font-size: 36px;
         font-weight: 400;
-        line-height: 1.1;
+        line-height: 1.2;
       }
 
       p {
         max-width: 28rem;
         margin: 0;
         color: #a39a8e;
-        font-size: 0.875rem;
-        line-height: 1.75rem;
+        font-size: 16px;
+        line-height: 28px;
       }
 
-      .code {
-        margin-top: 2rem;
-        color: #6f6961;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.7rem;
-      }
-
-      .home {
+      .button {
         display: inline-block;
-        margin-top: 2rem;
+        margin-top: 32px;
+        padding: 10px 16px;
+        border: 1px solid #3a3937;
+        border-radius: 4px;
+        background: #232323;
         color: #eceae6;
         font-family: "Inter", sans-serif;
-        font-size: 0.875rem;
+        font-size: 14px;
+        line-height: 20px;
         text-decoration: none;
-        border-bottom: 1px solid #5b93c9;
-        padding-bottom: 2px;
+        transition:
+          background 150ms ease,
+          border-color 150ms ease,
+          opacity 150ms ease;
       }
 
-      .home:hover {
-        opacity: 0.7;
+      .button:hover {
+        background: #2a2a2a;
+        border-color: #4a4845;
+      }
+
+      .button:active {
+        opacity: 0.75;
       }
     </style>
   </head>
@@ -100,61 +106,23 @@
   <body>
     <main class="page">
       <div class="content">
-        <div class="brand">MARS EXPLORER</div>
+        <div class="brand">
+          MARS EXPLORER
+        </div>
 
-        <h1>Page not found.</h1>
+        <h1>
+          Page not found.
+        </h1>
 
         <p>
           The destination you're looking for doesn't exist.
-          Please return to Mars and continue exploring the mission archive.
+          Please return to Mars and continue exploring.
         </p>
 
-        <div class="code">ERROR 404 · TRAJECTORY NOT FOUND</div>
-
-        <a class="home" href="/">Return to Mars</a>
+        <a class="button" href="/">
+          Return to Mars
+        </a>
       </div>
     </main>
-
-     <script>
-    const isMobile = window.matchMedia("(max-width: 1023px)").matches;
-
-    const page = document.getElementById("page");
-
-    if (isMobile) {
-      page.innerHTML = `
-        <div class="page">
-          <div class="content">
-            <div class="brand">MARS EXPLORER</div>
-
-            <h1>Larger screen required.</h1>
-
-            <p>
-              This experience is designed for laptop and desktop screens.
-              Please switch to a larger screen to explore Mars.
-            </p>
-          </div>
-        </div>
-      `;
-    } else {
-      page.innerHTML = `
-        <div class="page">
-          <div class="content">
-            <div class="brand">MARS EXPLORER</div>
-
-            <h1>Mission not found.</h1>
-
-            <p>
-              The destination you're looking for doesn't exist.
-              Please return to Mars and continue exploring the mission archive.
-            </p>
-
-            <div class="code">ERROR 404 · TRAJECTORY NOT FOUND</div>
-
-            <a class="home" href="/">Return to Mars</a>
-          </div>
-        </div>
-      `;
-    }
-  </script>
   </body>
 </html>
