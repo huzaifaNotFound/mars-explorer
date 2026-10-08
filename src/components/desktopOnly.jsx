@@ -22,7 +22,7 @@ export default function DesktopOnly({ children }) {
       <div className="min-h-screen bg-bg-primary text-text-primary flex items-center justify-center px-6">
   <div className="w-full max-w-lg">
     <div className="font-mono text-xs text-text-muted mb-8">
-      MARS / EXPLORER
+      MARS EXPLORER
     </div>
 
     <h1 className="font-space text-4xl mb-4">
