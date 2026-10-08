@@ -243,7 +243,14 @@
     "status": "Ended",
     "site": "Elysium Planitia",
     "details": "InSight was a stationary NASA lander built to study the deep interior of Mars, including its crust, mantle and core. Its seismometer recorded hundreds of marsquakes, though the heat-flow probe could not dig in. The mission ended in December 2022 when dust cut its power.",
-    "photos": [],
+    "photos": ["/images/insight/insight.webp", "/images/insight/selfie.webp","/images/insight/clouds.gif", "/images/insight/robotic_arm.jpg","/images/insight/dusty_selfie.jpg"],
+    "photo_details":{
+      "clouds.gif":"NASA's InSight used its Instrument Context Camera (ICC) beneath the lander's deck to image these drifting clouds at sunset. This series of images was taken on April 25, 2019, the 145th Martian day, or sol, of the mission, starting at around 6:30 p.m. Mars local time.",
+      "insight.webp":" This photo taken April 30, 2015, Lockheed Martin engineers and technicians test the deployment of the InSight lander's solar arrays. ",
+      "robotic_arm.jpg":"NASA's InSight Mars lander acquired this image using its robotic arm-mounted, Instrument Deployment Camera (IDC). This image was acquired on October 2, 2022",
+      "selfie.webp":"InSight used its robotic arm to capture the images used for this panorama of its landing site on Dec. 7 and 11, 2018.",
+      "dusty_selfie.jpg":"NASA's InSight Mars lander took this final selfie on April 24, 2022, the 1,211th Martian day, or sol, of the mission. The lander is covered with far more dust than it was in its first selfie, taken in December 2018."
+    },
     "external_link": "https://en.wikipedia.org/wiki/InSight",
     "surface_locations": [{ "name": "InSight landing site", "lat": 4.502, "lon": 135.623 }]
   },
