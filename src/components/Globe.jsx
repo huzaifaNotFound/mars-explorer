@@ -143,7 +143,7 @@ export default function MarsGlobe({ keyboardEnabled = true }) {
   });
   return (
     <div className="relative h-full w-full pointer-events-auto outline-none" tabIndex={-1} ref={globeContainerRef}>
-      
+      {dimensions.width > 0 && dimensions.height > 0 && (
       <Globe
       width={dimensions.width}
   height={dimensions.height}
@@ -200,7 +200,7 @@ export default function MarsGlobe({ keyboardEnabled = true }) {
           el.style.opacity = isVisible ? "1" : "0";
           el.style.pointerEvents = isVisible ? "auto" : "none";
         }}
-      />
+      />)}
       <ResetBtn
         globeRef={globeRef}
         resetButtonRef={resetButtonRef}
