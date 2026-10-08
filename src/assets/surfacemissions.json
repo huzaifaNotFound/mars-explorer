@@ -201,7 +201,14 @@
     "status": "Rover dormant",
     "site": "Utopia Planitia",
     "details": "Tianwen-1 was China's first independent Mars mission, aiming to orbit, land and deploy a rover in one attempt. Zhurong studied rocks, soil, weather and the subsurface, finding hints of past water. It went dormant in 2022 and has not resumed, while the orbiter continues working.",
-    "photos": [],
+    "photos": ["/images/tiawen-1/selfie.webp", "/images/tiawen-1/aura.webp", "/images/tiawen-1/side.webp", "/images/tiawen-1/panorama.webp", "/images/tiawen-1/plain.webp"],
+    "photo_details":{
+      "selfie.webp":"This image was taken by a small camera that was jettisoned from China's Tianwen-1 spacecraft to photograph the spacecraft in orbit above the Martian north pole. The camera sent the images back to Tianwen-1 via WiFi, and they were then relayed back to Earth.",
+      "aura.webp":"The rover took this selfie by dropping a camera attached to its belly about 10 meters (32 feet) away from the landing platform, then positioning itself next to the landing platform, Chinese space officials said. The camera wirelessly transmitted the picture to the rover, which then sent it to Earth via the Tianwen-1 orbiter.",
+      "side.webp":"This photo from China's Mars rover Zhurong  shows a side view of its Tianwen 1 lander at its touchdown site in Utopia Planitia. The rover's tracks are visible at right.This image was released on June 11, 2021.",
+      "panorama.webp":"This panorama from China's Mars rover Zhurong shows the vast flat plain of its Utopia Planitia landing site. The rover's solar arrays and deck are visible at left and the wheel ramps on its lander can be seen at right. ",
+      "plain.webp":"A view of the flat terrain around China's Mars rover Zhurong near its Utopia Planitia landing site released by the China National Space Administration on June 11, 2021."
+    },
     "external_link": "https://en.wikipedia.org/wiki/Tianwen-1",
     "surface_locations": [{ "name": "Zhurong landing site", "lat": 24.473, "lon": 110.074 }]
   },
