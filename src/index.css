@@ -24,6 +24,9 @@
   cursor: none !important;
   pointer-events: none !important;
   user-select: none !important;
+  scroll-behavior: none;
+  overflow: hidden imo !important;
+  overscroll-behavior: none !important;
 }
 
 html {
