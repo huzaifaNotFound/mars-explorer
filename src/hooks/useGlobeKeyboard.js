@@ -3,7 +3,7 @@ import usePressedKeys from "./usePressedKeys";
 
 const SPEED = 0.45;
 const DISCRETE = new Set(["r", "l", "a", "d", "e", "Escape", "Enter"]);
-const ACTION_COOLDOWN_MS = 350;
+const ACTION_COOLDOWN_MS = 180;
 
 export default function useGlobeKeyboard({
   globeRef,
