@@ -107,7 +107,7 @@
     "photo_details": {
       "Mars_6.jpg": "A museum display of the Mars 6 spacecraft, showing its large circular, fan-patterned parabolic antenna, instrument assembly, and supporting structure. "
     },
-    "external_link": "https://en.wikipedia.org/wiki/Mars_6.jpg",
+    "external_link": "https://en.wikipedia.org/wiki/Mars_6",
     "surface_locations": [{ "name": "Mars 6 lander", "lat": -23.9, "lon": -19.42 }]
   },
   {

@@ -392,6 +392,7 @@ export default function useGlobeKeyboard({
         if (zone === "link") {
           if (key === "Enter") {
             e.preventDefault();
+            toggleLink()
 
             const url =
               selectedMissionRef.current?.mission
